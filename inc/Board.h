@@ -1,7 +1,3 @@
-//
-// Created by Longho Bernard Che on 2022-11-10.
-//
-
 #ifndef HIQ_PROGRAMMING_BOARD_H
 #define HIQ_PROGRAMMING_BOARD_H
 
@@ -10,6 +6,7 @@
 #include "Point.h"
 #include "Direction.h"
 #include <string>
+
 class Board {
 public:
     Board();
@@ -21,15 +18,15 @@ public:
     void insert(const Point &, char);
 
 private:
-    static constexpr ushort ROWS{5};
-    static constexpr ushort COLUMNS{5};
+    static constexpr uint16_t ROWS{5};
+    static constexpr uint16_t COLUMNS{5};
     std::string location[ROWS][COLUMNS]{};
 
-    bool isEdge() const;
+    bool isEdge(uint16_t x, uint16_t right) const;
 
-    void  transpose();
+    void transpose();
 
-    const int transformX(const ushort &val) const;
+    static constexpr uint16_t transformX(const uint16_t &val) ;
 
 };
 

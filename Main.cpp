@@ -7,6 +7,7 @@
 
 #include "Point.h"
 #include "Board.h"
+#include "Robot.h"
 
 #define INFO(thing...) std::cout  << thing... << '\n'
 
@@ -27,12 +28,21 @@ int main() {
     _ifs >> readPoint.x >> c >> readPoint.y;
     INFO(readPoint);*/
     Board board;
-    board.insert({0,0}, 'x');
-    
-    board.insert({1,0}, 'Y');
-    
-    board.insert({4,4}, 'e');
-    
+
+    Robot robot(Point(1, 2), Direction::EAST);
+    //board.insert(robot.getPosition(), 'X');
+    robot.move();
+    board.insert(robot.getPosition(), 'X');
+    robot.move();
+    board.insert(robot.getPosition(), 'X');
+    robot.left();
+    board.insert(robot.getPosition(), 'X');
+    robot.move();
+    board.insert(robot.getPosition(), 'X');
+
+    board.insert(robot.getPosition(), 'X');
+
+    robot.report();
     return 0;
 }
 

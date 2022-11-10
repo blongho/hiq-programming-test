@@ -9,13 +9,13 @@
 
 struct Point {
 
-    Point(ushort p_x, ushort p_y) :
+    Point(uint16_t p_x, uint16_t p_y) :
             x{p_x}, y{p_y} {}
 
     Point() = default;
 
-    ushort x{};
-    ushort y{};
+    uint16_t x{};
+    uint16_t y{};
 
 };
 

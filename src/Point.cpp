@@ -1,7 +1,3 @@
-//
-// Created by Longho Bernard Che on 2022-11-10.
-//
-
 #include "Point.h"
 
 std::ostream &operator<<(std::ostream &os, const Point &point) {
@@ -14,4 +10,3 @@ std::istream &operator>>(std::istream &is, Point &point) {
     is >> point.x >> c >> point.y;
     return is;
 }
-

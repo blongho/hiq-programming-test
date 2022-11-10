@@ -20,6 +20,8 @@ MACRO(add_test_file name src)
     TARGET_LINK_LIBRARIES(${name} PRIVATE Catch2::Catch2WithMain)
 ENDMACRO()
 
-add_test_file(test_board "../src/Board.cpp")
-add_test_file(test_point "../src/Point.cpp")
+add_test_file(test_board ../src/Board.cpp)
+add_test_file(test_point ../src/Point.cpp)
+add_test_file(test_robot ../src/Robot.cpp)
+
 
