@@ -9,7 +9,7 @@
 #include <array>
 #include "Point.h"
 #include "Direction.h"
-
+#include <string>
 class Board {
 public:
     Board();
@@ -23,11 +23,13 @@ public:
 private:
     static constexpr ushort ROWS{5};
     static constexpr ushort COLUMNS{5};
-    char location[ROWS][COLUMNS]{};
+    std::string location[ROWS][COLUMNS]{};
 
-    [[nodiscard]] bool isEdge() const;
+    bool isEdge() const;
 
     void  transpose();
+
+    const int transformX(const ushort &val) const;
 
 };
 

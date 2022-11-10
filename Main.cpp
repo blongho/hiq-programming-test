@@ -8,7 +8,7 @@
 #include "Point.h"
 #include "Board.h"
 
-#define INFO(thing) std::cout  << thing << '\n'
+#define INFO(thing...) std::cout  << thing... << '\n'
 
 int main() {
     /*std::ofstream ofs("../data/point_written.txt");
@@ -27,9 +27,12 @@ int main() {
     _ifs >> readPoint.x >> c >> readPoint.y;
     INFO(readPoint);*/
     Board board;
-    board.insert({0,1}, '-');
-    board.show();
-
+    board.insert({0,0}, 'x');
+    
+    board.insert({1,0}, 'Y');
+    
+    board.insert({4,4}, 'e');
+    
     return 0;
 }
 

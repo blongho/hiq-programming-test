@@ -8,9 +8,12 @@
 
 Board::Board() {
     reset();
+       transpose();
+    show();
 }
 
 void Board::show(std::ostream &os) const {
+ 
     os << '\n';
     os << std::setw(2) << ' ';
     for (int col = 0; col < COLUMNS; ++col) {
@@ -28,21 +31,18 @@ void Board::show(std::ostream &os) const {
 }
 
 bool Board::isEdge() const {
-    return location[0][0] ||
-           location[0][1] ||
-           location[0][2] ||
-           location[0][3] ||
-           location[0][4];
+    return true;
 }
 
 void Board::insert(const Point &point, char c) {
-    location[(point.x + 4) % COLUMNS][point.y] = c;
+    location[(transformX(point.x))][point.y] = c;
+    show();
 }
 
 void Board::reset() {
-    for (auto &row: location) {
-        for (char &col: row) {
-            col = ' ';
+    for (ushort i = 0; i < ROWS; ++i) {
+        for (ushort j = 0; j < COLUMNS; ++j) {
+            location[i][j] = std::to_string(i)+" " + std::to_string(j);
         }
     }
 }
@@ -50,11 +50,20 @@ void Board::reset() {
 void Board::transpose() {
     for (ushort i = 0; i < ROWS; ++i) {
         for (ushort j = 0; j < COLUMNS; ++j) {
-            location[i][j] = location[j][i];
+            location[i][j] = location[(i-5%5)][j];
         }
     }
 }
 
+
+const int Board::transformX(const ushort &val) const{
+    if(val == 4) return 0;
+    if(val == 3) return 1;
+    if(val == 2) return 2;
+    if(val == 1) return 3;
+    if(val == 0) return 4;
+    return val;
+}
 
 
 
