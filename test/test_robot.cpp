@@ -13,7 +13,7 @@ SCENARIO("The robot will not move when at the edge") {
                                               {4, 0}};
         Robot robot(leftEdges.at(0), Direction::WEST);
         THEN("it cannot move when at the left edge") {
-            for (const auto &position: leftEdges){
+            for (const auto &position: leftEdges) {
                 robot.setPosition(position);
                 robot.move();
                 REQUIRE(robot.getPosition() == position);
@@ -27,38 +27,38 @@ SCENARIO("The robot will not move when at the edge") {
                                                {3, 1},
                                                {4, 0}};
         Robot robot(rightEdges.at(0), Direction::EAST);
-        THEN("it cannot move when it is at the right most edge"){
-            for (const auto &position: rightEdges){
+        THEN("it cannot move when it is at the right most edge") {
+            for (const auto &position: rightEdges) {
                 robot.setPosition(position);
                 robot.move();
                 REQUIRE(robot.getPosition() == position);
                 REQUIRE(robot.getDirection() == Direction::EAST);
             }
         }
-    }AND_WHEN("The robot is facing south"){
+    }AND_WHEN("The robot is facing south") {
         const std::vector<Point> bottomEdges = {{0, 0},
                                                 {0, 1},
                                                 {0, 2},
                                                 {0, 3},
                                                 {0, 4}};
         Robot robot(bottomEdges.at(0), Direction::SOUTH);
-        THEN("it cannot move when it at the bottom edge"){
-            for (const auto &position: bottomEdges){
+        THEN("it cannot move when it at the bottom edge") {
+            for (const auto &position: bottomEdges) {
                 robot.setPosition(position);
                 robot.move();
                 REQUIRE(robot.getPosition() == position);
                 REQUIRE(robot.getDirection() == Direction::SOUTH);
             }
         }
-    }AND_WHEN("The robot is facing north"){
+    }AND_WHEN("The robot is facing north") {
         const std::vector<Point> topEdges = {{4, 0},
                                              {4, 1},
                                              {4, 2},
                                              {4, 3},
                                              {4, 4}};
         Robot robot(topEdges.at(0), Direction::NORTH);
-        THEN("it cannot move when it is at the top edge"){
-            for (const auto &position: topEdges){
+        THEN("it cannot move when it is at the top edge") {
+            for (const auto &position: topEdges) {
                 robot.setPosition(position);
                 robot.move();
                 REQUIRE(robot.getPosition() == position);
@@ -66,4 +66,41 @@ SCENARIO("The robot will not move when at the edge") {
             }
         }
     }
+}
+
+SCENARIO("Testing legal moves towards the west") {
+    WHEN("The robot is not at the left edge") {
+        const std::vector<Point> rightEdges = {{0, 4},
+                                               {1, 4},
+                                               {2, 4},
+                                               {3, 4},
+                                               {4, 4}};
+        constexpr uint32_t maxLegalMoves{5};
+        THEN("it should make a move one unit to the left") {
+            for (const auto &position: rightEdges) {
+                Robot robot(position, Direction::WEST);
+                for (auto j = 1; j <= maxLegalMoves; j++) {
+                    std::cout << "Position before move=" << robot.getPosition() << ", j=" << j << "\n";
+                    robot.move();
+                    std::cout << "Position after move=" << robot.getPosition() << "\n\n";
+                    if (position.y - j >= 0) // We should never subtract the value of j from position.y if that will result to <0
+                        REQUIRE(robot.getPosition() == position.minusY(j));
+                    REQUIRE(robot.getDirection() == Direction::WEST);
+                }
+            }
+        }
+    }
+
+}
+
+SCENARIO("Testing legal moves towards the east") {
+
+}
+
+SCENARIO("Testing legal moves towards the north") {
+
+}
+
+SCENARIO("Testing legal moves towards the south") {
+
 }

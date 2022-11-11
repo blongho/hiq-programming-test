@@ -11,6 +11,19 @@ struct Point {
     Point() = default;
 
     bool operator==(const Point &other) const;
+
+    Point operator+(const Point &other) const;
+
+    Point operator-(const Point &other) const;
+
+    [[nodiscard]] Point minusY(const uint16_t &y_val) const;
+
+    [[nodiscard]] Point minusX(const uint16_t &x_val) const;
+
+    [[nodiscard]] Point plusX(const uint16_t &y_val) const;
+
+    [[nodiscard]] Point plusY(const uint16_t &x_val) const;
+
     uint16_t x{};
     uint16_t y{};
 
