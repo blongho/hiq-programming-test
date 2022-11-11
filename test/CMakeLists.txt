@@ -20,9 +20,9 @@ MACRO(add_test_file name src)
     TARGET_LINK_LIBRARIES(${name} PRIVATE Catch2::Catch2WithMain)
 ENDMACRO()
 set(SRC_FILES
+        ../src/Direction.cpp
         ../src/Board.cpp
         ../src/Point.cpp
-        ../src/Direction.cpp
         ../src/Robot.cpp )
 
 add_test_file(test_board ../src/Board.cpp)

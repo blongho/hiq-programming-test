@@ -6,44 +6,19 @@
 
 SCENARIO("The robot will not move when at the edge") {
     WHEN("The robot is facing west") {
-        THEN("it cannot move when x==0") {
-            const Point origin(0, 0);
-            const Direction west = Direction::WEST;
-            Robot robot(origin, west);
-            robot.move();
-            REQUIRE(robot.getPosition() == origin);
-            REQUIRE(robot.getDirection() == Direction::WEST);
-            robot.show();
-            // The robot will not move west at (1,0)
-            robot.setPosition({1, 0});
-            robot.show();
-            robot.move();
-            REQUIRE(robot.getPosition() == Point(1, 0));
-            REQUIRE(robot.getDirection() == Direction::WEST);
-
-            // the robot should not move when at (0,2)
-            const Point point2(2, 0);
-            robot.setPosition(point2);
-            robot.show();
-            robot.move();
-            REQUIRE(robot.getPosition() == point2);
-            REQUIRE(robot.getDirection() == Direction::WEST);
-            // the robot should not move when at (0,3)
-            const Point point3(3, 0);
-            robot.setPosition(point3);
-            robot.show();
-            robot.move();
-
-            REQUIRE(robot.getPosition() == point3);
-            REQUIRE(robot.getDirection() == Direction::WEST);
-            // the robot should not move when at (0,4)
-            const Point point4(4, 0);
-            robot.setPosition(point4);
-            robot.move();
-            REQUIRE(robot.getPosition() == point4);
-            REQUIRE(robot.getDirection() == Direction::WEST);
-            robot.show();
-
+        const std::vector<Point> leftEdges = {{0, 0},
+                                              {1, 0},
+                                              {2, 0},
+                                              {3, 0},
+                                              {4, 0}};
+        Robot robot(leftEdges.at(0), Direction::WEST);
+        THEN("it cannot move when at the left edge") {
+            for (const auto &position: leftEdges){
+                robot.setPosition(position);
+                robot.move();
+                REQUIRE(robot.getPosition() == position);
+                REQUIRE(robot.getDirection() == Direction::WEST);
+            }
         }
     }AND_WHEN("The robot is facing east") {
         const std::vector<Point> rightEdges = {{0, 4},
@@ -51,13 +26,44 @@ SCENARIO("The robot will not move when at the edge") {
                                                {2, 2},
                                                {3, 1},
                                                {4, 0}};
+        Robot robot(rightEdges.at(0), Direction::EAST);
         THEN("it cannot move when it is at the right most edge"){
-            const Direction east = Direction::EAST;
-            Robot robot(rightEdges.at(0), east);
-            robot.move();
-            REQUIRE(robot.getPosition() == rightEdges.at(0));
-            REQUIRE(robot.getDirection() == Direction::EAST);
-            robot.show();
+            for (const auto &position: rightEdges){
+                robot.setPosition(position);
+                robot.move();
+                REQUIRE(robot.getPosition() == position);
+                REQUIRE(robot.getDirection() == Direction::EAST);
+            }
+        }
+    }AND_WHEN("The robot is facing south"){
+        const std::vector<Point> bottomEdges = {{0, 0},
+                                                {0, 1},
+                                                {0, 2},
+                                                {0, 3},
+                                                {0, 4}};
+        Robot robot(bottomEdges.at(0), Direction::SOUTH);
+        THEN("it cannot move when it at the bottom edge"){
+            for (const auto &position: bottomEdges){
+                robot.setPosition(position);
+                robot.move();
+                REQUIRE(robot.getPosition() == position);
+                REQUIRE(robot.getDirection() == Direction::SOUTH);
+            }
+        }
+    }AND_WHEN("The robot is facing north"){
+        const std::vector<Point> topEdges = {{4, 0},
+                                             {4, 1},
+                                             {4, 2},
+                                             {4, 3},
+                                             {4, 4}};
+        Robot robot(topEdges.at(0), Direction::NORTH);
+        THEN("it cannot move when it is at the top edge"){
+            for (const auto &position: topEdges){
+                robot.setPosition(position);
+                robot.move();
+                REQUIRE(robot.getPosition() == position);
+                REQUIRE(robot.getDirection() == Direction::NORTH);
+            }
         }
     }
 }

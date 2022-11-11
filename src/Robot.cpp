@@ -37,7 +37,6 @@ void Robot::left() {
 }
 
 bool Robot::move() {
-    std::cout << "Making a move to the direction " << direction << std::endl;
     switch (direction) {
         case Direction::NORTH:
             return moveNorth();
@@ -70,7 +69,7 @@ Robot::Robot(const Point &p_position, const Direction &p_direction)
 bool Robot::moveNorth() {
     std::cout << "Attempting to move north...\n";
     if (isNorthMovePossible()) {
-        ++position.y;
+        ++position.x;
         std::cout << "Moved to the north. Current position is (x,y) " << position << "\n";
         return true;
     }
@@ -81,7 +80,7 @@ bool Robot::moveNorth() {
 bool Robot::moveSouth() {
     std::cout << "Attempting to move south...\n";
     if (isSouthMovePossible()) {
-        --position.y;
+        --position.x;
         std::cout << "Moved to the south. Current position is (x,y) " << position << "\n";
         return true;
     }
@@ -104,7 +103,7 @@ bool Robot::moveEast() {
 bool Robot::moveWest() {
     std::cout << "Attempting to move west...\n";
     if (isWestMovePossible()) {
-        --position.x;
+        --position.y;
         std::cout << "Moved to the west. Current position is (x,y) " << position << "\n";
         return true;
     }

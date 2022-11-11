@@ -4,7 +4,6 @@
 #include <iostream>
 #include <array>
 #include "Point.h"
-#include "Direction.h"
 #include <string>
 
 class Board {
@@ -21,10 +20,6 @@ private:
     static constexpr uint16_t ROWS{5};
     static constexpr uint16_t COLUMNS{5};
     std::string location[ROWS][COLUMNS]{};
-
-    bool isEdge(uint16_t x, uint16_t right) const;
-
-    void transpose();
 
     static constexpr uint16_t transformX(const uint16_t &val) ;
 

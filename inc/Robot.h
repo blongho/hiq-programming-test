@@ -6,6 +6,7 @@
 #define HIQ_PROGRAMMING_ROBOT_H
 
 #include "Board.h"
+#include "Direction.h"
 
 class Robot {
 public:
@@ -32,7 +33,7 @@ public:
     void show() const;
 private:
     Point position{};
-    Direction direction{Direction::EAST};
+    Direction direction{Direction::WEST};
     /**
      * Check if a move is possible or not
      * A move is not possible if the current robot position is outside of the table <br>
@@ -56,6 +57,5 @@ private:
 
     [[nodiscard]] bool isSouthMovePossible() const;
 };
-
 
 #endif //HIQ_PROGRAMMING_ROBOT_H
