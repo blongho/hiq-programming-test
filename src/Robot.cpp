@@ -92,7 +92,7 @@ bool Robot::moveSouth() {
 bool Robot::moveEast() {
     std::cout << "Attempting to move east...\n";
     if (isEastMovePossible()) {
-        ++position.x;
+        ++position.y;
         std::cout << "Moved to the east. Current position is (x,y) " << position << "\n";
         return true;
     }
@@ -123,10 +123,10 @@ bool Robot::isWestMovePossible() const {
 
 bool Robot::isEastMovePossible() const {
     const std::vector<Point> rightEdges = {{0, 4},
-                                           {1, 3},
-                                           {2, 2},
-                                           {3, 1},
-                                           {4, 0}};
+                                           {1, 4},
+                                           {2, 4},
+                                           {3, 4},
+                                           {4, 4}};
 
     return std::none_of(rightEdges.cbegin(), rightEdges.cend(), [&](const auto &p) { return p == position; });
 }

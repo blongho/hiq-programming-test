@@ -75,7 +75,7 @@ SCENARIO("Testing legal moves towards the west") {
                                                {2, 4},
                                                {3, 4},
                                                {4, 4}};
-        constexpr uint32_t maxLegalMoves{5};
+        constexpr uint32_t maxLegalMoves{4};
         THEN("it should make a move one unit to the left") {
             for (const auto &position: rightEdges) {
                 Robot robot(position, Direction::WEST);
@@ -83,8 +83,7 @@ SCENARIO("Testing legal moves towards the west") {
                     std::cout << "Position before move=" << robot.getPosition() << ", j=" << j << "\n";
                     robot.move();
                     std::cout << "Position after move=" << robot.getPosition() << "\n\n";
-                    if (position.y - j >= 0) // We should never subtract the value of j from position.y if that will result to <0
-                        REQUIRE(robot.getPosition() == position.minusY(j));
+                    REQUIRE(robot.getPosition() == position.minusY(j));
                     REQUIRE(robot.getDirection() == Direction::WEST);
                 }
             }
@@ -93,7 +92,27 @@ SCENARIO("Testing legal moves towards the west") {
 
 }
 
-SCENARIO("Testing legal moves towards the east") {
+SCENARIO("Testing legal moves towards the east, no rotation") {
+    WHEN("The robot is not at the right edge"){
+        const std::vector<Point> leftEdges = {{0, 0},
+                                              {1, 0},
+                                              {2, 0},
+                                              {3, 0},
+                                              {4, 0}};
+        constexpr uint32_t maxLegalMoves{4};
+        THEN("it should make a move one unit to the right"){
+            for (const auto &position: leftEdges){
+                Robot robot(position, Direction::EAST);
+                for(auto i = 1; i<=maxLegalMoves; ++i){
+                    std::cout << "Position before move=" << robot.getPosition() << ", j=" << i << "\n";
+                    robot.move();
+                    std::cout << "Position after move=" << robot.getPosition() << "\n\n";
+                    REQUIRE(robot.getPosition() == position.plusY(i));
+                    REQUIRE(robot.getDirection() == Direction::EAST);
+                }
+            }
+        }
+    }
 
 }
 
