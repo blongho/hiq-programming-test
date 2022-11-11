@@ -30,8 +30,8 @@ void Robot::left() {
     } else if (direction == Direction::WEST) {
         direction = Direction::SOUTH;
     } else if (direction == Direction::SOUTH) {
-        direction = Direction::WEST;
-    } else if (direction == Direction::EAST) {
+        direction = Direction::EAST;
+    } else {
         direction = Direction::NORTH;
     }
 }
@@ -84,7 +84,7 @@ bool Robot::moveSouth() {
         std::cout << "Moved to the south. Current position is (x,y) " << position << "\n";
         return true;
     }
-    std::cout << "Could not move south. Robot might fall. Robot is at [" << position << "," << direction<<"]\n";
+    std::cout << "Could not move south. Robot might fall. Robot is at [" << position << "," << direction << "]\n";
 
     return false;
 }
@@ -96,7 +96,7 @@ bool Robot::moveEast() {
         std::cout << "Moved to the east. Current position is (x,y) " << position << "\n";
         return true;
     }
-    std::cout << "Could not move east. Robot might fall. Robot is at [" << position << "," << direction<<"]\n";
+    std::cout << "Could not move east. Robot might fall. Robot is at [" << position << "," << direction << "]\n";
     return false;
 }
 
@@ -107,7 +107,7 @@ bool Robot::moveWest() {
         std::cout << "Moved to the west. Current position is (x,y) " << position << "\n";
         return true;
     }
-    std::cout << "Could not move west. Robot might fall. Robot is at [" << position << "," << direction<<"]\n";
+    std::cout << "Could not move west. Robot might fall. Robot is at [" << position << "," << direction << "]\n";
     return false;
 }
 
