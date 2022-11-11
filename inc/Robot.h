@@ -8,6 +8,7 @@
 #include "Board.h"
 #include "Direction.h"
 
+
 class Robot {
 public:
     Robot() = default;
@@ -20,7 +21,7 @@ public:
 
     void left();
 
-    void report(std::ostream &os = std::cout);
+    void report();
 
     [[nodiscard]] const Point &getPosition() const;
 

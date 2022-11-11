@@ -44,3 +44,6 @@ Point Point::plusY(const uint16_t &y_val) const {
     const Point tmp(x, y + y_val);
     return tmp;
 }
+
+Point::Point(uint16_t p_x, uint16_t p_y) :
+        x{p_x}, y{p_y} {}

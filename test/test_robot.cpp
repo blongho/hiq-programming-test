@@ -1,8 +1,7 @@
-//
-// Created by Longho Bernard Che on 2022-11-10.
-//
 #include <catch2/catch_test_macros.hpp>
 #include "Robot.h"
+#include "TestCommandReader.h"
+
 
 SCENARIO("The robot will not move when at the edge") {
     WHEN("The robot is facing west") {
@@ -83,7 +82,7 @@ SCENARIO("Testing legal moves towards the west") {
                     std::cout << "Position before move=" << robot.getPosition() << ", j=" << j << "\n";
                     robot.move();
                     std::cout << "Position after move=" << robot.getPosition() << "\n\n";
-                    REQUIRE(robot.getPosition() == position.minusY(j));
+                    REQUIRE(robot.getPosition() == position.minusX(j));
                     REQUIRE(robot.getDirection() == Direction::WEST);
                 }
             }
@@ -107,7 +106,7 @@ SCENARIO("Testing legal moves towards the east, no rotation") {
                     std::cout << "Position before move=" << robot.getPosition() << ", i=" << i << "\n";
                     robot.move();
                     std::cout << "Position after move=" << robot.getPosition() << "\n\n";
-                    REQUIRE(robot.getPosition() == position.plusY(i));
+                    REQUIRE(robot.getPosition() == position.plusX(i));
                     REQUIRE(robot.getDirection() == Direction::EAST);
                 }
             }
@@ -131,7 +130,7 @@ SCENARIO("Testing legal moves towards the north") {
                     std::cout << "Position before move=" << robot.getPosition() << ", i=" << i << "\n";
                     robot.move();
                     std::cout << "Position after move=" << robot.getPosition() << "\n\n";
-                    REQUIRE(robot.getPosition() == position.plusX(i));
+                    REQUIRE(robot.getPosition() == position.plusY(i));
                     REQUIRE(robot.getDirection() == Direction::NORTH);
                 }
             }
@@ -154,7 +153,7 @@ SCENARIO("Testing legal moves towards the south") {
                     std::cout << "Position before move=" << robot.getPosition() << ", i=" << i << "\n";
                     robot.move();
                     std::cout << "Position after move=" << robot.getPosition() << "\n\n";
-                    REQUIRE(robot.getPosition() == position.minusX(i));
+                    REQUIRE(robot.getPosition() == position.minusY(i));
                     REQUIRE(robot.getDirection() == Direction::SOUTH);
                 }
             }
@@ -171,24 +170,21 @@ SCENARIO("Testing left turns") {
             REQUIRE(robot.getPosition() == origin);
             REQUIRE(robot.getDirection() == Direction::NORTH);
         }
-    }
-    AND_WHEN("The robot is facing north") {
+    }AND_WHEN("The robot is facing north") {
         Robot robot(origin, Direction::NORTH);
         THEN("it should be facing west when turned left and it should not change coordinates") {
             robot.left();
             REQUIRE(robot.getPosition() == origin);
             REQUIRE(robot.getDirection() == Direction::WEST);
         }
-    }
-    AND_WHEN("The robot is facing west") {
+    }AND_WHEN("The robot is facing west") {
         Robot robot(origin, Direction::WEST);
         THEN("it should be facing south when turned left and it should not change coordinates") {
             robot.left();
             REQUIRE(robot.getPosition() == origin);
             REQUIRE(robot.getDirection() == Direction::SOUTH);
         }
-    }
-    AND_WHEN("The robot is facing south") {
+    }AND_WHEN("The robot is facing south") {
         Robot robot(origin, Direction::SOUTH);
         THEN("it should be facing east when turned left and it should not change coordinates") {
             robot.left();
@@ -207,29 +203,74 @@ SCENARIO("Testing right turns") {
             REQUIRE(robot.getPosition() == origin);
             REQUIRE(robot.getDirection() == Direction::SOUTH);
         }
-    }
-    AND_WHEN("The robot is facing north") {
+    }AND_WHEN("The robot is facing north") {
         Robot robot(origin, Direction::NORTH);
         THEN("it should be facing east when turned left and it should not change coordinates") {
             robot.right();
             REQUIRE(robot.getPosition() == origin);
             REQUIRE(robot.getDirection() == Direction::EAST);
         }
-    }
-    AND_WHEN("The robot is facing west") {
+    }AND_WHEN("The robot is facing west") {
         Robot robot(origin, Direction::WEST);
         THEN("it should be facing north when turned left and it should not change coordinates") {
             robot.right();
             REQUIRE(robot.getPosition() == origin);
             REQUIRE(robot.getDirection() == Direction::NORTH);
         }
-    }
-    AND_WHEN("The robot is facing south") {
+    }AND_WHEN("The robot is facing south") {
         Robot robot(origin, Direction::SOUTH);
         THEN("it should be facing east when turned left and it should not change coordinates") {
             robot.right();
             REQUIRE(robot.getPosition() == origin);
             REQUIRE(robot.getDirection() == Direction::WEST);
+        }
+    }
+}
+
+SCENARIO("Testing sample known cases with combination of robot movements") {
+    GIVEN("A robot at the bottom left-most region (0,0) and facing WEST") {
+        Robot robot({0, 0}, Direction::WEST);
+        WHEN("it is instructed to move") {
+            robot.move();
+            THEN("The robot will not move and the direction will remain the same") {
+                REQUIRE(robot.getPosition() == Point(0, 0));
+                REQUIRE(robot.getDirection() == Direction::WEST);
+            }
+        }
+    }AND_GIVEN("A robot at origin and facing NORTH") {
+        Robot robot({0, 0}, Direction::NORTH);
+        WHEN("it is instructed to move") {
+            robot.move();
+            THEN("the robot will move one unit to the y-axis") {
+                REQUIRE(robot.getPosition() == Point(0, 1));
+                REQUIRE(robot.getDirection() == Direction::NORTH);
+                robot.report();
+            }
+        }
+    }AND_GIVEN("A robot from origin and pointing north") {
+        Robot robot({0, 0}, Direction::NORTH);
+        WHEN("it turns left") {
+            robot.left();
+            THEN("it should be in the same position bu the direction should change to west") {
+                REQUIRE(robot.getPosition() == Point(0, 0));
+                REQUIRE(robot.getDirection() == Direction::WEST);
+                robot.report();
+            }
+        }
+    }AND_GIVEN("A robot at position (1,2), facing east") {
+        Robot robot({1, 2}, Direction::EAST);
+        WHEN("it moves two units, turns left and makes one more move") {
+            robot.move();
+            robot.move();
+            robot.left();
+            robot.move();
+            THEN("The robot should be in position (3,3) and facing NORTH") {
+                REQUIRE(robot.getPosition() == Point(3, 3));
+                REQUIRE(robot.getDirection() == Direction::NORTH);
+                std::cout << std::string(15, '*') << "Reporting the robot's position\n";
+                robot.report();
+
+            }
         }
     }
 }

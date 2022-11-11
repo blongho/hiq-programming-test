@@ -10,7 +10,8 @@ include_directories(inc)
 set(SRC_FILES
         src/Board.cpp
         src/Point.cpp
-        src/Robot.cpp )
+        src/Robot.cpp
+        src/TestCommandReader.cpp)
 
 add_executable(app ${SRC_FILES} Main.cpp)
 
