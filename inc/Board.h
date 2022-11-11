@@ -15,7 +15,7 @@ public:
 
     void reset();
 
-    void insert(const Point &, char);
+    void insert(const Point &, const std::string &);
 
 private:
     static constexpr uint16_t ROWS{5};

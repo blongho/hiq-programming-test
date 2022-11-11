@@ -11,22 +11,24 @@ Board::Board() {
 }
 
 void Board::show(std::ostream &os) const {
+    std::cout << std::string(15, '-') << "\n";
+
     for (const auto & row : location) {
         for (const auto & col : row) {
-            os << '[' << col << ']';
+            os << '[' << std::setw(3) <<  col << ']';
         }
         os << '\n';
     }
+    std::cout << std::string(15, '-') << "\n";
 }
 
 bool Board::isEdge(uint16_t x, uint16_t y) const {
     return location[x][y].empty();
 }
 
-void Board::insert(const Point &point, char c) {
+void Board::insert(const Point &point, const std::string &c) {
     reset();
     location[(transformX(point.x))][point.y] = c;
-    show();
 }
 
 void Board::reset() {

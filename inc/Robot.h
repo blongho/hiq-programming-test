@@ -21,25 +21,24 @@ public:
 
     void report(std::ostream &os = std::cout);
 
-    const Point &getPosition() const;
+    [[nodiscard]] const Point &getPosition() const;
 
     void setPosition(const Point &p_position);
 
-    const Direction& getDirection() const;
+    [[nodiscard]] const Direction& getDirection() const;
 
     void setDirection(Direction direction);
 
+    void show() const;
 private:
     Point position{};
     Direction direction{Direction::EAST};
-
     /**
      * Check if a move is possible or not
      * A move is not possible if the current robot position is outside of the table <br>
      * A move is also not possible if the next move results in the robot falling off the table
      * @return true if the move is possible, otherwise vale
      */
-    bool isMovePossible() const;
 
     bool moveNorth();
 
@@ -48,6 +47,14 @@ private:
     bool moveEast();
 
     bool moveWest();
+
+    [[nodiscard]] bool isWestMovePossible() const;
+
+    [[nodiscard]] bool isEastMovePossible() const;
+
+    [[nodiscard]] bool isNorthMovePossible() const;
+
+    [[nodiscard]] bool isSouthMovePossible() const;
 };
 
 

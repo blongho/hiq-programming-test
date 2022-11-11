@@ -4,7 +4,7 @@
 
 #ifndef HIQ_PROGRAMMING_DIRECTION_H
 #define HIQ_PROGRAMMING_DIRECTION_H
-#include <string>
+#include <iostream>
 enum class Direction {
     NORTH = 0,
     SOUTH,
@@ -12,5 +12,7 @@ enum class Direction {
     WEST
 };
 
-std::string directionToString(const Direction &);
+std::ostream &operator<<(std::ostream &os, const Direction &point);
+
+std::istream &operator>>(std::istream &is, Direction &point);
 #endif //HIQ_PROGRAMMING_DIRECTION_H

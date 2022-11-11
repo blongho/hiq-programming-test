@@ -10,3 +10,7 @@ std::istream &operator>>(std::istream &is, Point &point) {
     is >> point.x >> c >> point.y;
     return is;
 }
+
+bool Point::operator==(const Point &other) const {
+    return x == other.x && y == other.y;
+}

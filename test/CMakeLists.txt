@@ -19,9 +19,17 @@ MACRO(add_test_file name src)
     ADD_EXECUTABLE(${name} ${src} ${name}.cpp)
     TARGET_LINK_LIBRARIES(${name} PRIVATE Catch2::Catch2WithMain)
 ENDMACRO()
+set(SRC_FILES
+        ../src/Board.cpp
+        ../src/Point.cpp
+        ../src/Direction.cpp
+        ../src/Robot.cpp )
 
 add_test_file(test_board ../src/Board.cpp)
 add_test_file(test_point ../src/Point.cpp)
-add_test_file(test_robot ../src/Robot.cpp)
+
+add_executable(robot_test ${SRC_FILES} test_robot.cpp)
+TARGET_LINK_LIBRARIES(robot_test PRIVATE Catch2::Catch2WithMain)
+
 
 

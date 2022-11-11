@@ -14,8 +14,10 @@ struct Point {
 
     Point() = default;
 
+    bool operator==(const Point &other) const;
     uint16_t x{};
     uint16_t y{};
+
 
 };
 

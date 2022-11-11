@@ -1,15 +1,30 @@
 #include "Direction.h"
 
-std::string directionToString(const Direction &direction) {
+std::ostream &operator<<(std::ostream &os, const Direction &direction) {
     switch (direction) {
         case Direction::NORTH:
-            return "NORTH";
+            os << "NORTH";
         case Direction::SOUTH:
-            return "SOUTH";
+            os << "SOUTH";
         case Direction::EAST:
-            return "EAST";
+            os << "EAST";
         case Direction::WEST:
-            return "WEST";
+            os << "WEST";
     }
-    return "";
+    return os;
+}
+
+std::istream &operator>>(std::istream &is, Direction &direction) {
+    std::string tmp{};
+    is >> tmp;
+    if (tmp == "NORTH") {
+        direction = Direction::NORTH;
+    } else if (tmp == "SOUTH") {
+        direction = Direction::SOUTH;
+    } else if (tmp == "EAST") {
+        direction = Direction::EAST;
+    } else if (tmp == "WEST") {
+        direction = Direction::WEST;
+    }
+    return is;
 }
