@@ -104,7 +104,7 @@ SCENARIO("Testing legal moves towards the east, no rotation") {
             for (const auto &position: leftEdges){
                 Robot robot(position, Direction::EAST);
                 for(auto i = 1; i<=maxLegalMoves; ++i){
-                    std::cout << "Position before move=" << robot.getPosition() << ", j=" << i << "\n";
+                    std::cout << "Position before move=" << robot.getPosition() << ", i=" << i << "\n";
                     robot.move();
                     std::cout << "Position after move=" << robot.getPosition() << "\n\n";
                     REQUIRE(robot.getPosition() == position.plusY(i));
@@ -117,7 +117,26 @@ SCENARIO("Testing legal moves towards the east, no rotation") {
 }
 
 SCENARIO("Testing legal moves towards the north") {
-
+    WHEN("The robot is not at the top edge"){
+        const std::vector<Point> bottomEdges = {{0, 0},
+                                                {0, 1},
+                                                {0, 2},
+                                                {0, 3},
+                                                {0, 4}};
+        constexpr uint32_t maxLegalMoves{4};
+        THEN("it should make a move one unit to towards the north(top)"){
+            for (const auto &position: bottomEdges){
+                Robot robot(position, Direction::NORTH);
+                for(auto i = 1; i<=maxLegalMoves; ++i){
+                    std::cout << "Position before move=" << robot.getPosition() << ", i=" << i << "\n";
+                    robot.move();
+                    std::cout << "Position after move=" << robot.getPosition() << "\n\n";
+                    REQUIRE(robot.getPosition() == position.plusX(i));
+                    REQUIRE(robot.getDirection() == Direction::NORTH);
+                }
+            }
+        }
+    }
 }
 
 SCENARIO("Testing legal moves towards the south") {
