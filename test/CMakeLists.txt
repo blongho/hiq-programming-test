@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 
 project(hiq_programming_test)
 
-SET(CMAKE_CXX_STANDARD 17)
+SET(CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_BUILD_TYPE RELEASE)
 
@@ -25,11 +25,10 @@ MACRO(add_test_file name src)
 ENDMACRO()
 
 set(SRC_FILES
-        ../src/Direction.cpp
         ../src/Board.cpp
         ../src/Point.cpp
         ../src/Robot.cpp
-        ../src/TestCommandReader.cpp)
+        ../src/CommandReader.cpp)
 
 add_test_file(test_board ../src/Board.cpp)
 add_test_file(test_point ../src/Point.cpp)

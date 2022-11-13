@@ -3,8 +3,11 @@
 #include <vector>
 #include "Robot.h"
 
+Robot::Robot(const Point &p_position, const Direction &p_direction)
+        : position{p_position}, direction{p_direction} {}
+
 void Robot::report() {
-    std::cout  <<  '\n' <<position << "," << direction << '\n';
+    std::cout  <<  '\n' <<position << "," << toString(direction) << '\n';
 }
 
 const Point &Robot::getPosition() const {
@@ -62,8 +65,7 @@ void Robot::right() {
     }
 }
 
-Robot::Robot(const Point &p_position, const Direction &p_direction)
-        : position{p_position}, direction{p_direction} {}
+
 
 bool Robot::moveNorth() {
     std::cout << "Attempting to move north...\n";
@@ -72,7 +74,7 @@ bool Robot::moveNorth() {
         std::cout << "Moved to the north. Current position is (x,y) " << position << "\n";
         return true;
     }
-    std::cout << "Not possible to make this move\n";
+    std::cout << "Could not move north. Robot might fall. \n";
     return false;
 }
 
@@ -83,7 +85,7 @@ bool Robot::moveSouth() {
         std::cout << "Moved to the south. Current position is (x,y) " << position << "\n";
         return true;
     }
-    std::cout << "Could not move south. Robot might fall. Robot is at [" << position << "," << direction << "]\n";
+    std::cout << "Could not move south. Robot might fall. \n";
 
     return false;
 }
@@ -95,7 +97,7 @@ bool Robot::moveEast() {
         std::cout << "Moved to the east. Current position is (x,y) " << position << "\n";
         return true;
     }
-    std::cout << "Could not move east. Robot might fall. Robot is at [" << position << "," << direction << "]\n";
+    std::cout << "Could not move east. Robot might fall. \n";
     return false;
 }
 
@@ -106,7 +108,7 @@ bool Robot::moveWest() {
         std::cout << "Moved to the west. Current position is (x,y) " << position << "\n";
         return true;
     }
-    std::cout << "Could not move west. Robot might fall. Robot is at [" << position << "," << direction << "]\n";
+    std::cout << "Could not move west. Robot might fall. \n";
     return false;
 }
 
@@ -172,4 +174,18 @@ void Robot::show() const {
     board.insert(position, arrow);
     board.show();
 
+}
+
+
+std::string toString(Direction direction) {
+    switch (direction) {
+        case Direction::NORTH:
+            return "NORTH";
+        case Direction::SOUTH:
+            return "SOUTH";
+        case Direction::EAST:
+            return "EAST";
+        case Direction::WEST:
+            return "WEST";
+    }
 }

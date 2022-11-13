@@ -6,7 +6,14 @@
 #define HIQ_PROGRAMMING_ROBOT_H
 
 #include "Board.h"
-#include "Direction.h"
+
+
+enum class Direction {
+    NORTH = 0,
+    SOUTH,
+    EAST,
+    WEST
+};
 
 
 class Robot {
@@ -27,14 +34,16 @@ public:
 
     void setPosition(const Point &p_position);
 
-    [[nodiscard]] const Direction& getDirection() const;
+    [[nodiscard]] const Direction &getDirection() const;
 
     void setDirection(Direction direction);
 
     void show() const;
+
 private:
     Point position{};
     Direction direction{Direction::WEST};
+
     /**
      * Check if a move is possible or not
      * A move is not possible if the current robot position is outside of the table <br>
@@ -58,5 +67,8 @@ private:
 
     [[nodiscard]] bool isSouthMovePossible() const;
 };
+
+std::string toString(Direction direction);
+
 
 #endif //HIQ_PROGRAMMING_ROBOT_H

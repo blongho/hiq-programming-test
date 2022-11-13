@@ -1,6 +1,6 @@
 #include <catch2/catch_test_macros.hpp>
 #include "Robot.h"
-#include "TestCommandReader.h"
+#include "CommandReader.h"
 
 
 SCENARIO("The robot will not move when at the edge") {
