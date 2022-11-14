@@ -30,8 +30,8 @@ set(SRC_FILES
         ../src/Robot.cpp
         ../src/CommandReader.cpp)
 
-add_test_file(test_board ../src/Board.cpp)
-add_test_file(test_point ../src/Point.cpp)
+#add_test_file(test_board ../src/Board.cpp)
+#add_test_file(test_point ../src/Point.cpp)
 
 if(TEST_FILE_PATH)
     message(INFO "Test file path set to ${TEST_FILE_PATH}")
@@ -39,7 +39,11 @@ else()
     message(INFO "Test file path not set. Defaulting to ${CMAKE_SOURCE_DIR}/tests.txt")
 endif()
 
+include(CTest)
+include(Catch)
+
 add_executable(test_robot ${SRC_FILES} test_robot.cpp)
 TARGET_LINK_LIBRARIES(test_robot PRIVATE Catch2::Catch2WithMain)
+catch_discover_tests(test_robot)
 
 

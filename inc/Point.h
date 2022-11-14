@@ -18,8 +18,8 @@ struct Point {
 
     /**
      * The overloaded equality operator used to compare if two points are equal
-     * @param other
-     * @return
+     * @param other the other point to compare
+     * @return true if both @param other and this current point are equal
      */
     bool operator==(const Point &other) const;
 
@@ -30,29 +30,67 @@ struct Point {
      */
     Point operator+(const Point &other) const;
 
+    /*!
+     * @brief Subtract a @param other Point from the current point
+     * 
+     * @param other the other opint whose x,y values shall be subtracted from the current point
+     * @return Point the updated point
+     */
     Point operator-(const Point &other) const;
 
     /**
      * Subtract n units from the y value
-     * @param y_val the value to be subtracted from this point's y value
+     * @param y_units the value to be subtracted from this point's y value
      * @return a new point value with the y value minus the value given in this function
      */
-    [[nodiscard]] Point minusY(const uint16_t &y_val) const;
+    [[nodiscard]] Point minusY(const uint16_t &y_units) const;
 
-    [[nodiscard]] Point minusX(const uint16_t &x_val) const;
+    /*!
+     * @brief Subtract some units from the x-axis
+     * 
+     * @param x_units the value to be subtracted from the x-axis
+     * @return Point the new Point returned
+     */
+    [[nodiscard]] Point minusX(const uint16_t &x_units) const;
 
-    [[nodiscard]] Point plusX(const uint16_t &y_val) const;
+    /*!
+     * @brief Add @param x_units to the x value of this point and return the updated Point
+     * 
+     * @param x_units the value to be added
+     * @return Point the new Point
+     */
+    [[nodiscard]] Point plusX(const uint16_t &x_units) const;
 
-    [[nodiscard]] Point plusY(const uint16_t &x_val) const;
+    /*!
+     * @brief Add @param y_units to the y value of this point
+     * 
+     * @param y_units the units to be added
+     * @return Point the new point with the updated y-value
+     */
+    [[nodiscard]] Point plusY(const uint16_t &y_units) const;
 
-    uint16_t x{};
-    uint16_t y{};
+    uint16_t x{}; /*< The x value of a point */
+    uint16_t y{}; /*< The y value of a point */
+    /*!
+     * @brief An overloaded ostream operator for printing out a Point
+     * 
+     * @param os the ostream (std::ostream&)
+     * @param point The point
+     * @return std::ostream& the ostream
+     */
+friend std::ostream &operator<<(std::ostream &os, const Point &point);
 
+/*!
+ * @brief Overloaded istream operator for for reading a Point object
+ * 
+ * @param is the istream operator
+ * @param point the point
+ * @return std::istream& the returned istream
+ */
+friend std::istream &operator>>(std::istream &is, Point &point);
 
 };
 
-std::ostream &operator<<(std::ostream &os, const Point &point);
 
-std::istream &operator>>(std::istream &is, Point &point);
 
 #endif //HIQ_PROGRAMMING_POINT_H
