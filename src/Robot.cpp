@@ -7,7 +7,7 @@ Robot::Robot(const Point &p_position, const Direction &p_direction)
         : position{p_position}, direction{p_direction} {}
 
 void Robot::report() {
-    std::cout  <<  '\n' <<position << "," << toString(direction) << '\n';
+    std::cout  <<  '\n' <<position << "," << directionToString(direction) << '\n';
 }
 
 const Point &Robot::getPosition() const {
@@ -174,18 +174,4 @@ void Robot::show() const {
     board.insert(position, arrow);
     board.show();
 
-}
-
-
-std::string toString(Direction direction) {
-    switch (direction) {
-        case Direction::NORTH:
-            return "NORTH";
-        case Direction::SOUTH:
-            return "SOUTH";
-        case Direction::EAST:
-            return "EAST";
-        case Direction::WEST:
-            return "WEST";
-    }
 }

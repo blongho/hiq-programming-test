@@ -6,15 +6,7 @@
 #define HIQ_PROGRAMMING_ROBOT_H
 
 #include "Board.h"
-
-
-enum class Direction {
-    NORTH = 0,
-    SOUTH,
-    EAST,
-    WEST
-};
-
+#include "Direction.h"
 
 class Robot {
 public:
@@ -68,7 +60,7 @@ private:
     [[nodiscard]] bool isSouthMovePossible() const;
 };
 
-std::string toString(Direction direction);
+
 
 
 #endif //HIQ_PROGRAMMING_ROBOT_H

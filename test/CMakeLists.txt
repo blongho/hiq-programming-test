@@ -8,7 +8,6 @@ set(CMAKE_BUILD_TYPE RELEASE)
 
 SET(TEST_SAMPLES_FILE "${CMAKE_SOURCE_DIR}/samples.txt" CACHE STRING "Path to file containing test cases")
 
-message("Test samples is set to ${TEST_SAMPLES_FILE}")
 include(FetchContent)
 
 FetchContent_Declare(
@@ -27,16 +26,17 @@ ENDMACRO()
 set(SRC_FILES
         ../src/Board.cpp
         ../src/Point.cpp
+        ../src/Direction.cpp
         ../src/Robot.cpp
         ../src/CommandReader.cpp)
 
 #add_test_file(test_board ../src/Board.cpp)
 #add_test_file(test_point ../src/Point.cpp)
 
-if(TEST_FILE_PATH)
-    message(INFO "Test file path set to ${TEST_FILE_PATH}")
+if(TEST_SAMPLES_FILE)
+    message("Test file path set to ${TEST_SAMPLES_FILE}")
 else()
-    message(INFO "Test file path not set. Defaulting to ${CMAKE_SOURCE_DIR}/tests.txt")
+    message("Test file path not set. Defaulting to ${TEST_SAMPLES_FILE}")
 endif()
 
 include(CTest)

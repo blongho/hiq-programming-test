@@ -11,8 +11,8 @@ const StartCommand &Command::getStart() const {
     return start;
 }
 
-void Command::setStart(const StartCommand &start) {
-    Command::start = start;
+void Command::setStart(const StartCommand &p_start) {
+    Command::start = p_start;
 }
 
 const std::vector<Action> &Command::getActions() const {
@@ -24,7 +24,8 @@ void Command::setActions(const std::vector<Action> &p_actions) {
 }
 
 std::ostream &operator<<(std::ostream &os, const Command &command) {
-    os << command.start << "\n";
+    StartCommand start;
+    os << start << "\n";
     for (const auto &action: command.getActions()) {
         os << action << "\n";
     }

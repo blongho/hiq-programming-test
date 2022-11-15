@@ -20,10 +20,6 @@ struct StartCommand {
 
     inline bool isValidPlacement() const { return x <= 4 && x >= 0 && y <= 4 && x >= 0; };
 
-    friend std::ostream &operator<<(std::ostream &os, const StartCommand &start);
-
-    friend std::istream &operator>>(std::istream &is, StartCommand &start);
-
 };
 
 class Command {
@@ -40,9 +36,6 @@ public:
 
     void setActions(const std::vector<Action> &actions);
 
-    friend std::ostream &operator<<(std::ostream &os, const Command &command);
-
-    friend std::istream &operator>>(std::istream &is, Command &command);
 
     void readOn(std::ifstream &);
 
@@ -53,5 +46,12 @@ private:
 
 };
 
+std::ostream &operator<<(std::ostream &os, const Command &command);
+
+std::istream &operator>>(std::istream &is, Command &command);
+
+std::ostream &operator<<(std::ostream &os, const StartCommand &start);
+
+std::istream &operator>>(std::istream &is, StartCommand &start);
 
 #endif //HIQ_PROGRAMMING_COMMAND_H
