@@ -9,6 +9,7 @@
 #include <vector>
 #include "Command.h"
 
+
 class CommandReader {
 public:
     void readCommand();
@@ -16,6 +17,7 @@ public:
 
 private:
     std::vector<Command> commands;
+
 #ifdef TEST_SAMPLES_FILE
     const std::strign test_file = TEST_SAMPLES_FILE;
 #else

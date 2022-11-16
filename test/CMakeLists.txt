@@ -27,6 +27,7 @@ set(SRC_FILES
         ../src/Board.cpp
         ../src/Point.cpp
         ../src/Direction.cpp
+        ../src/Command.cpp
         ../src/Robot.cpp
         ../src/CommandReader.cpp)
 
@@ -39,11 +40,8 @@ else()
     message("Test file path not set. Defaulting to ${TEST_SAMPLES_FILE}")
 endif()
 
-include(CTest)
-include(Catch)
 
 add_executable(test_robot ${SRC_FILES} test_robot.cpp)
 TARGET_LINK_LIBRARIES(test_robot PRIVATE Catch2::Catch2WithMain)
-catch_discover_tests(test_robot)
 
 

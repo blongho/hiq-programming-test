@@ -24,7 +24,7 @@ struct StartCommand {
 
 class Command {
 public:
-    Command(const StartCommand &start, const std::vector<Action> &actions);
+    Command(StartCommand start, std::vector<Action> actions);
 
     Command() = default;
 

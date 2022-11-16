@@ -4,8 +4,11 @@
 
 #include "Command.h"
 #include <sstream>
+#include <utility>
+#include <sstream>
 
-Command::Command(const StartCommand &start, const std::vector<Action> &actions) : start(start), actions(actions) {}
+Command::Command(StartCommand start, std::vector<Action> actions) : start(std::move(start)),
+                                                                    actions(std::move(actions)) {}
 
 const StartCommand &Command::getStart() const {
     return start;
@@ -40,16 +43,16 @@ std::ostream &operator<<(std::ostream &os, const StartCommand &start) {
 
 std::istream &operator>>(std::istream &is, Command &command) {
     StartCommand start;
-    is >> start;
+    //is >> start;
     std::vector<Action> actions;
     std::string action;
-
-    while (std::getline(is, action)) {
-        //std::cout << action << std::endl;
-        if (!action.empty()) {
-            actions.push_back(action);
-        }else{
-            std::cout << action << std::endl;
+    std::string line{};
+    std::string place, direction;
+    uint16_t x{}, y{};
+    while (std::getline(is, line)) {
+        //std::cout << line << std::endl;
+        if (line.find("PLACE") != std::string::npos) {
+            std::cout << "A place command " << line << std::endl;
         }
     }
 

@@ -15,18 +15,22 @@ void CommandReader::readCommand() {
         exit(1);
     } else {
         std::string line{};
-        Command command;
-         ifs >> command;
-         std::cout << command << std::endl;
-         ifs >> command;
-         std::cout << std::string(20, '*') << std::endl
-                   << command << std::endl;
-        /*while (ifs >> command) {
-            std::cout << std::string(20, '=') << std::endl
-                      << command
-                      << std::string(20, '=')
-                      << std::endl << std::endl;
-        }*/
+        StartCommand start;
+        const auto digits{"0123456789"};
+        while (std::getline(ifs, line)) {
+            if (!line.empty()) {
+                if (line.starts_with("PLACE")) {
+                    start.place = line.substr(0, line.find_first_of(' '));
+                    const auto x_position = line.find_first_of(digits);
+                    const auto y_string = line.substr(x_position + 2, line.rfind(','));
+                   // std::cout << y_string << std::endl;
+                    start.x = std::stoi(line.substr(x_position));
+                    start.y = std::stoi(y_string);
+                    start.direction = line.substr(line.rfind(',')+1);
+                }
+            }
+
+        }
     }
 
 }
