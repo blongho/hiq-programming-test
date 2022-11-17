@@ -120,30 +120,30 @@ bool Robot::moveWest() {
 }
 
 bool Robot::isWestMovePossible() const {
-    const std::vector<Point> leftEdges = {{0, 0},
-                                          {1, 0},
-                                          {2, 0},
-                                          {3, 0},
-                                          {4, 0}};
+    const std::vector<Point> leftEdges = {{0, 4},
+                                          {0, 3},
+                                          {0, 2},
+                                          {0, 1},
+                                          {0, 0}};
 
     return std::none_of(leftEdges.cbegin(), leftEdges.cend(), [&](const auto &p) { return p == position; });
 }
 
 bool Robot::isEastMovePossible() const {
-    const std::vector<Point> rightEdges = {{0, 4},
-                                           {1, 4},
-                                           {2, 4},
-                                           {3, 4},
-                                           {4, 4}};
+    const std::vector<Point> rightEdges = {{4, 4},
+                                           {4, 3},
+                                           {4, 2},
+                                           {4, 1},
+                                           {4, 0}};
 
     return std::none_of(rightEdges.cbegin(), rightEdges.cend(), [&](const auto &p) { return p == position; });
 }
 
 bool Robot::isNorthMovePossible() const {
-    const std::vector<Point> topEdges = {{4, 0},
-                                         {4, 1},
-                                         {4, 2},
-                                         {4, 3},
+    const std::vector<Point> topEdges = {{0, 4},
+                                         {1, 4},
+                                         {2, 4},
+                                         {3, 4},
                                          {4, 4}};
 
     return std::none_of(topEdges.cbegin(), topEdges.cend(), [&](const auto &p) { return p == position; });
@@ -151,10 +151,10 @@ bool Robot::isNorthMovePossible() const {
 
 bool Robot::isSouthMovePossible() const {
     const std::vector<Point> bottomEdges = {{0, 0},
-                                            {0, 1},
-                                            {0, 2},
-                                            {0, 3},
-                                            {0, 4}};
+                                            {1, 0},
+                                            {2, 0},
+                                            {3, 0},
+                                            {4, 0}};
 
     return std::none_of(bottomEdges.cbegin(), bottomEdges.cend(), [&](const auto &p) { return p == position; });
 }
