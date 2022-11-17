@@ -9,7 +9,6 @@
 #include <vector>
 #include "Command.h"
 
-
 class CommandReader {
 public:
     void readCommand();

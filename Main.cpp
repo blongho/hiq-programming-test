@@ -3,10 +3,18 @@
 //
 
 #include "CommandReader.h"
+#include "Robot.h"
+
 
 int main() {
-    CommandReader commandReader;
-    commandReader.readCommand();
+    /*CommandReader commandReader;
+    commandReader.readCommand();*/
+    Robot robot({0, 0}, Direction::NORTH);
+    robot.move();
+    robot.right();
+    robot.move();
+    robot.move();
+    robot.report();
     return 0;
 }
 

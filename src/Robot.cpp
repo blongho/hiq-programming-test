@@ -72,6 +72,8 @@ bool Robot::moveNorth() {
     if (isNorthMovePossible()) {
         ++position.y;
         std::cout << "Moved to the north. Current position is (x,y) " << position << "\n";
+        show();
+
         return true;
     }
     std::cout << "Could not move north. Robot might fall. \n";
@@ -83,6 +85,8 @@ bool Robot::moveSouth() {
     if (isSouthMovePossible()) {
         --position.y;
         std::cout << "Moved to the south. Current position is (x,y) " << position << "\n";
+        show();
+
         return true;
     }
     std::cout << "Could not move south. Robot might fall. \n";
@@ -95,6 +99,8 @@ bool Robot::moveEast() {
     if (isEastMovePossible()) {
         ++position.x;
         std::cout << "Moved to the east. Current position is (x,y) " << position << "\n";
+        show();
+
         return true;
     }
     std::cout << "Could not move east. Robot might fall. \n";
@@ -106,6 +112,7 @@ bool Robot::moveWest() {
     if (isWestMovePossible()) {
         --position.x;
         std::cout << "Moved to the west. Current position is (x,y) " << position << "\n";
+        show();
         return true;
     }
     std::cout << "Could not move west. Robot might fall. \n";
