@@ -6,10 +6,10 @@
 struct Point {
     /**
      * A point's parametarized constructor
-     * @param p_x the x value (unsigned short)
-     * @param p_y the y value (unsigned short)
+     * @param p_x the x value (signed int)
+     * @param p_y the y value (signed int)
      */
-    Point(uint16_t p_x, uint16_t p_y);
+    Point(int p_x, int p_y);
 
     /**
      * Default constructor of a Point object
@@ -43,7 +43,7 @@ struct Point {
      * @param y_units the value to be subtracted from this point's y value
      * @return a new point value with the y value minus the value given in this function
      */
-    [[nodiscard]] Point minusY(const uint16_t &y_units) const;
+    [[nodiscard]] Point minusY(const int &y_units) const;
 
     /*!
      * @brief Subtract some units from the x-axis
@@ -51,7 +51,7 @@ struct Point {
      * @param x_units the value to be subtracted from the x-axis
      * @return Point the new Point returned
      */
-    [[nodiscard]] Point minusX(const uint16_t &x_units) const;
+    [[nodiscard]] Point minusX(const int &x_units) const;
 
     /*!
      * @brief Add @param x_units to the x value of this point and return the updated Point
@@ -59,7 +59,7 @@ struct Point {
      * @param x_units the value to be added
      * @return Point the new Point
      */
-    [[nodiscard]] Point plusX(const uint16_t &x_units) const;
+    [[nodiscard]] Point plusX(const int &x_units) const;
 
     /*!
      * @brief Add @param y_units to the y value of this point
@@ -67,10 +67,10 @@ struct Point {
      * @param y_units the units to be added
      * @return Point the new point with the updated y-value
      */
-    [[nodiscard]] Point plusY(const uint16_t &y_units) const;
+    [[nodiscard]] Point plusY(const int &y_units) const;
 
-    uint16_t x{}; /*< The x value of a point */
-    uint16_t y{}; /*< The y value of a point */
+    int x{}; /*< The x value of a point */
+    int y{}; /*< The y value of a point */
     /*!
      * @brief An overloaded ostream operator for printing out a Point
      * 
@@ -78,7 +78,7 @@ struct Point {
      * @param point The point
      * @return std::ostream& the ostream
      */
-friend std::ostream &operator<<(std::ostream &os, const Point &point);
+    friend std::ostream &operator<<(std::ostream &os, const Point &point);
 
 /*!
  * @brief Overloaded istream operator for for reading a Point object
@@ -87,10 +87,9 @@ friend std::ostream &operator<<(std::ostream &os, const Point &point);
  * @param point the point
  * @return std::istream& the returned istream
  */
-friend std::istream &operator>>(std::istream &is, Point &point);
+    friend std::istream &operator>>(std::istream &is, Point &point);
 
 };
-
 
 
 #endif //HIQ_PROGRAMMING_POINT_H

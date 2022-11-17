@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 
 project(hiq_programming_test)
 
-SET(CMAKE_CXX_STANDARD 20)
+SET(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_BUILD_TYPE RELEASE)
 

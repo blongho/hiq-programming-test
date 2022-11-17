@@ -24,7 +24,8 @@ void Board::show(std::ostream &os) const {
 
 void Board::insert(const Point &point, const std::string &c) {
     reset();
-    location[(transformX(point.x))][point.y] = c;
+  //  location[transformValue(point.x)][transformValue(point.y)] = c;
+    location[transformValue(point.y)][point.x] = c;
 }
 
 void Board::reset() {
@@ -36,7 +37,7 @@ void Board::reset() {
 }
 
 
-constexpr uint16_t Board::transformX(const uint16_t &val) {
+constexpr uint16_t Board::transformValue(const uint16_t &val) {
     if (val == 4) return 0;
     if (val == 3) return 1;
     if (val == 2) return 2;

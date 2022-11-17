@@ -7,7 +7,7 @@ Robot::Robot(const Point &p_position, const Direction &p_direction)
         : position{p_position}, direction{p_direction} {}
 
 void Robot::report() {
-    std::cout  <<  '\n' <<position << "," << directionToString(direction) << '\n';
+    std::cout << '\n' << position << "," << directionToString(direction) << '\n';
 }
 
 const Point &Robot::getPosition() const {
@@ -38,18 +38,22 @@ void Robot::left() {
     }
 }
 
-bool Robot::move() {
+void Robot::move() {
+    const auto [x, y] = position;
+    if (x < 0 || y < 0 || x > 4 || y > 4) return;
     switch (direction) {
         case Direction::NORTH:
-            return moveNorth();
+            moveNorth();
+            break;
         case Direction::SOUTH:
-            return moveSouth();
+            moveSouth();
+            break;
         case Direction::EAST:
-            return moveEast();
+            moveEast();
+            break;
         case Direction::WEST:
-            return moveWest();
-        default:
-            return false;
+            moveWest();
+            break;
     }
 }
 
@@ -66,97 +70,60 @@ void Robot::right() {
 }
 
 
-
-bool Robot::moveNorth() {
+void Robot::moveNorth() {
     std::cout << "Attempting to move north...\n";
     if (isNorthMovePossible()) {
         ++position.y;
         std::cout << "Moved to the north. Current position is (x,y) " << position << "\n";
         show();
-
-        return true;
     }
     std::cout << "Could not move north. Robot might fall. \n";
-    return false;
 }
 
-bool Robot::moveSouth() {
+void Robot::moveSouth() {
     std::cout << "Attempting to move south...\n";
     if (isSouthMovePossible()) {
         --position.y;
         std::cout << "Moved to the south. Current position is (x,y) " << position << "\n";
         show();
-
-        return true;
     }
     std::cout << "Could not move south. Robot might fall. \n";
-
-    return false;
 }
 
-bool Robot::moveEast() {
+void Robot::moveEast() {
     std::cout << "Attempting to move east...\n";
     if (isEastMovePossible()) {
         ++position.x;
         std::cout << "Moved to the east. Current position is (x,y) " << position << "\n";
         show();
-
-        return true;
     }
     std::cout << "Could not move east. Robot might fall. \n";
-    return false;
 }
 
-bool Robot::moveWest() {
+void Robot::moveWest() {
     std::cout << "Attempting to move west...\n";
     if (isWestMovePossible()) {
         --position.x;
         std::cout << "Moved to the west. Current position is (x,y) " << position << "\n";
         show();
-        return true;
     }
     std::cout << "Could not move west. Robot might fall. \n";
-    return false;
 }
 
 bool Robot::isWestMovePossible() const {
-    const std::vector<Point> leftEdges = {{0, 4},
-                                          {0, 3},
-                                          {0, 2},
-                                          {0, 1},
-                                          {0, 0}};
-
-    return std::none_of(leftEdges.cbegin(), leftEdges.cend(), [&](const auto &p) { return p == position; });
+    return (position.x - 1) >= 0;
 }
 
 bool Robot::isEastMovePossible() const {
-    const std::vector<Point> rightEdges = {{4, 4},
-                                           {4, 3},
-                                           {4, 2},
-                                           {4, 1},
-                                           {4, 0}};
-
-    return std::none_of(rightEdges.cbegin(), rightEdges.cend(), [&](const auto &p) { return p == position; });
+    return (position.x + 1) < 5;
 }
 
 bool Robot::isNorthMovePossible() const {
-    const std::vector<Point> topEdges = {{0, 4},
-                                         {1, 4},
-                                         {2, 4},
-                                         {3, 4},
-                                         {4, 4}};
-
-    return std::none_of(topEdges.cbegin(), topEdges.cend(), [&](const auto &p) { return p == position; });
+    return (position.y + 1) < 5;
 }
 
 bool Robot::isSouthMovePossible() const {
-    const std::vector<Point> bottomEdges = {{0, 0},
-                                            {1, 0},
-                                            {2, 0},
-                                            {3, 0},
-                                            {4, 0}};
-
-    return std::none_of(bottomEdges.cbegin(), bottomEdges.cend(), [&](const auto &p) { return p == position; });
+    return (position.y - 1) >= 0;
 }
 
 void Robot::show() const {

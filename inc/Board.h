@@ -21,7 +21,7 @@ private:
     static constexpr uint16_t COLUMNS{5};
     std::string location[ROWS][COLUMNS]{};
 
-    static constexpr uint16_t transformX(const uint16_t &val) ;
+    static constexpr uint16_t transformValue(const uint16_t &val) ;
 
 };
 

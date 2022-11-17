@@ -40,8 +40,6 @@ void CommandReader::readCommand()
             }
 
         }
-        testCase.start = start;
-        testCase.commands = commands;
     }
 
 }

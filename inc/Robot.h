@@ -14,7 +14,7 @@ public:
 
     Robot(const Point &p_position, const Direction &p_direction);
 
-    bool move();
+    void move();
 
     void right();
 
@@ -43,13 +43,13 @@ private:
      * @return true if the move is possible, otherwise vale
      */
 
-    bool moveNorth();
+    void moveNorth();
 
-    bool moveSouth();
+    void moveSouth();
 
-    bool moveEast();
+    void moveEast();
 
-    bool moveWest();
+    void moveWest();
 
     [[nodiscard]] bool isWestMovePossible() const;
 

@@ -25,25 +25,25 @@ Point Point::operator-(const Point &other) const {
     return point;
 }
 
-Point Point::minusY(const uint16_t &y_val) const {
+Point Point::minusY(const int &y_val) const {
     const Point tmp(x, y - y_val);
     return tmp;
 }
 
-Point Point::minusX(const uint16_t &x_val) const {
+Point Point::minusX(const int &x_val) const {
     const Point tmp(x - x_val, y);
     return tmp;
 }
 
-Point Point::plusX(const uint16_t &x_val) const {
+Point Point::plusX(const int &x_val) const {
     const Point tmp(x + x_val, y);
     return tmp;
 }
 
-Point Point::plusY(const uint16_t &y_val) const {
+Point Point::plusY(const int &y_val) const {
     const Point tmp(x, y + y_val);
     return tmp;
 }
 
-Point::Point(uint16_t p_x, uint16_t p_y) :
+Point::Point(int p_x, int p_y) :
         x{p_x}, y{p_y} {}
