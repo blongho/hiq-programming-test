@@ -38,8 +38,10 @@ void Robot::left() {
 }
 
 void Robot::move() {
-    const auto [x, y] = position;
-    if (!isRobotOnTheTable()) return;
+    if (!isRobotOnTheTable()) {
+        std::cout << "Cannot make a move on a robot that is not on the table!\n";
+        return;
+    }
 
     switch (direction) {
         case Direction::NORTH:
