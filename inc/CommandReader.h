@@ -14,7 +14,7 @@ class CommandReader {
 public:
     [[nodiscard]] std::vector<TestCase> getTestCases() const;
 
-    CommandReader();
+    CommandReader() = default;
     void readCommand();
 private:
     std::vector<TestCase> testCases;
@@ -27,7 +27,7 @@ private:
 #ifdef TEST_SAMPLES_FILE
     const std::strign test_file = TEST_SAMPLES_FILE;
 #else
-    const std::string test_file{"../sample_data.txt"};
+    const std::string test_file{"../../sample_data.txt"};
 #endif
 
     static Robot extractRobotStateFromPlaceString(const std::string &line);

@@ -6,7 +6,7 @@
 #include <sstream>
 
 void CommandReader::readCommand() {
-    std::ifstream ifs(test_file);
+    std::ifstream ifs("../../samples.txt");
     std::cout << "Reading from " << test_file << std::endl;
     if (!ifs) {
         std::cerr << "Could not read the test file\n";
@@ -18,6 +18,8 @@ void CommandReader::readCommand() {
         std::vector<std::string> tmpCommands;
         while (std::getline(ifs, line)) {
             std::string startString{};
+            if(line.empty())
+                break;
             if (line.find("PLACE") != std::string::npos) {
                 tmpCommands.clear();
                 std::istringstream iss(line);
@@ -27,7 +29,7 @@ void CommandReader::readCommand() {
                 tmpCommands.push_back(line);
             } else if (line.find("Output") != std::string::npos) {
                 endState = extractRobotStateFromOutputString(line);
-                std::cout << "End position is " << endState << std::endl;
+                //std::cout << "End position is " << endState << std::endl;
                 TestCase testCase;
                 testCase.setStartStart(startState);
                 testCase.setActions(tmpCommands);
@@ -47,7 +49,7 @@ Robot CommandReader::extractRobotStateFromPlaceString(const std::string &line) {
     std::string direction{};
     std::istringstream iss(info);
     iss >> x >> c >> y >> direction;
-    Robot robot({x, y}, stringToDirection(direction));
+    const Robot robot({x, y}, stringToDirection(direction));
     return robot;
 }
 
@@ -62,7 +64,7 @@ Robot CommandReader::extractRobotStateFromOutputString(const std::string &line) 
     char c{','};
     std::istringstream iss(info);
     iss >> x >> c >> y >> direction;
-    Robot robot({x, y}, stringToDirection(direction));
+    const Robot robot({x, y}, stringToDirection(direction));
     return robot;
 }
 
@@ -70,5 +72,4 @@ std::vector<TestCase> CommandReader::getTestCases() const {
     return testCases;
 }
 
-CommandReader::CommandReader() {
-}
+

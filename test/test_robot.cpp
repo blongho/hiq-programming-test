@@ -264,7 +264,6 @@ SCENARIO("Testing sample known cases with combination of robot movements") {
             THEN("The robot should be in position (3,3) and facing NORTH") {
                 REQUIRE(robot.getPosition() == Point(3, 3));
                 REQUIRE(robot.getDirection() == Direction::NORTH);
-                std::cout << std::string(15, '*') << "Reporting the robot's position\n";
                 robot.report();
 
             }
@@ -281,7 +280,6 @@ TEST_CASE("Testing from file") {
         const auto& actions = testCase.getActions();
         for (const auto &action: actions) {
             robot.performAction(action);
-
             if (action == "REPORT") {
                 const auto endState = testCase.getEndState();
                 REQUIRE(endState.getPosition() == endState.getPosition());

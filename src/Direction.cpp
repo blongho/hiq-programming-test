@@ -1,6 +1,3 @@
-//
-// Created by bernard.c.longho on 2022-11-15.
-//
 #include "Direction.h"
 
 

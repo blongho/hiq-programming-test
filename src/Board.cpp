@@ -1,6 +1,3 @@
-//
-// Created by Longho Bernard Che on 2022-11-10.
-//
 #include <iomanip>
 
 #include "Board.h"
@@ -11,7 +8,7 @@ Board::Board() {
 }
 
 void Board::show(std::ostream &os) const {
-    std::cout << std::string(15, '-') << "\n";
+    std::cout << std::string(25, '-') << "\n";
 
     for (const auto & row : location) {
         for (const auto & col : row) {
@@ -19,12 +16,11 @@ void Board::show(std::ostream &os) const {
         }
         os << '\n';
     }
-    std::cout << std::string(15, '-') << "\n";
+    std::cout << std::string(25, '-') << "\n";
 }
 
 void Board::insert(const Point &point, const std::string &c) {
     reset();
-  //  location[transformValue(point.x)][transformValue(point.y)] = c;
     location[transformValue(point.y)][point.x] = c;
 }
 
