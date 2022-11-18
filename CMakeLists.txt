@@ -12,7 +12,7 @@ set(SRC_FILES
         src/Point.cpp
         src/Direction.cpp
         src/Robot.cpp
-        src/Command.cpp
+        src/TestCase.cpp
         src/CommandReader.cpp
         )
 

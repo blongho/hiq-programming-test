@@ -149,3 +149,18 @@ void Robot::show() const {
     board.show();
 
 }
+
+std::ostream &operator<<(std::ostream &os, const Robot &robot) {
+    os << robot.getPosition().x << "," << robot.getPosition().y << "," << directionToString(robot.getDirection());
+    return os;
+}
+
+bool Robot::operator==(const Robot &rhs) const {
+    return position == rhs.position &&
+           direction == rhs.direction;
+}
+
+bool Robot::operator!=(const Robot &rhs) const {
+    return !(rhs == *this);
+}
+

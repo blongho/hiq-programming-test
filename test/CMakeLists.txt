@@ -27,7 +27,7 @@ set(SRC_FILES
         ../src/Board.cpp
         ../src/Point.cpp
         ../src/Direction.cpp
-        ../src/Command.cpp
+        ../src/TestCase.cpp
         ../src/Robot.cpp
         ../src/CommandReader.cpp)
 

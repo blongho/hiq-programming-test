@@ -32,9 +32,13 @@ public:
 
     void show() const;
 
+    bool operator==(const Robot &rhs) const;
+
+    bool operator!=(const Robot &rhs) const;
+
 private:
     Point position{};
-    Direction direction{Direction::WEST};
+    Direction direction{};
 
     /**
      * Check if a move is possible or not
@@ -58,9 +62,10 @@ private:
     [[nodiscard]] bool isNorthMovePossible() const;
 
     [[nodiscard]] bool isSouthMovePossible() const;
+
+    friend std::ostream &operator<<(std::ostream &os, const Robot &robot);
+
 };
-
-
 
 
 #endif //HIQ_PROGRAMMING_ROBOT_H
