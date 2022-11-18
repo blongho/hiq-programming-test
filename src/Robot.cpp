@@ -200,3 +200,18 @@ bool Robot::isRobotOnTheTable() const {
     return (x >= 0 && x <= 4 && y >= 0 && y <= 4);
 }
 
+void Robot::performAction(const std::string &action) {
+    if (action == "MOVE") {
+        move();
+    }
+    if (action == "LEFT") {
+        left();
+    }
+    if (action == "RIGHT") {
+        right();
+    }
+    if (action == "REPORT") {
+        report();
+    }
+}
+

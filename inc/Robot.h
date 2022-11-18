@@ -32,6 +32,8 @@ public:
 
     bool operator!=(const Robot &rhs) const;
 
+    void performAction(const std::string &action);
+
 private:
     Point position{};
     Direction direction{};

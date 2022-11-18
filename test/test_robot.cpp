@@ -80,9 +80,7 @@ SCENARIO("Testing legal moves towards the west") {
             for (const auto &position: rightEdges) {
                 Robot robot(position, Direction::WEST);
                 for (auto j = 1; j <= maxLegalMoves; j++) {
-                    std::cout << "Position before move=" << robot.getPosition() << ", j=" << j << "\n";
                     robot.move();
-                    std::cout << "Position after move=" << robot.getPosition() << "\n\n";
                     if (position.minusX(j).x >= 0)
                         REQUIRE(robot.getPosition() == position.minusX(j));
                     REQUIRE(robot.getDirection() == Direction::WEST);
@@ -105,9 +103,7 @@ SCENARIO("Testing legal moves towards the east, no rotation") {
             for (const auto &position: leftEdges) {
                 Robot robot(position, Direction::EAST);
                 for (auto i = 1; i <= maxLegalMoves; ++i) {
-                    std::cout << "Position before move=" << robot.getPosition() << ", i=" << i << "\n";
                     robot.move();
-                    std::cout << "Position after move=" << robot.getPosition() << "\n\n";
                     if (position.plusX(i).x <= 4)
                         REQUIRE(robot.getPosition() == position.plusX(i));
                     REQUIRE(robot.getDirection() == Direction::EAST);
@@ -130,9 +126,7 @@ SCENARIO("Testing legal moves towards the north") {
             for (const auto &position: bottomEdges) {
                 Robot robot(position, Direction::NORTH);
                 for (auto i = 1; i <= maxLegalMoves; ++i) {
-                    std::cout << "Position before move=" << robot.getPosition() << ", i=" << i << "\n";
                     robot.move();
-                    std::cout << "Position after move=" << robot.getPosition() << "\n\n";
                     if (position.plusY(i).y < 5)
                         REQUIRE(robot.getPosition() == position.plusY(i));
                     REQUIRE(robot.getDirection() == Direction::NORTH);
@@ -154,9 +148,7 @@ SCENARIO("Testing legal moves towards the south") {
             for (const auto &position: topEdges) {
                 Robot robot(position, Direction::SOUTH);
                 for (auto i = 1; i <= maxLegalMoves; ++i) {
-                    std::cout << "Position before move=" << robot.getPosition() << ", i=" << i << "\n";
                     robot.move();
-                    std::cout << "Position after move=" << robot.getPosition() << "\n\n";
                     if (position.y - i >= 0)
                         REQUIRE(robot.getPosition() == position.minusY(i));
                     REQUIRE(robot.getDirection() == Direction::SOUTH);
@@ -276,6 +268,26 @@ SCENARIO("Testing sample known cases with combination of robot movements") {
                 robot.report();
 
             }
+        }
+    }
+}
+
+TEST_CASE("Testing from file") {
+    CommandReader reader;
+    reader.readCommand();
+    const auto testCases = reader.getTestCases();
+    for (const auto &testCase: testCases) {
+        Robot robot = testCase.getStartStart();
+        const auto& actions = testCase.getActions();
+        for (const auto &action: actions) {
+            robot.performAction(action);
+
+            if (action == "REPORT") {
+                const auto endState = testCase.getEndState();
+                REQUIRE(endState.getPosition() == endState.getPosition());
+                REQUIRE(endState.getDirection() == endState.getDirection());
+            }
+
         }
     }
 }

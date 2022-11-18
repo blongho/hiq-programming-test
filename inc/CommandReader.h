@@ -12,13 +12,15 @@
 
 class CommandReader {
 public:
+    [[nodiscard]] std::vector<TestCase> getTestCases() const;
+
+    CommandReader();
     void readCommand();
-
-
 private:
     std::vector<TestCase> testCases;
-public:
-    const std::vector<TestCase> &getTestCases() const;
+
+
+
 
 private:
 
@@ -28,11 +30,11 @@ private:
     const std::string test_file{"../sample_data.txt"};
 #endif
 
-    static Robot extractRobotStateFromPlaceString(const std::string &line) ;
+    static Robot extractRobotStateFromPlaceString(const std::string &line);
 
-    static bool isCommand(const std::string& basicString);
+    static bool isCommand(const std::string &basicString);
 
-    static Robot extractRobotStateFromOutputString(const std::string& basicString);
+    static Robot extractRobotStateFromOutputString(const std::string &basicString);
 };
 
 

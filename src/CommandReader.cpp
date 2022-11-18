@@ -1,7 +1,3 @@
-//
-// Created by Longho Bernard Che on 2022-11-11.
-//
-
 #include "CommandReader.h"
 #include <iostream>
 #include "TestCase.h"
@@ -31,7 +27,7 @@ void CommandReader::readCommand() {
                 tmpCommands.push_back(line);
             } else if (line.find("Output") != std::string::npos) {
                 endState = extractRobotStateFromOutputString(line);
-                //std::cout << "End position is " << endState << std::endl;
+                std::cout << "End position is " << endState << std::endl;
                 TestCase testCase;
                 testCase.setStartStart(startState);
                 testCase.setActions(tmpCommands);
@@ -70,6 +66,9 @@ Robot CommandReader::extractRobotStateFromOutputString(const std::string &line) 
     return robot;
 }
 
-const std::vector<TestCase> &CommandReader::getTestCases() const {
+std::vector<TestCase> CommandReader::getTestCases() const {
     return testCases;
+}
+
+CommandReader::CommandReader() {
 }

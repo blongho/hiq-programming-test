@@ -4,8 +4,6 @@ project(hiq_programming_test)
 
 SET(CMAKE_CXX_STANDARD 17)
 
-set(CMAKE_BUILD_TYPE RELEASE)
-
 SET(TEST_SAMPLES_FILE "${CMAKE_SOURCE_DIR}/samples.txt" CACHE STRING "Path to file containing test cases")
 
 include(FetchContent)
@@ -23,13 +21,14 @@ MACRO(add_test_file name src)
     TARGET_LINK_LIBRARIES(${name} PRIVATE Catch2::Catch2WithMain)
 ENDMACRO()
 
-set(SRC_FILES
+set(SRC
         ../src/Board.cpp
         ../src/Point.cpp
         ../src/Direction.cpp
-        ../src/TestCase.cpp
         ../src/Robot.cpp
-        ../src/CommandReader.cpp)
+        ../src/TestCase.cpp
+        ../src/CommandReader.cpp
+        )
 
 #add_test_file(test_board ../src/Board.cpp)
 #add_test_file(test_point ../src/Point.cpp)
@@ -41,7 +40,7 @@ else()
 endif()
 
 
-add_executable(test_robot ${SRC_FILES} test_robot.cpp)
+add_executable(test_robot ${SRC}  test_robot.cpp)
 TARGET_LINK_LIBRARIES(test_robot PRIVATE Catch2::Catch2WithMain)
 
 
