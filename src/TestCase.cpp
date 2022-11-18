@@ -1,7 +1,3 @@
-//
-// Created by Longho Bernard Che on 2022-11-13.
-//
-
 #include "TestCase.h"
 #include <sstream>
 #include <utility>

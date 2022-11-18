@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <vector>
 #include "Robot.h"
 
 Robot::Robot(const Point &p_position, const Direction &p_direction)
@@ -40,7 +39,8 @@ void Robot::left() {
 
 void Robot::move() {
     const auto [x, y] = position;
-    if (x < 0 || y < 0 || x > 4 || y > 4) return;
+    if (!isRobotOnTheTable()) return;
+
     switch (direction) {
         case Direction::NORTH:
             moveNorth();
@@ -71,59 +71,87 @@ void Robot::right() {
 
 
 void Robot::moveNorth() {
-    std::cout << "Attempting to move north...\n";
+    std::cout << "Attempting to move north. State: " << *this << std::endl;
     if (isNorthMovePossible()) {
         ++position.y;
-        std::cout << "Moved to the north. Current position is (x,y) " << position << "\n";
+        std::cout << "Moved to the north. State: " << *this << "\n";
         show();
     }
-    std::cout << "Could not move north. Robot might fall. \n";
 }
 
 void Robot::moveSouth() {
     std::cout << "Attempting to move south...\n";
     if (isSouthMovePossible()) {
         --position.y;
-        std::cout << "Moved to the south. Current position is (x,y) " << position << "\n";
+        std::cout << "Moved to the south. State: " << *this << "\n";
         show();
     }
-    std::cout << "Could not move south. Robot might fall. \n";
 }
 
 void Robot::moveEast() {
-    std::cout << "Attempting to move east...\n";
+    std::cout << "Attempting to move east. State: " << *this << "\n";
     if (isEastMovePossible()) {
         ++position.x;
-        std::cout << "Moved to the east. Current position is (x,y) " << position << "\n";
+        std::cout << "Moved to the east. State: " << *this << "\n";
         show();
     }
-    std::cout << "Could not move east. Robot might fall. \n";
 }
 
 void Robot::moveWest() {
-    std::cout << "Attempting to move west...\n";
+    std::cout << "Attempting to move west. State: " << *this << "\n";
     if (isWestMovePossible()) {
         --position.x;
-        std::cout << "Moved to the west. Current position is (x,y) " << position << "\n";
+        std::cout << "Moved to the west. State: " << *this << "\n";
         show();
     }
-    std::cout << "Could not move west. Robot might fall. \n";
 }
 
 bool Robot::isWestMovePossible() const {
-    return (position.x - 1) >= 0;
+    if (!isRobotOnTheTable()) {
+        std::cout << "Robot is not on the table. Move not possible!\n";
+        return false;
+    }
+    if ((position.x - 1) < 0) {
+        std::cout << "Robot will fall if this move is made. State: " << *this << std::endl;
+        return false;
+    }
+    return true;
 }
 
 bool Robot::isEastMovePossible() const {
-    return (position.x + 1) < 5;
+    if (!isRobotOnTheTable()) {
+        std::cout << "Robot is not on the table. Move not possible!\n";
+        return false;
+    }
+    if ((position.x + 1) > 4) {
+        std::cout << "Robot will fall if this move is made. State: " << *this << std::endl;
+        return false;
+    }
+    return true;
 }
 
 bool Robot::isNorthMovePossible() const {
-    return (position.y + 1) < 5;
+    if (!isRobotOnTheTable()) {
+        std::cout << "Robot is not on the table. Move not possible!\n";
+        return false;
+    }
+    if ((position.y + 1) > 4) {
+        std::cout << "Robot will fall if this move is made. State: " << *this << std::endl;
+        return false;
+    }
+    return true;
 }
 
 bool Robot::isSouthMovePossible() const {
-    return (position.y - 1) >= 0;
+    if (!isRobotOnTheTable()) {
+        std::cout << "Robot is not on the table. Move not possible!\n";
+        return false;
+    }
+    if ((position.y - 1) < 0) {
+        std::cout << "Robot will fall if this move is made. State: " << *this << std::endl;
+        return false;
+    }
+    return true;
 }
 
 void Robot::show() const {
@@ -151,7 +179,8 @@ void Robot::show() const {
 }
 
 std::ostream &operator<<(std::ostream &os, const Robot &robot) {
-    os << robot.getPosition().x << "," << robot.getPosition().y << "," << directionToString(robot.getDirection());
+    const auto [x, y] = robot.getPosition();
+    os << x << "," << y << "," << directionToString(robot.getDirection());
     return os;
 }
 
@@ -162,5 +191,10 @@ bool Robot::operator==(const Robot &rhs) const {
 
 bool Robot::operator!=(const Robot &rhs) const {
     return !(rhs == *this);
+}
+
+bool Robot::isRobotOnTheTable() const {
+    const auto [x, y] = position;
+    return (x >= 0 && x <= 4 && y >= 0 && y <= 4);
 }
 

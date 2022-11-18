@@ -1,7 +1,3 @@
-//
-// Created by bernard.c.longho on 2022-11-10.
-//
-
 #ifndef HIQ_PROGRAMMING_ROBOT_H
 #define HIQ_PROGRAMMING_ROBOT_H
 
@@ -28,7 +24,7 @@ public:
 
     [[nodiscard]] const Direction &getDirection() const;
 
-    void setDirection(Direction direction);
+    [[maybe_unused]] void setDirection(Direction direction);
 
     void show() const;
 
@@ -41,27 +37,76 @@ private:
     Direction direction{};
 
     /**
-     * Check if a move is possible or not
-     * A move is not possible if the current robot position is outside of the table <br>
-     * A move is also not possible if the next move results in the robot falling off the table
-     * @return true if the move is possible, otherwise vale
+     * Make a one step move towards the north (up). <br>Increases the position of the robot one unit towards the y-axis
      */
-
     void moveNorth();
 
+    /**
+     * Make a one step move towards the south (down). <br>Decreases the position of the robot one unit in the y-axis <br>
+     *
+     * Pre-condition<br>
+     * The robot is on the table and not at the bottom <br>
+     *
+     * Post-condition <br>
+     * The robot's position is decreased by 1 unit in the y-axis
+     */
     void moveSouth();
 
+    /**
+     * Make a one step move towards the east (right). <br>Increases the position of the robot one unit in the x-axis <br>
+     *
+     * Pre-condition<br>
+     * The robot is on the table and not at the edge right edge<br>
+     *
+     * Post-condition<br>
+     * The robot's position is increased by 1 unit in the x-axis
+     */
     void moveEast();
 
+    /**
+     * Make a one step move towards the west (left). <br>Decreases the position of the robot by one unit in the x-axis <br>
+     *
+     * Pre-condition <br>
+     * The robot is on the table and the robot is not at the left edge <br>
+     *
+     * Post-condition <br>
+     * The robot's position is decreased by 1 unit in the x-axis
+     */
     void moveWest();
 
+    /**
+     * Check if it is possible to make a move towards the west<br>
+     * A move is possible if the robot is on the table and the robot will not fall if it made the move
+     * @return true if the move is possible, otherwise false
+     */
     [[nodiscard]] bool isWestMovePossible() const;
 
+    /**
+    * Check if it is possible to make a move towards the east<br>
+    * A move is possible if the robot is on the table and the robot will not fall if it made the move
+    * @return true if the move is possible, otherwise false
+    */
     [[nodiscard]] bool isEastMovePossible() const;
 
+    /**
+    * Check if it is possible to make a move towards the north<br>
+    * A move is possible if the robot is on the table and the robot will not fall if it made the move
+    * @return true if the move is possible, otherwise false
+    */
     [[nodiscard]] bool isNorthMovePossible() const;
 
+    /**
+    * Check if it is possible to make a move towards the south<br>
+    * A move is possible if the robot is on the table and the robot will not fall if it made the move
+    * @return true if the move is possible, otherwise false
+    */
     [[nodiscard]] bool isSouthMovePossible() const;
+
+    /**
+     * Check if the robot is on the table or not
+     * @return true if the robot is on the table, otherwise false
+     */
+    [[nodiscard]] bool isRobotOnTheTable() const;
 
     friend std::ostream &operator<<(std::ostream &os, const Robot &robot);
 
