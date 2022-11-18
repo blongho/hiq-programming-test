@@ -9,7 +9,6 @@ Board::Board() {
 
 void Board::show(std::ostream &os) const {
     std::cout << std::string(25, '-') << "\n";
-
     for (const auto & row : location) {
         for (const auto & col : row) {
             os << '[' << std::setw(3) <<  col << ']';

@@ -4,8 +4,8 @@
 #include <sstream>
 
 
-TestCase::TestCase(const Robot &startStart, const std::vector<Action> &actions, const Robot &endState) : startStart(
-        startStart), actions(actions), endState(endState) {}
+TestCase::TestCase(const Robot &startStart, std::vector<Action> actions, const Robot &endState) : startStart(
+        startStart), actions(std::move(actions)), endState(endState) {}
 
 const std::vector<Action> &TestCase::getActions() const {
     return actions;

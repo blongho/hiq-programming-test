@@ -23,7 +23,8 @@ Direction stringToDirection(const std::string &direction) {
         return Direction::SOUTH;
     } else if (direction == "WEST") {
         return Direction::WEST;
-    } else {
+    } else if (direction == "EAST") {
         return Direction::EAST;
     }
+    return Direction::EAST;
 }

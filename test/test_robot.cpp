@@ -277,15 +277,15 @@ TEST_CASE("Testing from file") {
     const auto testCases = reader.getTestCases();
     for (const auto &testCase: testCases) {
         Robot robot = testCase.getStartStart();
-        const auto& actions = testCase.getActions();
+        const auto &actions = testCase.getActions();
         for (const auto &action: actions) {
-            robot.performAction(action);
             if (action == "REPORT") {
                 const auto endState = testCase.getEndState();
                 REQUIRE(endState.getPosition() == endState.getPosition());
                 REQUIRE(endState.getDirection() == endState.getDirection());
+            } else {
+                robot.performAction(action);
             }
-
         }
     }
 }

@@ -6,7 +6,7 @@
 #include <sstream>
 
 void CommandReader::readCommand() {
-    std::ifstream ifs("../../samples.txt");
+    std::ifstream ifs(test_file);
     std::cout << "Reading from " << test_file << std::endl;
     if (!ifs) {
         std::cerr << "Could not read the test file\n";
@@ -17,7 +17,6 @@ void CommandReader::readCommand() {
         std::string line{};
         std::vector<std::string> tmpCommands;
         while (std::getline(ifs, line)) {
-            std::string startString{};
             if(line.empty())
                 break;
             if (line.find("PLACE") != std::string::npos) {

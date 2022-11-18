@@ -6,7 +6,7 @@ Robot::Robot(const Point &p_position, const Direction &p_direction)
         : position{p_position}, direction{p_direction} {}
 
 void Robot::report() {
-    std::cout << '\n' << position << "," << directionToString(direction) << '\n';
+   std::cout << "Output: " << position << "," << directionToString(direction) << '\n';
 }
 
 const Point &Robot::getPosition() const {
@@ -73,7 +73,7 @@ void Robot::right() {
 
 
 void Robot::moveNorth() {
-    std::cout << "Attempting to move north. State: " << *this << std::endl;
+    std::cout << "Attempting to move north. State: " << *this  << "\n";
     if (isNorthMovePossible()) {
         ++position.y;
         std::cout << "Moved to the north. State: " << *this << "\n";

@@ -5,7 +5,7 @@
 
 struct Point {
     /**
-     * A point's parametarized constructor
+     * A point's parameterized constructor
      * @param p_x the x value (signed int)
      * @param p_y the y value (signed int)
      */
@@ -80,13 +80,13 @@ struct Point {
      */
     friend std::ostream &operator<<(std::ostream &os, const Point &point);
 
-/*!
- * @brief Overloaded istream operator for for reading a Point object
- * 
- * @param is the istream operator
- * @param point the point
- * @return std::istream& the returned istream
- */
+    /*!
+     * @brief Overloaded istream operator for for reading a Point object
+     *
+     * @param is the istream operator
+     * @param point the point
+     * @return std::istream& the returned istream
+     */
     friend std::istream &operator>>(std::istream &is, Point &point);
 
 };

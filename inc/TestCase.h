@@ -15,7 +15,7 @@ using Action = std::string;
 
 class TestCase {
 public:
-    TestCase(const Robot &startStart, const std::vector<Action> &actions, const Robot &endState);
+    TestCase(const Robot &startStart, std::vector<Action> actions, const Robot &endState);
 
     TestCase() = default;
 
