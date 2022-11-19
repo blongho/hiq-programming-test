@@ -126,11 +126,10 @@ TEST_CASE("Testing from file") {
         const auto &actions = testCase.getActions();
 
         for (const auto &action: actions) {
-            if (action == "REPORT") {
+            if (action == Action::REPORT) {
                 std::cout << "Start state : " << testCase.getStartStart() << "\nEnd  stata: " << testCase.getEndState()
                           << std::endl;
-                REQUIRE(robot.getPosition() == expected.getPosition());
-                REQUIRE(directionToString(robot.getDirection()) == directionToString(expected.getDirection()));
+                REQUIRE(robot == expected);
             } else {
                 robot.performAction(action);
             }

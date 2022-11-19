@@ -15,7 +15,7 @@ void TestCaseReader::readCommand() {
         Robot startState;
         Robot endState;
         std::string line{};
-        std::vector<std::string> tmpCommands;
+        std::vector<Action> tmpCommands;
         while (std::getline(ifs, line)) {
             if (!line.empty() || line[0] == '#') {
                 if (line.find("PLACE") != std::string::npos) {
@@ -24,7 +24,7 @@ void TestCaseReader::readCommand() {
                     startState = extractRobotStateFromPlaceString(line);
                     //std::cout << "Start position is " << startState << std::endl;
                 } else if (isCommand(line)) {
-                    tmpCommands.push_back(line);
+                    tmpCommands.push_back(actionFromString(line));
                 } else if (line.find("Output") != std::string::npos) {
                     endState = extractRobotStateFromOutputString(line);
                     //std::cout << "End position is " << endState << std::endl;

@@ -14,33 +14,34 @@ const Point &Robot::getPosition() const {
     return position;
 }
 
-void Robot::setPosition(const Point &p_position) {
-    position = p_position;
-}
 
 const Direction &Robot::getDirection() const {
     return direction;
 }
 
-void Robot::setDirection(Direction p_direction) {
-    direction = p_direction;
-}
 
 void Robot::left() {
     if (!isRobotOnTheTable()) {
         std::cout << "Robot is not on the table. Left turn not possible!\n";
         return;
     }
-    if (direction == Direction::NORTH) {
-        direction = Direction::WEST;
-    } else if (direction == Direction::WEST) {
-        direction = Direction::SOUTH;
-    } else if (direction == Direction::SOUTH) {
-        direction = Direction::EAST;
-    } else {
-        direction = Direction::NORTH;
+    switch (direction) {
+        case Direction::NORTH:
+            direction = Direction::WEST;
+            break;
+        case Direction::SOUTH:
+            direction = Direction::EAST;
+            break;
+        case Direction::EAST:
+            direction = Direction::NORTH;
+            break;
+        case Direction::WEST:
+            direction = Direction::SOUTH;
+            break;
+        case Direction::NONE:
+            direction = Direction::NONE;
+            break;
     }
-
 }
 
 void Robot::move() {
@@ -61,6 +62,8 @@ void Robot::move() {
         case Direction::WEST:
             moveWest();
             break;
+        case Direction::NONE:
+            break;
     }
 }
 
@@ -69,16 +72,22 @@ void Robot::right() {
         std::cout << "Robot is not on the table. Right turn not possible!\n";
         return;
     }
-    if (direction == Direction::NORTH) {
-        direction = Direction::EAST;
-    } else if (direction == Direction::WEST) {
-        direction = Direction::NORTH;
-    } else if (direction == Direction::SOUTH) {
-        direction = Direction::WEST;
-    } else if (direction == Direction::EAST) {
-        direction = Direction::SOUTH;
+    switch (direction) {
+        case Direction::NORTH:
+            direction = Direction::EAST;
+            break;
+        case Direction::SOUTH:
+            direction = Direction::WEST;
+            break;
+        case Direction::EAST:
+            direction = Direction::SOUTH;
+            break;
+        case Direction::WEST:
+            direction = Direction::NORTH;
+            break;
+        case Direction::NONE:
+            break;
     }
-
 }
 
 
@@ -178,6 +187,9 @@ void Robot::show() const {
         case Direction::WEST:
             arrow = "<-R";
             break;
+        case Direction::NONE:
+            arrow = "";
+            break;
     }
 
     board.insert(position, arrow);
@@ -196,27 +208,29 @@ bool Robot::operator==(const Robot &rhs) const {
            direction == rhs.direction;
 }
 
-bool Robot::operator!=(const Robot &rhs) const {
-    return !(rhs == *this);
-}
-
 bool Robot::isRobotOnTheTable() const {
     const auto [x, y] = position;
     return (x >= 0 && x <= 4 && y >= 0 && y <= 4);
 }
 
-void Robot::performAction(const std::string &action) {
-    if (action == "MOVE") {
-        move();
+void Robot::performAction(const Action &action) {
+    switch (action) {
+        case Action::MOVE:
+            move();
+            break;
+        case Action::LEFT:
+            left();
+            break;
+        case Action::RIGHT:
+            right();
+            break;
+        case Action::REPORT:
+            report();
+            break;
+        case Action::NONE:
+            break;
     }
-    if (action == "LEFT") {
-        left();
-    }
-    if (action == "RIGHT") {
-        right();
-    }
-    if (action == "REPORT") {
-        report();
-    }
+
 }
+
 

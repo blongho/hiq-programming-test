@@ -20,6 +20,7 @@ set(SRC
         ../src/Board.cpp
         ../src/Point.cpp
         ../src/Direction.cpp
+        ../src/Action.cpp
         ../src/Robot.cpp
         ../src/TestCase.cpp
         ../src/TestCaseReader.cpp
