@@ -19,4 +19,6 @@ set(SRC_FILES
 
 add_executable(app ${SRC_FILES} Main.cpp)
 
+enable_testing()
+
 add_subdirectory(test)

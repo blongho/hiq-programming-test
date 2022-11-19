@@ -1,14 +1,19 @@
 # HIQ Programming Test for C++ Developer
 
-## Task description 
+## Task description
+
 - [Programming-exercise.pdf](programming-exercise.pdf)
 
 ## How to run this
-1. Clone the reposition 
+
+1. Clone the reposition
+
 ```shell
 git clone https://github.com/blongho/hiq-programming-test.git 
  ```
-The file structure should be like this 
+
+The file structure should be like this
+
 ```txt
 hiq-programming-test.git /
 ├── CMakeLists.txt
@@ -22,23 +27,38 @@ hiq-programming-test.git /
 └── test_cases.txt // program's test cases if nothing is defined (see below)
 ```
 
-2. Build and test the program
+Structure of the test file
+[test_cases.txt](test_cases.txt)
+
+2. Move to the newly downloaded project root directory
+
 ```shell
-# 2.1 Move 
 cd hiq-programming-test 
+```
 
-# 2.2 Create the build directory and move to it
+3. Create the build directory and move to it
+
+```shell
 mkdir build && cd build 
+```
 
-# 2.3 compile with cmake 
+4. Compile with cmake
+
+```shell 
 cmake .. -DTEST_SAMPLES_FILE="test.txt" -DCMAKE_BUILD_TYPE=Release
+```
 
-# 2.4 Make the project
+5. Build the project executables
+
+```shell 
 make -j6
+```
 
-# 2.6 Run the tests
+6. Run the tests
+
+```shell 
 ./test/test
-# where test is the file containing the tests
- ```
+```
+
 
 

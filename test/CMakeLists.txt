@@ -40,8 +40,8 @@ else ()
     message(STATUS "Test file path not set. Defaulting to ${TEST_SAMPLES_FILE}")
 endif ()
 
-add_executable(test ${SRC} ${TEST_FILES})
+add_executable(test_app ${SRC} ${TEST_FILES})
 
-TARGET_LINK_LIBRARIES(test PRIVATE Catch2::Catch2WithMain)
+TARGET_LINK_LIBRARIES(test_app PRIVATE Catch2::Catch2WithMain)
 
 
