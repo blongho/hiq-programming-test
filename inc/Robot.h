@@ -114,5 +114,4 @@ private:
 
 };
 
-
 #endif //HIQ_PROGRAMMING_ROBOT_H

@@ -1,6 +1,6 @@
 #include <catch2/catch_test_macros.hpp>
 #include "Robot.h"
-#include "CommandReader.h"
+#include "TestCaseReader.h"
 
 
 SCENARIO("The robot will not move when at the edge") {
@@ -272,17 +272,21 @@ SCENARIO("Testing sample known cases with combination of robot movements") {
 }
 
 TEST_CASE("Testing from file") {
-    CommandReader reader;
+    TestCaseReader reader;
     reader.readCommand();
     const auto testCases = reader.getTestCases();
+
     for (const auto &testCase: testCases) {
         Robot robot = testCase.getStartStart();
+        Robot expected = testCase.getEndState();
         const auto &actions = testCase.getActions();
+
         for (const auto &action: actions) {
             if (action == "REPORT") {
-                const auto endState = testCase.getEndState();
-                REQUIRE(endState.getPosition() == endState.getPosition());
-                REQUIRE(endState.getDirection() == endState.getDirection());
+                std::cout << "Start state : " << testCase.getStartStart() << "\nEnd  stata: " << testCase.getEndState()
+                          << std::endl;
+                REQUIRE(robot.getPosition() == expected.getPosition());
+                REQUIRE(directionToString(robot.getDirection()) == directionToString(expected.getDirection()));
             } else {
                 robot.performAction(action);
             }

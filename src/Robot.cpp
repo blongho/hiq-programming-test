@@ -6,7 +6,8 @@ Robot::Robot(const Point &p_position, const Direction &p_direction)
         : position{p_position}, direction{p_direction} {}
 
 void Robot::report() {
-   std::cout << "Output: " << position << "," << directionToString(direction) << '\n';
+    std::cout << "\nRobot [" << position << "," << directionToString(direction) << "]\n";
+    show();
 }
 
 const Point &Robot::getPosition() const {
@@ -26,6 +27,10 @@ void Robot::setDirection(Direction p_direction) {
 }
 
 void Robot::left() {
+    if (!isRobotOnTheTable()) {
+        std::cout << "Robot is not on the table. Left turn not possible!\n";
+        return;
+    }
     if (direction == Direction::NORTH) {
         direction = Direction::WEST;
     } else if (direction == Direction::WEST) {
@@ -35,6 +40,7 @@ void Robot::left() {
     } else {
         direction = Direction::NORTH;
     }
+
 }
 
 void Robot::move() {
@@ -42,7 +48,6 @@ void Robot::move() {
         std::cout << "Cannot make a move on a robot that is not on the table!\n";
         return;
     }
-
     switch (direction) {
         case Direction::NORTH:
             moveNorth();
@@ -60,6 +65,10 @@ void Robot::move() {
 }
 
 void Robot::right() {
+    if (!isRobotOnTheTable()) {
+        std::cout << "Robot is not on the table. Right turn not possible!\n";
+        return;
+    }
     if (direction == Direction::NORTH) {
         direction = Direction::EAST;
     } else if (direction == Direction::WEST) {
@@ -69,15 +78,15 @@ void Robot::right() {
     } else if (direction == Direction::EAST) {
         direction = Direction::SOUTH;
     }
+
 }
 
 
 void Robot::moveNorth() {
-    std::cout << "Attempting to move north. State: " << *this  << "\n";
+    std::cout << "Attempting to move north. State: " << *this << "\n";
     if (isNorthMovePossible()) {
         ++position.y;
         std::cout << "Moved to the north. State: " << *this << "\n";
-        show();
     }
 }
 
@@ -86,7 +95,6 @@ void Robot::moveSouth() {
     if (isSouthMovePossible()) {
         --position.y;
         std::cout << "Moved to the south. State: " << *this << "\n";
-        show();
     }
 }
 
@@ -95,7 +103,6 @@ void Robot::moveEast() {
     if (isEastMovePossible()) {
         ++position.x;
         std::cout << "Moved to the east. State: " << *this << "\n";
-        show();
     }
 }
 
@@ -104,7 +111,6 @@ void Robot::moveWest() {
     if (isWestMovePossible()) {
         --position.x;
         std::cout << "Moved to the west. State: " << *this << "\n";
-        show();
     }
 }
 
@@ -160,7 +166,6 @@ void Robot::show() const {
     Board board;
     std::string arrow{};
     switch (direction) {
-
         case Direction::NORTH:
             arrow = "R^";
             break;

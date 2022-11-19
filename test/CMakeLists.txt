@@ -27,7 +27,7 @@ set(SRC
         ../src/Direction.cpp
         ../src/Robot.cpp
         ../src/TestCase.cpp
-        ../src/CommandReader.cpp
+        ../src/TestCaseReader.cpp
         )
 
 #add_test_file(test_board ../src/Board.cpp)

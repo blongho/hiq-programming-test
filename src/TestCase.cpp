@@ -3,7 +3,6 @@
 #include <utility>
 #include <sstream>
 
-
 TestCase::TestCase(const Robot &startStart, std::vector<Action> actions, const Robot &endState) : startStart(
         startStart), actions(std::move(actions)), endState(endState) {}
 

@@ -4,10 +4,11 @@
 #include <string>
 
 enum class Direction {
-    NORTH = 0,
+    NORTH,
     SOUTH,
     EAST,
-    WEST
+    WEST,
+    NONE
 };
 
 std::string directionToString(const Direction &direction);

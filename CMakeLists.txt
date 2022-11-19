@@ -13,7 +13,7 @@ set(SRC_FILES
         src/Direction.cpp
         src/Robot.cpp
         src/TestCase.cpp
-        src/CommandReader.cpp
+        src/TestCaseReader.cpp
         )
 
 add_executable(app ${SRC_FILES} Main.cpp)

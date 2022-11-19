@@ -12,7 +12,7 @@ std::string directionToString(const Direction &direction) {
         case Direction::WEST:
             return "WEST";
         default:
-            return "";
+            return "NONE";
     }
 }
 
@@ -25,6 +25,7 @@ Direction stringToDirection(const std::string &direction) {
         return Direction::WEST;
     } else if (direction == "EAST") {
         return Direction::EAST;
+    } else {
+        return Direction::NONE;
     }
-    return Direction::EAST;
 }

@@ -1,5 +1,6 @@
 #include "Point.h"
 
+
 Point::Point(int p_x, int p_y) :
         x{p_x}, y{p_y} {}
 
@@ -46,4 +47,8 @@ std::istream &operator>>(std::istream &is, Point &point) {
 
 bool Point::operator==(const Point &other) const {
     return x == other.x && y == other.y;
+}
+
+bool Point::isValid() const {
+    return x >= 0 && x <= 4 && y >= 0 && y <= 4;
 }

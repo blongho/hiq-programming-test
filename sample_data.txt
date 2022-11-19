@@ -2,10 +2,12 @@ PLACE 0,0,NORTH
 MOVE
 REPORT
 Output: 0,1,NORTH
+
 PLACE 0,0,NORTH
 LEFT
 REPORT
 Output: 0,0,WEST
+
 PLACE 1,2,EAST
 MOVE
 MOVE
@@ -13,15 +15,120 @@ LEFT
 MOVE
 REPORT
 Output: 3,3,NORTH
-PLACE 0,4,EAST
+
+# ------- Testing that the robot will not fall off in the left edge of the table (0,0), (0,1), (0,2), (0,3), (0,4) WEST
+
+PLACE 0,0,WEST
 MOVE
+REPORT
+Output: 0,0,WEST
+
+PLACE 0,1,WEST
 MOVE
+REPORT
+Output: 0,1,WEST
+
+PLACE 0,2,WEST
 MOVE
 MOVE
 REPORT
-Output: 3,3,NORTH
-PLACE 4,0,EAST
+Output: 0,2,WEST
+
+PLACE 0,3,WEST
 MOVE
+REPORT
+Output: 0,3,WEST
+
+PLACE 0,4,WEST
+MOVE
+REPORT
+Output: 0,4,WEST
+
+# ---- Tests that the robot will not fall off from the bottom south (0,0), (1,0), (2,0), (3,0), (4,0) SOUTH
+PLACE 0,0,SOUTH
+MOVE
+REPORT
+Output: 0,0,SOUTH
+
+PLACE 1,0,SOUTH
+MOVE
+REPORT
+Output: 1,0,SOUTH
+
+PLACE 2,0,SOUTH
+MOVE
+REPORT
+Output: 2,0,SOUTH
+
+PLACE 3,0,SOUTH
+MOVE
+REPORT
+Output: 3,0,SOUTH
+
+PLACE 4,0,SOUTH
+MOVE
+REPORT
+Output: 4,0,SOUTH
+
+# ---- Tests that the robot will not fall off from the right edge (4,0), (4,1), (4,2), (4,3), (4,4) EAST
+PLACE 4,0,EAST
 MOVE
 REPORT
 Output: 4,0,EAST
+
+PLACE 4,1,EAST
+MOVE
+REPORT
+Output: 4,1,EAST
+
+PLACE 4,2,EAST
+MOVE
+REPORT
+Output: 4,2,EAST
+
+PLACE 4,3,EAST
+MOVE
+REPORT
+Output: 4,3,EAST
+
+PLACE 4,4,EAST
+MOVE
+REPORT
+Output: 4,4,EAST
+
+# ---- Tests that the robot will not fall off from the top edge (0,4), (1,4), (2,4), (3,4), (4,4) NORTH
+PLACE 0,4,NORTH
+MOVE
+REPORT
+Output: 0,4,NORTH
+
+PLACE 1,4,NORTH
+MOVE
+REPORT
+Output: 1,4,NORTH
+
+PLACE 2,4,NORTH
+MOVE
+REPORT
+Output: 2,4,NORTH
+
+PLACE 3,4,NORTH
+MOVE
+REPORT
+Output: 3,4,NORTH
+
+PLACE 4,4,NORTH
+MOVE
+REPORT
+Output: 4,4,NORTH
+
+# ---- Tests that the robot will not move or turn when it is not on the table
+PLACE -1,-1,EAST
+MOVE
+REPORT
+Output: -1,-1,EAST
+
+PLACE 5,-1,EAST
+MOVE
+REPORT
+Output: 5,-1,EAST

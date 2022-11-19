@@ -2,24 +2,24 @@
 // Created by Longho Bernard Che on 2022-11-11.
 //
 
-#ifndef HIQ_PROGRAMMING_COMMANDREADER_H
-#define HIQ_PROGRAMMING_COMMANDREADER_H
+#ifndef HIQ_PROGRAMMING_TESTCASEREADER_H
+#define HIQ_PROGRAMMING_TESTCASEREADER_H
 
 #include <string>
 #include <vector>
 #include "TestCase.h"
 #include "Robot.h"
 
-class CommandReader {
+class TestCaseReader {
 public:
     [[nodiscard]] std::vector<TestCase> getTestCases() const;
 
-    CommandReader() = default;
+    TestCaseReader() = default;
+
     void readCommand();
+
 private:
     std::vector<TestCase> testCases;
-
-
 
 
 private:
@@ -37,5 +37,4 @@ private:
     static Robot extractRobotStateFromOutputString(const std::string &basicString);
 };
 
-
-#endif //HIQ_PROGRAMMING_COMMANDREADER_H
+#endif //HIQ_PROGRAMMING_TESTCASEREADER_H

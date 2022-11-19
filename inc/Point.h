@@ -32,7 +32,7 @@ struct Point {
 
     /*!
      * @brief Subtract a @param other Point from the current point
-     * 
+     *
      * @param other the other opint whose x,y values shall be subtracted from the current point
      * @return Point the updated point
      */
@@ -47,7 +47,7 @@ struct Point {
 
     /*!
      * @brief Subtract some units from the x-axis
-     * 
+     *
      * @param x_units the value to be subtracted from the x-axis
      * @return Point the new Point returned
      */
@@ -55,7 +55,7 @@ struct Point {
 
     /*!
      * @brief Add @param x_units to the x value of this point and return the updated Point
-     * 
+     *
      * @param x_units the value to be added
      * @return Point the new Point
      */
@@ -63,17 +63,19 @@ struct Point {
 
     /*!
      * @brief Add @param y_units to the y value of this point
-     * 
+     *
      * @param y_units the units to be added
      * @return Point the new point with the updated y-value
      */
     [[nodiscard]] Point plusY(const int &y_units) const;
 
+    [[nodiscard]] bool isValid() const;
+
     int x{}; /*< The x value of a point */
     int y{}; /*< The y value of a point */
     /*!
      * @brief An overloaded ostream operator for printing out a Point
-     * 
+     *
      * @param os the ostream (std::ostream&)
      * @param point The point
      * @return std::ostream& the ostream
@@ -90,6 +92,5 @@ struct Point {
     friend std::istream &operator>>(std::istream &is, Point &point);
 
 };
-
 
 #endif //HIQ_PROGRAMMING_POINT_H

@@ -1,10 +1,10 @@
 
-#include "CommandReader.h"
+#include "TestCaseReader.h"
 #include "Robot.h"
 
 
 int main() {
-    CommandReader commandReader;
+    TestCaseReader commandReader;
     commandReader.readCommand();
     const auto testCases = commandReader.getTestCases();
     for (const auto &item: testCases) {
