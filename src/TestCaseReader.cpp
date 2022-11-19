@@ -9,7 +9,7 @@ void TestCaseReader::readCommand() {
     std::ifstream ifs(test_file);
     std::cout  << __func__ <<  ": Reading from " << test_file << "\n\n";
     if (!ifs) {
-        std::cerr << __func__ << ": Could not read the test file\n";
+        std::cerr << __func__ << ": Could not read the tests file\n";
         exit(1);
     } else {
         Robot startState;
@@ -36,7 +36,7 @@ void TestCaseReader::readCommand() {
                 }
             } else {
                 /* std::cout << __FILE_NAME__ << ":" << __func__ << ":" << __LINE__
-                           << ": Empty line or comment in the test file. Ignored!!\n";*/
+                           << ": Empty line or comment in the tests file. Ignored!!\n";*/
                 continue;
             }
         }

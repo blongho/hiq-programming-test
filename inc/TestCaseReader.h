@@ -8,12 +8,12 @@
 
 /**
  * \class TestCaseReader
- * @brief Utility class to read test cases from a file
+ * @brief Utility class to read tests cases from a file
  */
 class TestCaseReader {
 public:
     /**
-     * @brief Get the test cases that have been read from file
+     * @brief Get the tests cases that have been read from file
      * @return  a vector of TestCase's
      */
     [[nodiscard]] std::vector<TestCase> getTestCases() const;
@@ -24,7 +24,7 @@ public:
     TestCaseReader() = default;
 
     /**
-     * Read the contents of the test file;
+     * Read the contents of the tests file;
      */
     void readCommand();
 

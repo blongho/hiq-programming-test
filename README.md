@@ -33,7 +33,7 @@ Structure of the test file
 2. Move to the newly downloaded project root directory
 
 ```shell
-cd hiq-programming-test 
+cd hiq-programming-tests 
 ```
 
 3. Create the build directory and move to it
@@ -42,7 +42,7 @@ cd hiq-programming-test
 mkdir build && cd build 
 ```
 
-4. Compile with cmake
+4. Configure the project with cmake
 
 ```shell 
 cmake .. -DTEST_SAMPLES_FILE="test.txt" -DCMAKE_BUILD_TYPE=Release
@@ -57,7 +57,7 @@ make -j6
 6. Run the tests
 
 ```shell 
-./test/test
+./tests/test_app
 ```
 
 

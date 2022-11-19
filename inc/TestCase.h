@@ -9,7 +9,7 @@
 
 /**
  * \class TestCase
- * @brief Holds a test case read
+ * @brief Holds a tests case read
  * @details
  * A TestCase has the start state, the actions and the end (expected) state
  */
@@ -35,14 +35,14 @@ public:
     [[nodiscard]] const std::vector<Action> &getActions() const;
 
     /**
-     * Set the different actions for this test case
+     * Set the different actions for this tests case
      * @param actions the actions to be set
      */
     void setActions(const std::vector<Action> &actions);
 
     /**
-     * @brief Get the start state for the test case
-     * @return the Robot's state at the beginning of the test case
+     * @brief Get the start state for the tests case
+     * @return the Robot's state at the beginning of the tests case
      */
     [[nodiscard]] const Robot &getStartStart() const;
 
@@ -54,20 +54,20 @@ public:
 
     /**
      * @brief Get the end state of the Robot after actions has been performed
-     * @return the state of the Robot after the test actions has been performed
+     * @return the state of the Robot after the tests actions has been performed
      */
     [[nodiscard]] const Robot &getEndState() const;
 
     /**
      * @brief Set the end state of the robot
-     * @param endState the expected state of the Robot after the test actions has been performed
+     * @param endState the expected state of the Robot after the tests actions has been performed
      */
     void setEndState(const Robot &endState);
 
 private:
     Robot startStart{}; //!< The start state of the Robot before performing actions
     std::vector<Action> actions; //!< The different Action's to be performed on the Robot
-    Robot endState{}; //!< The expected state of the robot after the test has been executed
+    Robot endState{}; //!< The expected state of the robot after the tests has been executed
 };
 
 

@@ -120,7 +120,7 @@ TEST_CASE("Testing from file") {
     reader.readCommand();
     const auto testCases = reader.getTestCases();
     if(testCases.empty()){
-        std::cout << "There are no test cases \n";
+        std::cout << "There are no tests cases \n";
         exit(1);
     }
     for (const auto &testCase: testCases) {
