@@ -6,6 +6,8 @@ SET(CMAKE_CXX_STANDARD 17)
 
 include(FetchContent)
 
+set(TEST_NAME test_app)
+
 FetchContent_Declare(
         Catch2
         GIT_REPOSITORY https://github.com/catchorg/Catch2.git
@@ -40,8 +42,16 @@ else ()
     message(STATUS "Test file path not set. Defaulting to ${TEST_SAMPLES_FILE}")
 endif ()
 
-add_executable(test_app ${SRC} ${TEST_FILES})
+add_executable(point_test test_point.cpp ../src/Point.cpp)
+target_link_libraries(point_test PRIVATE Catch2::Catch2WithMain)
 
-TARGET_LINK_LIBRARIES(test_app PRIVATE Catch2::Catch2WithMain)
+
+add_executable(robot_test ${SRC} ${TEST_FILES})
+target_link_libraries(robot_test PRIVATE Catch2::Catch2WithMain)
+
+
+#add_test(${TEST_NAME} ${TEST_NAME})
+add_test(test_robot robot_test)
+add_test(test_point point_test)
 
 
