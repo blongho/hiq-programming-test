@@ -11,15 +11,10 @@ include(FetchContent)
 FetchContent_Declare(
         Catch2
         GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-        GIT_TAG        v3.1.1
+        GIT_TAG v3.1.1
 )
 
 FetchContent_MakeAvailable(Catch2)
-
-MACRO(add_test_file name src)
-    ADD_EXECUTABLE(${name} ${src} ${name}.cpp)
-    TARGET_LINK_LIBRARIES(${name} PRIVATE Catch2::Catch2WithMain)
-ENDMACRO()
 
 set(SRC
         ../src/Board.cpp
@@ -30,17 +25,20 @@ set(SRC
         ../src/TestCaseReader.cpp
         )
 
-#add_test_file(test_board ../src/Board.cpp)
-#add_test_file(test_point ../src/Point.cpp)
+set(TEST_FILES
+        test_point.cpp
+        test_board.cpp
+        test_robot.cpp)
 
-if(TEST_SAMPLES_FILE)
+if (TEST_SAMPLES_FILE)
     message("Test file path set to ${TEST_SAMPLES_FILE}")
-else()
+else ()
     message("Test file path not set. Defaulting to ${TEST_SAMPLES_FILE}")
-endif()
+endif ()
 
 
-add_executable(test_robot ${SRC}  test_robot.cpp)
-TARGET_LINK_LIBRARIES(test_robot PRIVATE Catch2::Catch2WithMain)
+add_executable(test ${SRC} ${TEST_FILES})
+
+TARGET_LINK_LIBRARIES(test PRIVATE Catch2::Catch2WithMain)
 
 
