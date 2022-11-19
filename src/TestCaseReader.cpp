@@ -7,7 +7,7 @@
 
 void TestCaseReader::readCommand() {
     std::ifstream ifs(test_file);
-    std::cout << __FILE_NAME__ << ":" << __func__ << ":" << __LINE__ << ": Reading from " << test_file << std::endl;
+    std::cout << __FILE_NAME__ << ":" << __func__ << ":" << __LINE__ << ": Reading from " << test_file << "\n\n";
     if (!ifs) {
         std::cerr << __FILE_NAME__ << ":" << __func__ << ":" << __LINE__ << ": Could not read the test file\n";
         exit(1);
@@ -23,7 +23,7 @@ void TestCaseReader::readCommand() {
                     std::istringstream iss(line);
                     startState = extractRobotStateFromPlaceString(line);
                     //std::cout << "Start position is " << startState << std::endl;
-                } else if (isCommand(line)) {
+                } else if (isAction(line)) {
                     tmpCommands.push_back(actionFromString(line));
                 } else if (line.find("Output") != std::string::npos) {
                     endState = extractRobotStateFromOutputString(line);
@@ -35,8 +35,8 @@ void TestCaseReader::readCommand() {
                     testCases.push_back(testCase);
                 }
             } else {
-                std::cout << __FILE_NAME__ << ":" << __func__ << ":" << __LINE__
-                          << ": Empty line or comment in the test file. Ignored!!\n";
+                /* std::cout << __FILE_NAME__ << ":" << __func__ << ":" << __LINE__
+                           << ": Empty line or comment in the test file. Ignored!!\n";*/
                 continue;
             }
         }
@@ -56,8 +56,8 @@ Robot TestCaseReader::extractRobotStateFromPlaceString(const std::string &line) 
     return robot;
 }
 
-bool TestCaseReader::isCommand(const std::string &line) {
-    return line == "MOVE" || line == "LEFT" || line == "RIGHT" || line == "REPORT";
+bool TestCaseReader::isAction(const std::string &basicString) {
+    return basicString == "MOVE" || basicString == "LEFT" || basicString == "RIGHT" || basicString == "REPORT";
 }
 
 Robot TestCaseReader::extractRobotStateFromOutputString(const std::string &line) {

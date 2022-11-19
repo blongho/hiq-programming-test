@@ -9,7 +9,7 @@ int main() {
     const auto testCases = commandReader.getTestCases();
     for (const auto &item: testCases) {
         for (const auto &action: item.getActions()) {
-            std::cout << action << ",";
+            std::cout << "action" << ",";
         }
     }
     Robot robot({0, 4}, Direction::NORTH);

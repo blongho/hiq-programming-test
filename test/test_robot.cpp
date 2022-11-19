@@ -119,7 +119,10 @@ TEST_CASE("Testing from file") {
     TestCaseReader reader;
     reader.readCommand();
     const auto testCases = reader.getTestCases();
-
+    if(testCases.empty()){
+        std::cout << "There are no test cases \n";
+        exit(1);
+    }
     for (const auto &testCase: testCases) {
         Robot robot = testCase.getStartStart();
         Robot expected = testCase.getEndState();
@@ -127,12 +130,13 @@ TEST_CASE("Testing from file") {
 
         for (const auto &action: actions) {
             if (action == Action::REPORT) {
-                std::cout << "Start state : " << testCase.getStartStart() << "\nEnd  stata: " << testCase.getEndState()
-                          << std::endl;
+
+                /*std::cout << "Start state : " << testCase.getStartStart()
+                          << "\nEnd  stata: " << testCase.getEndState() << std::endl;*/
                 REQUIRE(robot == expected);
-            } else {
-                robot.performAction(action);
             }
+            robot.performAction(action);
+
         }
     }
 }

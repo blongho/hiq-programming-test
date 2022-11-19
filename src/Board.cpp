@@ -9,7 +9,7 @@ Board::Board() {
 
 void Board::show(std::ostream &os) const {
     std::cout << std::string(25, '-') << "\n";
-    for (const auto &row: location) {
+    for (const auto &row: boardCells) {
         for (const auto &col: row) {
             os << '[' << std::setw(3) << col << ']';
         }
@@ -18,14 +18,16 @@ void Board::show(std::ostream &os) const {
     std::cout << std::string(25, '-') << "\n";
 }
 
-void Board::insert(const Point &point, const std::string &c) {
+void Board::update(const Point &point, const std::string &c) {
     reset();
-    if (point.isValid())
-        location[transformValue(point.y)][point.x] = c;
+    if (point.isValid()) {
+        boardCells[transformValue(point.y)][point.x] = c;
+    }
+    show();
 }
 
 void Board::reset() {
-    for (auto &i: location) {
+    for (auto &i: boardCells) {
         for (auto &j: i) {
             j = " ";
         }

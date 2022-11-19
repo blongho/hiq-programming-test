@@ -7,6 +7,7 @@
 #include <string>
 
 /**
+ * \enum Direction
  * @brief The different possible directions that a robot might take
  * @code
  * Direction::NORTH // for north or up direction

@@ -6,19 +6,18 @@ Robot::Robot(const Point &p_position, const Direction &p_direction)
         : position{p_position}, direction{p_direction} {}
 
 void Robot::report() {
-    std::cout << "\nRobot [" << position << "," << directionToString(direction) << "]\n";
+    std::cout << "Robot [" << *this << "]\n";
     show();
+    std::cout << "\n";
 }
 
 const Point &Robot::getPosition() const {
     return position;
 }
 
-
 const Direction &Robot::getDirection() const {
     return direction;
 }
-
 
 void Robot::left() {
     if (!isRobotOnTheTable()) {
@@ -92,7 +91,7 @@ void Robot::right() {
 
 
 void Robot::moveNorth() {
-    std::cout << "Attempting to move north. State: " << *this << "\n";
+    std::cout << "\nAttempting to move north. State: " << *this << "\n";
     if (isNorthMovePossible()) {
         ++position.y;
         std::cout << "Moved to the north. State: " << *this << "\n";
@@ -100,7 +99,7 @@ void Robot::moveNorth() {
 }
 
 void Robot::moveSouth() {
-    std::cout << "Attempting to move south...\n";
+    std::cout << "\nAttempting to move south...\n";
     if (isSouthMovePossible()) {
         --position.y;
         std::cout << "Moved to the south. State: " << *this << "\n";
@@ -108,7 +107,7 @@ void Robot::moveSouth() {
 }
 
 void Robot::moveEast() {
-    std::cout << "Attempting to move east. State: " << *this << "\n";
+    std::cout << "\nAttempting to move east. State: " << *this << "\n";
     if (isEastMovePossible()) {
         ++position.x;
         std::cout << "Moved to the east. State: " << *this << "\n";
@@ -116,7 +115,7 @@ void Robot::moveEast() {
 }
 
 void Robot::moveWest() {
-    std::cout << "Attempting to move west. State: " << *this << "\n";
+    std::cout << "\nAttempting to move west. State: " << *this << "\n";
     if (isWestMovePossible()) {
         --position.x;
         std::cout << "Moved to the west. State: " << *this << "\n";
@@ -174,6 +173,7 @@ bool Robot::isSouthMovePossible() const {
 void Robot::show() const {
     Board board;
     std::string arrow{};
+
     switch (direction) {
         case Direction::NORTH:
             arrow = "R^";
@@ -192,9 +192,7 @@ void Robot::show() const {
             break;
     }
 
-    board.insert(position, arrow);
-    board.show();
-
+    board.update(position, arrow);
 }
 
 std::ostream &operator<<(std::ostream &os, const Robot &robot) {

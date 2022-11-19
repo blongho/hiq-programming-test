@@ -3,6 +3,10 @@
 
 #include <iostream>
 
+/**
+ * \struct Point
+ * @brief A structure to hold the x and y coordinates of a Point that holds the robot's current location
+ */
 struct Point {
     /**
      * @brief A point's parameterized constructor

@@ -4,8 +4,6 @@ project(hiq_programming_test)
 
 SET(CMAKE_CXX_STANDARD 17)
 
-SET(TEST_SAMPLES_FILE "${CMAKE_SOURCE_DIR}/samples.txt" CACHE STRING "Path to file containing test cases")
-
 include(FetchContent)
 
 FetchContent_Declare(
@@ -29,14 +27,18 @@ set(SRC
 set(TEST_FILES
         test_point.cpp
         test_board.cpp
-        test_robot.cpp)
+        test_robot.cpp
+        )
 
 if (TEST_SAMPLES_FILE)
-    message("Test file path set to ${TEST_SAMPLES_FILE}")
+    set(TEST_CASE_FILE "${CMAKE_SOURCE_DIR}/${TEST_SAMPLES_FILE}" CACHE STRING "Path to file containing test cases")
+    add_definitions(-DTEST_SAMPLES_FILE="${TEST_CASE_FILE}")
+    message(STATUS "Test file path set to ${TEST_CASE_FILE}")
 else ()
-    message("Test file path not set. Defaulting to ${TEST_SAMPLES_FILE}")
+    set(TEST_SAMPLES_FILE "${CMAKE_SOURCE_DIR}/test_cases.txt" CACHE STRING "Path to file containing test cases")
+    add_definitions(-DTEST_SAMPLES_FILE="${TEST_SAMPLES_FILE}")
+    message(STATUS "Test file path not set. Defaulting to ${TEST_SAMPLES_FILE}")
 endif ()
-
 
 add_executable(test ${SRC} ${TEST_FILES})
 

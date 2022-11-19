@@ -5,6 +5,10 @@
 #include "Direction.h"
 #include "Action.h"
 
+/**
+ * \class Robot
+ * @brief The Robot. It has its position and direction
+ */
 class Robot {
 public:
     /**
