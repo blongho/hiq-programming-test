@@ -7,9 +7,9 @@
 
 void TestCaseReader::readCommand() {
     std::ifstream ifs(test_file);
-    std::cout << __FILE_NAME__ << ":" << __func__ << ":" << __LINE__ << ": Reading from " << test_file << "\n\n";
+    std::cout  << __func__ <<  ": Reading from " << test_file << "\n\n";
     if (!ifs) {
-        std::cerr << __FILE_NAME__ << ":" << __func__ << ":" << __LINE__ << ": Could not read the test file\n";
+        std::cerr << __func__ << ": Could not read the test file\n";
         exit(1);
     } else {
         Robot startState;
