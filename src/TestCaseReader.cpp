@@ -48,7 +48,7 @@ Robot TestCaseReader::extractRobotStateFromPlaceString(const std::string &line) 
     // PLACE 1,2,EAST
     char c{','};
     const auto info = line.substr(line.find(' ') + 1);
-    int x{}, y{};
+    short x{}, y{};
     std::string direction{};
     std::istringstream iss(info);
     iss >> x >> c >> y >> c >> direction;
@@ -62,7 +62,7 @@ bool TestCaseReader::isAction(const std::string &basicString) {
 
 Robot TestCaseReader::extractRobotStateFromOutputString(const std::string &line) {
     const auto info = line.substr(line.find(':') + 2);
-    int x{}, y{};
+    short x{}, y{};
     std::string direction{};
     char c{','};
     std::istringstream iss(info);

@@ -13,7 +13,7 @@ struct Point {
      * @param p_x the x coordinate
      * @param p_y the y coordinate
      */
-    Point(int p_x, int p_y);
+    Point(short p_x, short p_y);
 
     /**
      * @brief Default constructor of a Point object
@@ -33,8 +33,8 @@ struct Point {
      */
     [[nodiscard]] bool isValid() const;
 
-    int x{}; //!*< The x coordinate of a point */
-    int y{}; //!*< The y coordinate of a point */
+    short x{}; //!*< The x coordinate of a point */
+    short y{}; //!*< The y coordinate of a point */
 };
 
 #endif //HIQ_PROGRAMMING_POINT_H

@@ -5,11 +5,17 @@ project(hiq_programming_test)
 SET(CMAKE_CXX_STANDARD 17)
 
 
-include_directories(../inc)
-
 set(TEST_NAME test_app)
 
-add_subdirectory(lib/Catch2)
+Include(FetchContent)
+
+FetchContent_Declare(
+        Catch2
+        GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+        GIT_TAG v3.0.1
+)
+
+FetchContent_MakeAvailable(Catch2)
 
 set(SRC
         ../src/Action.cpp
@@ -46,6 +52,8 @@ set(ROBOT_TEST_SRC
 set(BOARD_TEST_SRC ../src/Point.cpp ../src/Board.cpp)
 
 set(ACTION_TEST_SRC ../src/Action.cpp test_action.cpp)
+
+set(APP_TEST_SRC ${SRC} test_action.cpp test_point.cpp test_board.cpp test_robot.cpp)
 make_executable(test_point ${POINT_TEST_SRC})
 
 make_executable(test_robot ${ROBOT_TEST_SRC})
@@ -54,9 +62,11 @@ make_executable(test_action ${ACTION_TEST_SRC})
 
 make_executable(test_board ${BOARD_TEST_SRC})
 
+make_executable(test_app ${APP_TEST_SRC})
+
 #add_test(${TEST_NAME} ${TEST_NAME})
 add_test(test_robot test_robot)
 add_test(test_point test_point)
 add_test(test_action test_action)
 add_test(test_board test_board)
-
+add_test(test_app test_app)

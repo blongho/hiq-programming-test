@@ -7,9 +7,7 @@ Action actionFromString(const std::string &action) {
         return Action::LEFT;
     } else if (action == "RIGHT") {
         return Action::RIGHT;
-    } else if (action == "REPORT") {
+    } else {
         return Action::REPORT;
-    }  else {
-        return Action::NONE;
     }
 }

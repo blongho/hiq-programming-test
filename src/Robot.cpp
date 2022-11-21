@@ -219,8 +219,6 @@ void Robot::performAction(const Action &action) {
         case Action::REPORT:
             report();
             break;
-        case Action::NONE:
-            break;
     }
 
 }
