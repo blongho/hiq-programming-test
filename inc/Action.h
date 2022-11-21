@@ -24,7 +24,7 @@ enum class Action {
  * @param action the Action as a string
  * @return The corresponding action
  */
-Action actionFromString(std::string &action);
+Action actionFromString(const std::string &action);
 
 
 #endif //HIQ_PROGRAMMING_ACTION_H

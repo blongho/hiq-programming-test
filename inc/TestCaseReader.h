@@ -34,7 +34,7 @@ private:
 #ifdef TEST_SAMPLES_FILE
     const std::string test_file = TEST_SAMPLES_FILE;
 #else
-    const std::string test_file{"../../test_cases.txt"};
+    const std::string test_file{"../test_cases.txt"};
 #endif
 
     /**

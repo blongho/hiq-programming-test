@@ -14,6 +14,6 @@ bool Point::operator==(const Point &other) const {
     return x == other.x && y == other.y;
 }
 
-bool Point::isValid() const noexcept {
+bool Point::isValid() const {
     return x >= 0 && x <= 4 && y >= 0 && y <= 4;
 }

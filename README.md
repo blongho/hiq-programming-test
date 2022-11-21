@@ -6,6 +6,15 @@
 
 ## How to run this
 
+
+
+### Requirements
+The project is built using the cross-platform build tool, cmake. The requirements for successful compilation and run are
+- CMake
+- Git 
+- g++
+
+### Setup 
 1. Clone the reposition
 
 ```shell
@@ -57,7 +66,7 @@ make -j6
 6. Run the tests
 
 ```shell 
-./tests/test_app
+./tests/test_robot
 ```
 
 

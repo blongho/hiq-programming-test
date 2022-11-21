@@ -7,18 +7,13 @@ int main() {
     TestCaseReader commandReader;
     commandReader.readCommand();
     const auto testCases = commandReader.getTestCases();
-    for (const auto &item: testCases) {
-        for (const auto &action: item.getActions()) {
-            std::cout << "action" << ",";
+    for (const auto &testCase: testCases) {
+        Robot robot = testCase.getStartStart();
+        for (const auto &action: testCase.getActions()) {
+            robot.performAction(action);
         }
     }
-    Robot robot({0, 4}, Direction::NORTH);
-    robot.move();
-    robot.right();
-    robot.move();
-    robot.move();
-    robot.report();
-    std::cin.get();
+
     return 0;
 }
 

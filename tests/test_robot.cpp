@@ -1,5 +1,6 @@
 #include <catch2/catch_test_macros.hpp>
 #include "Robot.h"
+#include "Action.h"
 #include "TestCaseReader.h"
 
 SCENARIO("Testing left turns") {

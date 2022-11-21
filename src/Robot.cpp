@@ -176,16 +176,16 @@ void Robot::show() const {
 
     switch (direction) {
         case Direction::NORTH:
-            arrow = "R^";
+            arrow = "RN";
             break;
         case Direction::SOUTH:
-            arrow = "R↓";
+            arrow = "RS";
             break;
         case Direction::EAST:
-            arrow = "R->";
+            arrow = "RE";
             break;
         case Direction::WEST:
-            arrow = "<-R";
+            arrow = "RW";
             break;
         case Direction::NONE:
             arrow = "";
@@ -193,12 +193,6 @@ void Robot::show() const {
     }
 
     board.update(position, arrow);
-}
-
-std::ostream &operator<<(std::ostream &os, const Robot &robot) {
-    const auto [x, y] = robot.getPosition();
-    os << x << "," << y << "," << directionToString(robot.getDirection());
-    return os;
 }
 
 bool Robot::operator==(const Robot &rhs) const {
@@ -229,6 +223,12 @@ void Robot::performAction(const Action &action) {
             break;
     }
 
+}
+
+std::ostream &operator<<(std::ostream &os, const Robot &robot) {
+    const auto [x, y] = robot.getPosition();
+    os << x << "," << y << "," << directionToString(robot.getDirection());
+    return os;
 }
 
 

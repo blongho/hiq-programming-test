@@ -20,6 +20,6 @@ set(SRC_FILES
 add_executable(app ${SRC_FILES} Main.cpp)
 
 # Enable testing for the project
-
 enable_testing()
+
 add_subdirectory(tests)

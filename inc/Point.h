@@ -31,16 +31,7 @@ struct Point {
      * @brief Checks the validity of a Point. A point is valid if the 0<=x<=4 and 0<=y<=4
      * @return true if the x and y values are within the range [0,4]
      */
-    [[nodiscard]] bool isValid() const noexcept;
-
-    /**
-     * @brief An overloaded ostream operator for printing out a Point
-     *
-     * @param os the ostream (std::ostream&)
-     * @param point The point
-     * @return std::ostream& the ostream
-     */
-    friend std::ostream &operator<<(std::ostream &os, const Point &point);
+    [[nodiscard]] bool isValid() const;
 
     int x{}; //!*< The x coordinate of a point */
     int y{}; //!*< The y coordinate of a point */

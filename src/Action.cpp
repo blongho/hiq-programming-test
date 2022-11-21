@@ -1,8 +1,6 @@
 #include "Action.h"
-#include <algorithm>
 
-Action actionFromString(std::string &action) {
-    std::transform(action.begin(), action.end(), action.begin(), toupper);
+Action actionFromString(const std::string &action) {
     if (action == "MOVE") {
         return Action::MOVE;
     } else if (action == "LEFT") {
