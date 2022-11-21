@@ -117,27 +117,31 @@ SCENARIO("Testing sample known cases with combination of robot movements") {
 }
 
 TEST_CASE("Testing from file") {
-    TestCaseReader reader;
-    reader.readCommand();
-    const auto testCases = reader.getTestCases();
-    if(testCases.empty()){
-        std::cout << "There are no tests cases \n";
-        exit(1);
-    }
-    for (const auto &testCase: testCases) {
-        Robot robot = testCase.getStartStart();
-        Robot expected = testCase.getEndState();
-        const auto &actions = testCase.getActions();
-
-        for (const auto &action: actions) {
-            if (action == Action::REPORT) {
-
-                /*std::cout << "Start state : " << testCase.getStartStart()
-                          << "\nEnd  stata: " << testCase.getEndState() << std::endl;*/
-                REQUIRE(robot == expected);
-            }
-            robot.performAction(action);
-
+    try {
+        TestCaseReader reader("../../test_cases.txt");
+        reader.readCommand();
+        const auto testCases = reader.getTestCases();
+        if (testCases.empty()) {
+            std::cout << "There are no tests cases \n";
+            exit(1);
         }
+        for (const auto &testCase: testCases) {
+            Robot robot = testCase.getStartStart();
+            Robot expected = testCase.getEndState();
+            const auto &actions = testCase.getActions();
+
+            for (const auto &action: actions) {
+                if (action == Action::REPORT) {
+
+                    /*std::cout << "Start state : " << testCase.getStartStart()
+                              << "\nEnd  stata: " << testCase.getEndState() << std::endl;*/
+                    REQUIRE(robot == expected);
+                }
+                robot.performAction(action);
+
+            }
+        }
+    } catch (const std::exception &e) {
+        std::cerr << e.what() << std::endl;
     }
 }

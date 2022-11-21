@@ -4,7 +4,7 @@
 
 
 int main() {
-    TestCaseReader commandReader;
+    TestCaseReader commandReader("../test_cases.txt");
     commandReader.readCommand();
     const auto testCases = commandReader.getTestCases();
     for (const auto &testCase: testCases) {

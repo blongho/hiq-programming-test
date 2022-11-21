@@ -16,6 +16,7 @@ enum class Action {
     LEFT, //!< Informs the Robot 90 degrees left
     RIGHT, //!< Informs the Robot to turn 90 degrees right
     REPORT, //!< Informs the Robot to report its current state
+    NONE //!< The robot does nothing
 };
 
 /**

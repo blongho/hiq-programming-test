@@ -35,7 +35,7 @@ void Board::reset() {
 }
 
 
-constexpr uint16_t Board::transformValue(const uint16_t &val) {
+constexpr short Board::transformValue(const short &val) {
     if (val == 4) return 0;
     if (val == 3) return 1;
     if (val == 2) return 2;

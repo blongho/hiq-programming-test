@@ -38,7 +38,6 @@ void Robot::left() {
             direction = Direction::SOUTH;
             break;
         case Direction::NONE:
-            direction = Direction::NONE;
             break;
     }
 }

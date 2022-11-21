@@ -4,13 +4,13 @@
 #include "Robot.h"
 #include <algorithm>
 #include <sstream>
+#include <utility>
 
 void TestCaseReader::readCommand() {
     std::ifstream ifs(test_file);
-    std::cout  << __func__ <<  ": Reading from " << test_file << "\n\n";
+    std::cout << __func__ << ": Reading from " << test_file << "\n\n";
     if (!ifs) {
-        std::cerr << __func__ << ": Could not read the tests file\n";
-        exit(1);
+        throw std::runtime_error(std::string(__func__)  +": test file could not be read!");
     } else {
         Robot startState;
         Robot endState;
@@ -40,6 +40,7 @@ void TestCaseReader::readCommand() {
                 continue;
             }
         }
+        std::cout << "Test content successfully read\n";
     }
 
 }
@@ -75,5 +76,9 @@ Robot TestCaseReader::extractRobotStateFromOutputString(const std::string &line)
 std::vector<TestCase> TestCaseReader::getTestCases() const {
     return testCases;
 }
+
+TestCaseReader::TestCaseReader(std::string testCaseFile)
+        : test_file{std::move(testCaseFile)} {}
+
 
 

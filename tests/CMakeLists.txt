@@ -27,20 +27,18 @@ set(SRC
         ../src/TestCaseReader.cpp
         )
 
+MESSAGE(STATUS "Current directory is ${CMAKE_CURRENT_BINARY_DIR}")
 if (TEST_SAMPLES_FILE)
-    set(TEST_CASE_FILE "${CMAKE_SOURCE_DIR}/${TEST_SAMPLES_FILE}" CACHE STRING "Path to file containing test cases")
+    set(TEST_CASE_FILE "./../${TEST_SAMPLES_FILE}" CACHE STRING "Path to file containing test cases")
     add_definitions(-DTEST_SAMPLES_FILE="${TEST_CASE_FILE}")
     message(STATUS "Test file path set to ${TEST_CASE_FILE}")
 else ()
-    set(TEST_SAMPLES_FILE "${CMAKE_SOURCE_DIR}/test_cases.txt" CACHE STRING "Path to file containing test cases")
+    set(TEST_SAMPLES_FILE "./../test_cases.txt" CACHE STRING "Path to file containing test cases")
     add_definitions(-DTEST_SAMPLES_FILE="${TEST_SAMPLES_FILE}")
     message(STATUS "Test file path not set. Defaulting to ${TEST_SAMPLES_FILE}")
 endif ()
+add_definitions(-DTESTING=1)
 
-macro(make_executable exec_name exec_sources)
-    add_executable(${exec_name} ${exec_sources})
-    target_link_libraries(${exec_name} PRIVATE Catch2::Catch2WithMain)
-endmacro()
 
 set(POINT_TEST_SRC ../src/Point.cpp test_point.cpp)
 
@@ -53,20 +51,28 @@ set(BOARD_TEST_SRC ../src/Point.cpp ../src/Board.cpp)
 
 set(ACTION_TEST_SRC ../src/Action.cpp test_action.cpp)
 
-set(APP_TEST_SRC ${SRC} test_action.cpp test_point.cpp test_board.cpp test_robot.cpp)
-make_executable(test_point ${POINT_TEST_SRC})
 
-make_executable(test_robot ${ROBOT_TEST_SRC})
+set(TEST_CASE_SRC ../src/TestCase.cpp test_testcase.cpp)
 
-make_executable(test_action ${ACTION_TEST_SRC})
 
-make_executable(test_board ${BOARD_TEST_SRC})
 
-make_executable(test_app ${APP_TEST_SRC})
+add_executable(test_point ${POINT_TEST_SRC})
+target_link_libraries(test_point PRIVATE Catch2::Catch2WithMain)
 
-#add_test(${TEST_NAME} ${TEST_NAME})
+add_executable(test_robot ${ROBOT_TEST_SRC})
+target_link_libraries(test_robot PRIVATE Catch2::Catch2WithMain)
+
+add_executable(test_action ${ACTION_TEST_SRC})
+target_link_libraries(test_action PRIVATE Catch2::Catch2WithMain)
+
+add_executable(test_testcase ${ACTION_TEST_SRC})
+target_link_libraries(test_testcase PRIVATE Catch2::Catch2WithMain)
+
+add_executable(test_testcase_reader ${SRC} test_testcase_reader.cpp)
+target_link_libraries(test_testcase_reader PRIVATE Catch2::Catch2WithMain)
+
 add_test(test_robot test_robot)
 add_test(test_point test_point)
 add_test(test_action test_action)
-add_test(test_board test_board)
-add_test(test_app test_app)
+add_test(test_testcase test_testcase)
+add_test(test_testcase_reader test_testcase_reader)

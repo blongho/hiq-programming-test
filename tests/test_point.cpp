@@ -33,6 +33,7 @@ SCENARIO("Testing equality of two points"){
         Point point(1,2);
         THEN("It can be compared to another point"){
             REQUIRE(point == Point(1,2));
+            REQUIRE_FALSE(Point(0,0) == Point(1,0));
         }
     }
 }

@@ -6,6 +6,7 @@
 #include "TestCase.h"
 #include "Robot.h"
 
+
 /**
  * \class TestCaseReader
  * @brief Utility class to read tests cases from a file
@@ -18,6 +19,7 @@ public:
      */
     [[nodiscard]] std::vector<TestCase> getTestCases() const;
 
+    explicit TestCaseReader(std::string testCaseFile);
     /**
      * @brief The default constructor.
      */
@@ -32,9 +34,9 @@ private:
     std::vector<TestCase> testCases; //!< Container to hold the cases read from file
 
 #ifdef TEST_SAMPLES_FILE
-    const std::string test_file = TEST_SAMPLES_FILE;
+    std::string test_file = TEST_SAMPLES_FILE;
 #else
-    const std::string test_file{"../test_cases.txt"};
+    std::string test_file{"../../test_cases.txt"};
 #endif
 
     /**
@@ -59,6 +61,7 @@ private:
      * @return a Robot constructed by parsing the string given as the parameter
      */
     static Robot extractRobotStateFromOutputString(const std::string &basicString);
+
 };
 
 #endif //HIQ_PROGRAMMING_TESTCASEREADER_H
