@@ -71,7 +71,7 @@ SCENARIO("Testing right turns") {
 
 SCENARIO("Testing sample known cases with combination of robot movements") {
     GIVEN("A robot at the bottom left-most region (0,0) and facing WEST") {
-        Robot robot({0, 0}, Direction::WEST);
+        Robot robot(Point{0, 0}, Direction::WEST);
         WHEN("it is instructed to move") {
             robot.move();
             THEN("The robot will not move and the direction will remain the same") {
@@ -80,7 +80,7 @@ SCENARIO("Testing sample known cases with combination of robot movements") {
             }
         }
     }AND_GIVEN("A robot at origin and facing NORTH") {
-        Robot robot({0, 0}, Direction::NORTH);
+        Robot robot(Point{0, 0}, Direction::NORTH);
         WHEN("it is instructed to move") {
             robot.move();
             THEN("the robot will move one unit to the y-axis") {
@@ -90,7 +90,7 @@ SCENARIO("Testing sample known cases with combination of robot movements") {
             }
         }
     }AND_GIVEN("A robot from origin and pointing north") {
-        Robot robot({0, 0}, Direction::NORTH);
+        Robot robot(Point{0, 0}, Direction::NORTH);
         WHEN("it turns left") {
             robot.left();
             THEN("it should be in the same position bu the direction should change to west") {
@@ -100,7 +100,7 @@ SCENARIO("Testing sample known cases with combination of robot movements") {
             }
         }
     }AND_GIVEN("A robot at position (1,2), facing east") {
-        Robot robot({1, 2}, Direction::EAST);
+        Robot robot(Point{1, 2}, Direction::EAST);
         WHEN("it moves two units, turns left and makes one more move") {
             robot.move();
             robot.move();

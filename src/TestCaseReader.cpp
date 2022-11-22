@@ -18,6 +18,7 @@ void TestCaseReader::readCommand() {
         std::vector<Action> tmpCommands;
         while (std::getline(ifs, line)) {
             if (line.empty() || line.at(0) == '#') {
+                std::cout << "Line starts with # or is empty\n";
                 continue;
             }
             if (line.find("PLACE") != std::string::npos) {
@@ -49,7 +50,7 @@ Robot TestCaseReader::extractRobotStateFromPlaceString(const std::string &line) 
     std::string direction{};
     std::istringstream iss(info);
     iss >> x >> c >> y >> c >> direction;
-    const Robot robot({x, y}, stringToDirection(direction));
+    const Robot robot(Point(x, y), stringToDirection(direction));
     return robot;
 }
 
@@ -65,7 +66,7 @@ Robot TestCaseReader::extractRobotStateFromOutputString(const std::string &line)
     std::istringstream iss(info);
     iss >> x >> c >> y >> c >> direction;
 
-    const Robot robot({x, y}, stringToDirection(direction));
+    const Robot robot(Point(x, y), stringToDirection(direction));
     return robot;
 }
 

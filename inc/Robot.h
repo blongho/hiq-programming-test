@@ -22,14 +22,14 @@ public:
      * @brief The default constructor
      * Positions the robot at {0,0,NONE}
      */
-    Robot() = default;
+    explicit Robot() = default;
 
     /**
      * @brief Construct a robot and initialize all its data members
      * @param p_position the robot's position
      * @param p_direction the direction hat the robot is facing
      */
-    Robot(const Point &p_position, const Direction &p_direction);
+    explicit Robot(const Point &p_position, const Direction &p_direction);
 
     /**
      * @brief Move the robot one unit forward in the direction it is currently facing
@@ -93,6 +93,8 @@ public:
      * Destructor
      */
     ~Robot() = default;
+
+    friend std::ostream &operator<<(std::ostream &os, const Robot &robot);
 
 private:
     Point position{}; //!< the robot's position
@@ -181,6 +183,5 @@ private:
      */
     void show() const;
 };
-std::ostream &operator<<(std::ostream &os, const Robot &robot);
 
 #endif //HIQ_PROGRAMMING_ROBOT_H

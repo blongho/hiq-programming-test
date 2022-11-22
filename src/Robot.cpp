@@ -62,6 +62,7 @@ void Robot::move() {
         case Direction::NONE:
             break;
     }
+    show();
 }
 
 void Robot::right() {

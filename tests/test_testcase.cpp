@@ -2,9 +2,9 @@
 #include "TestCase.h"
 
 SCENARIO("Given a test case") {
-    TestCase testCase(Robot({0, 0}, Direction::EAST),
+    TestCase testCase(Robot(Point(0, 0), Direction::EAST),
                       {Action::MOVE, Action::REPORT},
-                      Robot({1, 0}, Direction::EAST)
+                      Robot(Point(1, 0), Direction::EAST)
     );
     WHEN("The actions are executed") {
         Robot startState = testCase.getStartState();
@@ -15,13 +15,13 @@ SCENARIO("Given a test case") {
         REQUIRE(startState.getDirection() == endState.getDirection());
         REQUIRE(startState.getPosition() == endState.getPosition());
     }AND_WHEN("The start state is changed") {
-        const Robot tmpState({2, 2}, Direction::NORTH);
+        const Robot tmpState(Point(2, 2), Direction::NORTH);
         testCase.setStartState(tmpState);
         THEN("The testcase's start state is also changed") {
             REQUIRE(testCase.getStartState() == tmpState);
         }
     }AND_WHEN("The end state is changed") {
-        const Robot endState({3, 0}, Direction::EAST);
+        const Robot endState(Point(3, 0), Direction::EAST);
         testCase.setEndState(endState);
         THEN("The test case's end state is changed") {
             REQUIRE(testCase.getEndState() == endState);

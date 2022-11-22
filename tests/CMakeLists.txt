@@ -12,7 +12,7 @@ Include(FetchContent)
 FetchContent_Declare(
         Catch2
         GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-        GIT_TAG v3.0.1
+        GIT_TAG v3.2.0
 )
 
 FetchContent_MakeAvailable(Catch2)
@@ -27,15 +27,19 @@ set(SRC
         ../src/TestCaseReader.cpp
         )
 
-MESSAGE(STATUS "Current directory is ${CMAKE_CURRENT_BINARY_DIR}")
+get_filename_component(MY_RESULT_ABSOLUTE_PATH_VAR
+        "${CMAKE_CURRENT_LIST_DIR}/${MY_RELATIVE_PATH_VAR}"
+        ABSOLUTE)
+
+
+MESSAGE(STATUS "Current directory is ${CMAKE_SOURCE_DIR}")
+
 if (TEST_SAMPLES_FILE)
-    set(TEST_CASE_FILE "${CMAKE_SOURCE_DIR}/${TEST_SAMPLES_FILE}" CACHE STRING "Path to file containing test cases")
-    add_definitions(-DTEST_SAMPLES_FILE="${TEST_CASE_FILE}")
-    message(STATUS "Test file path set to ${TEST_CASE_FILE}")
+    add_definitions(-DTEST_SAMPLES_FILE="${CMAKE_SOURCE_DIR}/${TEST_SAMPLES_FILE}")
+    message(STATUS "Test file path set to ${CMAKE_SOURCE_DIR}/${TEST_SAMPLES_FILE}")
 else ()
-    set(TEST_SAMPLES_FILE "${CMAKE_SOURCE_DIR}/test_cases.txt" CACHE STRING "Path to file containing test cases")
-    add_definitions(-DTEST_SAMPLES_FILE="${TEST_SAMPLES_FILE}")
-    message(STATUS "Test file path not set. Defaulting to ${TEST_SAMPLES_FILE}")
+    add_definitions(-DTEST_SAMPLES_FILE="${CMAKE_SOURCE_DIR}/test_cases.txt")
+    message(STATUS "Test file path not set. Defaulting to ${CMAKE_SOURCE_DIR}/test_cases.txt")
 endif ()
 
 

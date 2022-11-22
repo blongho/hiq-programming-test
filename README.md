@@ -54,7 +54,7 @@ mkdir build && cd build
 4. Configure the project with cmake
 
 ```shell 
-cmake .. -DTEST_SAMPLES_FILE="test.txt" -DCMAKE_BUILD_TYPE=Release
+cmake .. -DTEST_SAMPLES_FILE=test.txt -DCMAKE_BUILD_TYPE=Release
 ```
 
 5. Build the project executables

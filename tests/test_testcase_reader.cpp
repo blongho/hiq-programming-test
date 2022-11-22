@@ -15,18 +15,18 @@ SCENARIO("Reading testcases from file") {
 
                 const TestCase &firstTestCaseFromFile = testCases.at(0);
 
-                REQUIRE(firstTestCaseFromFile.getStartState() == Robot({0, 0}, Direction::NORTH));
+                REQUIRE(firstTestCaseFromFile.getStartState() == Robot(Point(0, 0), Direction::NORTH));
 
                 const std::vector<Action> &actions{Action::MOVE, Action::REPORT};
 
                 REQUIRE(firstTestCaseFromFile.getActions().size() == 2);
 
                 REQUIRE(firstTestCaseFromFile.getActions() == actions);
-                REQUIRE(firstTestCaseFromFile.getEndState() == Robot({0, 1}, Direction::NORTH));
+                REQUIRE(firstTestCaseFromFile.getEndState() == Robot(Point(0, 1), Direction::NORTH));
 
                 const TestCase &lastTestCaseFromFile = testCases.at(2);
-                REQUIRE(lastTestCaseFromFile.getStartState() == Robot({1, 2}, Direction::EAST));
-                REQUIRE(lastTestCaseFromFile.getEndState() == Robot({3, 3}, Direction::NORTH));
+                REQUIRE(lastTestCaseFromFile.getStartState() == Robot(Point(1, 2), Direction::EAST));
+                REQUIRE(lastTestCaseFromFile.getEndState() == Robot(Point(3, 3), Direction::NORTH));
                 const std::vector<Action> &lastActions{Action::MOVE, Action::MOVE, Action::LEFT, Action::MOVE,
                                                        Action::REPORT};
                 REQUIRE(lastTestCaseFromFile.getActions() == lastActions);
