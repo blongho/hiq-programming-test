@@ -8,7 +8,7 @@ int main() {
     commandReader.readCommand();
     const auto testCases = commandReader.getTestCases();
     for (const auto &testCase: testCases) {
-        Robot robot = testCase.getStartStart();
+        Robot robot = testCase.getStartState();
         for (const auto &action: testCase.getActions()) {
             robot.performAction(action);
         }

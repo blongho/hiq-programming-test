@@ -29,7 +29,7 @@ void TestCaseReader::readCommand() {
                     endState = extractRobotStateFromOutputString(line);
                     //std::cout << "End position is " << endState << std::endl;
                     TestCase testCase;
-                    testCase.setStartStart(startState);
+                    testCase.setStartState(startState);
                     testCase.setActions(tmpCommands);
                     testCase.setEndState(endState);
                     testCases.push_back(testCase);

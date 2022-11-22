@@ -126,14 +126,14 @@ TEST_CASE("Testing from file") {
             exit(1);
         }
         for (const auto &testCase: testCases) {
-            Robot robot = testCase.getStartStart();
+            Robot robot = testCase.getStartState();
             Robot expected = testCase.getEndState();
             const auto &actions = testCase.getActions();
 
             for (const auto &action: actions) {
                 if (action == Action::REPORT) {
 
-                    /*std::cout << "Start state : " << testCase.getStartStart()
+                    /*std::cout << "Start state : " << testCase.getStartState()
                               << "\nEnd  stata: " << testCase.getEndState() << std::endl;*/
                     REQUIRE(robot == expected);
                 }

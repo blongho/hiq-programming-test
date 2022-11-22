@@ -14,13 +14,13 @@ SCENARIO("Reading testcases from file") {
                 REQUIRE(testCases.size() == 3);
 
                 const TestCase &firstTestCaseFromFile = testCases.at(0);
-                REQUIRE(firstTestCaseFromFile.getStartStart() == Robot({0, 0}, Direction::NORTH));
+                REQUIRE(firstTestCaseFromFile.getStartState() == Robot({0, 0}, Direction::NORTH));
                 const std::vector<Action> &actions{Action::MOVE, Action::REPORT};
                 REQUIRE(firstTestCaseFromFile.getActions() == actions);
                 REQUIRE(firstTestCaseFromFile.getEndState() == Robot({0, 1}, Direction::NORTH));
 
                 const TestCase &lastTestCaseFromFile = testCases.at(2);
-                REQUIRE(lastTestCaseFromFile.getStartStart() == Robot({1, 2}, Direction::EAST));
+                REQUIRE(lastTestCaseFromFile.getStartState() == Robot({1, 2}, Direction::EAST));
                 REQUIRE(lastTestCaseFromFile.getEndState() == Robot({3, 3}, Direction::NORTH));
                 const std::vector<Action> &lastActions{Action::MOVE, Action::MOVE, Action::LEFT, Action::MOVE,
                                                        Action::REPORT};

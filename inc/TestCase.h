@@ -44,13 +44,13 @@ public:
      * @brief Get the start state for the tests case
      * @return the Robot's state at the beginning of the tests case
      */
-    [[nodiscard]] const Robot &getStartStart() const;
+    [[nodiscard]] const Robot &getStartState() const;
 
     /**
      * @brief Set the start state of the Robot before the different actions
      * @param startStart the start state of the Robot before actions
      */
-    void setStartStart(const Robot &startStart);
+    void setStartState(const Robot &startStart);
 
     /**
      * @brief Get the end state of the Robot after actions has been performed
@@ -65,7 +65,7 @@ public:
     void setEndState(const Robot &endState);
 
 private:
-    Robot startStart{}; //!< The start state of the Robot before performing actions
+    Robot startState{}; //!< The start state of the Robot before performing actions
     std::vector<Action> actions; //!< The different Action's to be performed on the Robot
     Robot endState{}; //!< The expected state of the robot after the tests has been executed
 };
