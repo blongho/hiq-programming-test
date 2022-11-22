@@ -15,12 +15,21 @@ SCENARIO("Testing the Direction states") {
         }AND_GIVEN("A string for a direction") {
             std::string north{"NORTH"};
             THEN("It should be possible to be converted to a direction") {
-                REQUIRE(Direction::NORTH == stringToDirection(north));
+                REQUIRE(Direction::NORTH == ::stringToDirection(north));
                 REQUIRE(Direction::SOUTH == stringToDirection("SOUTH"));
                 REQUIRE(Direction::WEST == stringToDirection("WEST"));
                 REQUIRE(Direction::EAST == stringToDirection("EAST"));
-                REQUIRE(Direction::NORTH == stringToDirection("north"));
-                REQUIRE(Direction::EAST == stringToDirection("East"));
+            }
+        }AND_GIVEN("A direction") {
+            Direction north = Direction::NORTH;
+            Direction south = Direction::SOUTH;
+            Direction west = Direction::WEST;
+            Direction east = Direction::EAST;
+            THEN("It can be converted to string") {
+                REQUIRE("NORTH" == directionToString(north));
+                REQUIRE("SOUTH" == directionToString(south));
+                REQUIRE("WEST" == directionToString(west));
+                REQUIRE("EAST" == directionToString(east));
             }
         }
     }

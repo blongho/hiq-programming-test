@@ -100,6 +100,7 @@ $(document).ready(function(){initNavTree('_action_8h.html',''); initResizable();
 <p>Holds the different actions that a robot can take.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 </div>
 <p><a href="">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -121,6 +122,8 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a162567b4d9e8ffb90c428682dce9ddfb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_action_8h.html#a8bb1ef53467e4f61410d12822d922498">Action</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_action_8h.html#a162567b4d9e8ffb90c428682dce9ddfb">actionFromString</a> (const std::string &amp;action)</td></tr>
 <tr class="separator:a162567b4d9e8ffb90c428682dce9ddfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32efc9d22b7e2dc11f6fb6ab189f2b35"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_action_8h.html#a32efc9d22b7e2dc11f6fb6ab189f2b35">operator&lt;&lt;</a> (std::ostream &amp;, const <a class="el" href="_action_8h.html#a8bb1ef53467e4f61410d12822d922498">Action</a> &amp;)</td></tr>
+<tr class="separator:a32efc9d22b7e2dc11f6fb6ab189f2b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Holds the different actions that a robot can take. </p>
@@ -161,13 +164,13 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498ab50339a10e1de285ac99d4c3990b8693" name="a8bb1ef53467e4f61410d12822d922498ab50339a10e1de285ac99d4c3990b8693"></a>NONE&#160;</td><td class="fielddoc"><p >The robot does nothing. </p>
 </td></tr>
 </table>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>                  {</div>
-<div class="line"><span class="lineno">   16</span>    <a class="code hl_enumvalue" href="_action_8h.html#a8bb1ef53467e4f61410d12822d922498af7f93635f8e193a924ae4a691bb66b8f">MOVE</a>, </div>
-<div class="line"><span class="lineno">   17</span>    <a class="code hl_enumvalue" href="_action_8h.html#a8bb1ef53467e4f61410d12822d922498a684d325a7303f52e64011467ff5c5758">LEFT</a>, </div>
-<div class="line"><span class="lineno">   18</span>    <a class="code hl_enumvalue" href="_action_8h.html#a8bb1ef53467e4f61410d12822d922498a21507b40c80068eda19865706fdc2403">RIGHT</a>, </div>
-<div class="line"><span class="lineno">   19</span>    <a class="code hl_enumvalue" href="_action_8h.html#a8bb1ef53467e4f61410d12822d922498ad02a38d7ff75e9aed743437fd9539a44">REPORT</a>, </div>
-<div class="line"><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="_action_8h.html#a8bb1ef53467e4f61410d12822d922498ab50339a10e1de285ac99d4c3990b8693">NONE</a> </div>
-<div class="line"><span class="lineno">   21</span>};</div>
+<div class="fragment"><div class="line"><span class="lineno">   16</span>                  {</div>
+<div class="line"><span class="lineno">   17</span>    <a class="code hl_enumvalue" href="_action_8h.html#a8bb1ef53467e4f61410d12822d922498af7f93635f8e193a924ae4a691bb66b8f">MOVE</a>, </div>
+<div class="line"><span class="lineno">   18</span>    <a class="code hl_enumvalue" href="_action_8h.html#a8bb1ef53467e4f61410d12822d922498a684d325a7303f52e64011467ff5c5758">LEFT</a>, </div>
+<div class="line"><span class="lineno">   19</span>    <a class="code hl_enumvalue" href="_action_8h.html#a8bb1ef53467e4f61410d12822d922498a21507b40c80068eda19865706fdc2403">RIGHT</a>, </div>
+<div class="line"><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="_action_8h.html#a8bb1ef53467e4f61410d12822d922498ad02a38d7ff75e9aed743437fd9539a44">REPORT</a>, </div>
+<div class="line"><span class="lineno">   21</span>    <a class="code hl_enumvalue" href="_action_8h.html#a8bb1ef53467e4f61410d12822d922498ab50339a10e1de285ac99d4c3990b8693">NONE</a> </div>
+<div class="line"><span class="lineno">   22</span>};</div>
 <div class="ttc" id="a_action_8h_html_a8bb1ef53467e4f61410d12822d922498a21507b40c80068eda19865706fdc2403"><div class="ttname"><a href="_action_8h.html#a8bb1ef53467e4f61410d12822d922498a21507b40c80068eda19865706fdc2403">Action::RIGHT</a></div><div class="ttdeci">@ RIGHT</div><div class="ttdoc">Informs the Robot to turn 90 degrees right.</div></div>
 <div class="ttc" id="a_action_8h_html_a8bb1ef53467e4f61410d12822d922498a684d325a7303f52e64011467ff5c5758"><div class="ttname"><a href="_action_8h.html#a8bb1ef53467e4f61410d12822d922498a684d325a7303f52e64011467ff5c5758">Action::LEFT</a></div><div class="ttdeci">@ LEFT</div><div class="ttdoc">Informs the Robot 90 degrees left.</div></div>
 <div class="ttc" id="a_action_8h_html_a8bb1ef53467e4f61410d12822d922498ab50339a10e1de285ac99d4c3990b8693"><div class="ttname"><a href="_action_8h.html#a8bb1ef53467e4f61410d12822d922498ab50339a10e1de285ac99d4c3990b8693">Action::NONE</a></div><div class="ttdeci">@ NONE</div><div class="ttdoc">The robot does nothing.</div></div>
@@ -199,6 +202,35 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The corresponding action </dd></dl>
+
+</div>
+</div>
+<a id="a32efc9d22b7e2dc11f6fb6ab189f2b35" name="a32efc9d22b7e2dc11f6fb6ab189f2b35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32efc9d22b7e2dc11f6fb6ab189f2b35">&#9670;&#160;</a></span>operator&lt;&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_action_8h.html#a8bb1ef53467e4f61410d12822d922498">Action</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >The overloaded output stream operator </p><dl class="section return"><dt>Returns</dt><dd>the ostream </dd></dl>
 
 </div>
 </div>

@@ -7,5 +7,6 @@ var _action_8h =
       [ "REPORT", "_action_8h.html#a8bb1ef53467e4f61410d12822d922498ad02a38d7ff75e9aed743437fd9539a44", null ],
       [ "NONE", "_action_8h.html#a8bb1ef53467e4f61410d12822d922498ab50339a10e1de285ac99d4c3990b8693", null ]
     ] ],
-    [ "actionFromString", "_action_8h.html#a162567b4d9e8ffb90c428682dce9ddfb", null ]
+    [ "actionFromString", "_action_8h.html#a162567b4d9e8ffb90c428682dce9ddfb", null ],
+    [ "operator<<", "_action_8h.html#a32efc9d22b7e2dc11f6fb6ab189f2b35", null ]
 ];
