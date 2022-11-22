@@ -1,3 +1,8 @@
+/**
+ * @file Robot.h
+ * @brief The Robot. It has its position and direction
+ * @author Longho Bernard Che
+ */
 #ifndef HIQ_PROGRAMMING_ROBOT_H
 #define HIQ_PROGRAMMING_ROBOT_H
 

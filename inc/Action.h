@@ -1,6 +1,7 @@
 /**
  * \file Action.h
  * @brief Holds the different actions that a robot can take
+ * @author Longho Bernard Che
  */
 #ifndef HIQ_PROGRAMMING_ACTION_H
 #define HIQ_PROGRAMMING_ACTION_H

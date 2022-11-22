@@ -1,9 +1,11 @@
+/**
+ * @file Direction.h
+ * @brief Holds the different directions that a robot can assume
+ * @author Longho Bernard Che
+ */
 #ifndef HIQ_PROGRAMMING_DIRECTION_H
 #define HIQ_PROGRAMMING_DIRECTION_H
-/**
- * @file Direction.cpp
- * @brief Holds the different directions that a robot can assume
- */
+
 #include <string>
 
 /**

@@ -1,3 +1,8 @@
+/**
+ * @file Point.h
+ * @brief A structure to hold the x and y coordinates of a Point that holds the robot's current location
+ * @author Longho Bernard Che
+ */
 #ifndef HIQ_PROGRAMMING_POINT_H
 #define HIQ_PROGRAMMING_POINT_H
 

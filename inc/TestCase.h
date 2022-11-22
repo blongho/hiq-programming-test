@@ -1,3 +1,8 @@
+/**
+ * @file TestCase.h
+ * @brief Holds a tests case read from file
+ * @author Longho Bernard Che
+ */
 #ifndef HIQ_PROGRAMMING_TESTCASE_H
 #define HIQ_PROGRAMMING_TESTCASE_H
 

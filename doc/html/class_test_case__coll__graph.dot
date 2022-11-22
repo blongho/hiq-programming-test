@@ -1,0 +1,9 @@
+digraph "TestCase"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [label="{TestCase\n||+ TestCase()\l+ TestCase()\l+ getActions()\l+ setActions()\l+ getStartState()\l+ setStartState()\l+ getEndState()\l+ setEndState()\l}",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Holds a tests case read."];
+}

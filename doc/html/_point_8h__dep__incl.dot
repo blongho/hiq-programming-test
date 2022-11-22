@@ -1,0 +1,18 @@
+digraph "C:/Users/Bernard Che Longho/playground/hq/inc/Point.h"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [label="C:/Users/Bernard Che\l Longho/playground/hq\l/inc/Point.h",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="A structure to hold the x and y coordinates of a Point that holds the robot's current location."];
+  Node1 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="C:/Users/Bernard Che\l Longho/playground/hq\l/inc/Board.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_board_8h.html",tooltip="Utility class to create a visual representation of the robot."];
+  Node2 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="C:/Users/Bernard Che\l Longho/playground/hq\l/inc/Robot.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_robot_8h.html",tooltip="The Robot. It has its position and direction."];
+  Node3 -> Node4 [dir="back",color="steelblue1",style="solid"];
+  Node4 [label="C:/Users/Bernard Che\l Longho/playground/hq\l/inc/TestCase.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_test_case_8h.html",tooltip="Holds a tests case read from file."];
+  Node4 -> Node5 [dir="back",color="steelblue1",style="solid"];
+  Node5 [label="C:/Users/Bernard Che\l Longho/playground/hq\l/inc/TestCaseReader.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_test_case_reader_8h.html",tooltip="Utility class to read tests cases from a file."];
+  Node3 -> Node5 [dir="back",color="steelblue1",style="solid"];
+}

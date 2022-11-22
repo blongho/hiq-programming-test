@@ -1,3 +1,8 @@
+/**
+ * @file TestCaseReader.h
+ * @brief Utility class to read tests cases from a file
+ * @author Longho Bernard Che
+ */
 #ifndef HIQ_PROGRAMMING_TESTCASEREADER_H
 #define HIQ_PROGRAMMING_TESTCASEREADER_H
 

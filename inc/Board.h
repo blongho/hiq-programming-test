@@ -1,3 +1,8 @@
+/**
+ * \file Board.h
+ * @brief Utility class to create a visual representation of the robot
+ * @author Longho Bernard Che
+ */
 #ifndef HIQ_PROGRAMMING_BOARD_H
 #define HIQ_PROGRAMMING_BOARD_H
 
