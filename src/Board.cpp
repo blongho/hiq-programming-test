@@ -32,7 +32,7 @@ void Board::reset() {
 }
 
 
-constexpr short Board::transformValue(const short &val) {
+constexpr int Board::transformValue(const int &val) {
     if (val == 4) return 0;
     if (val == 3) return 1;
     if (val == 2) return 2;

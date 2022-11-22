@@ -1,5 +1,4 @@
-#include <iostream>
-#include <algorithm>
+
 #include "Robot.h"
 
 Robot::Robot(const Point &p_position, const Direction &p_direction)
@@ -217,6 +216,9 @@ void Robot::performAction(const Action &action) {
             break;
         case Action::REPORT:
             report();
+            break;
+        case Action::NONE:
+            // do nothing
             break;
     }
 

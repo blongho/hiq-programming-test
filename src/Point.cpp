@@ -1,7 +1,7 @@
 #include "Point.h"
 
 
-Point::Point(short p_x, short p_y) :
+Point::Point(int p_x, int p_y) :
         x{p_x}, y{p_y} {}
 
 std::ostream &operator<<(std::ostream &os, const Point &point) {

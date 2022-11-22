@@ -6,6 +6,8 @@
 #ifndef HIQ_PROGRAMMING_ROBOT_H
 #define HIQ_PROGRAMMING_ROBOT_H
 
+#include <iostream>
+
 #include "Board.h"
 #include "Direction.h"
 #include "Action.h"
@@ -173,12 +175,12 @@ private:
      */
     [[nodiscard]] bool isRobotOnTheTable() const;
 
-    friend std::ostream &operator<<(std::ostream &os, const Robot &robot);
 
     /**
      * @brief Shows a 5x5 layout of the robot
      */
     void show() const;
 };
+std::ostream &operator<<(std::ostream &os, const Robot &robot);
 
 #endif //HIQ_PROGRAMMING_ROBOT_H

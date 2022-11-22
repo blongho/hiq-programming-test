@@ -18,7 +18,7 @@ struct Point {
      * @param p_x the x coordinate
      * @param p_y the y coordinate
      */
-    Point(short p_x, short p_y);
+    Point(int p_x, int p_y);
 
     /**
      * @brief Default constructor of a Point object
@@ -44,9 +44,11 @@ struct Point {
     [[nodiscard]] bool isValid() const;
 
     //! The x coordinate of a Point
-    short x{};
+    int x{};
     //! The y coordinate of a point
-    short y{};
+    int y{};
+
+    friend std::ostream &operator<<(std::ostream &os, const Point &point);
 };
 
 #endif //HIQ_PROGRAMMING_POINT_H

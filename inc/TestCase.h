@@ -37,7 +37,7 @@ public:
      * @brief Get the different actions to be executed
      * @return The different actions
      */
-    [[nodiscard]] const std::vector<Action> &getActions() const;
+    [[nodiscard]] std::vector<Action> getActions() const;
 
     /**
      * Set the different actions for this tests case
@@ -49,7 +49,7 @@ public:
      * @brief Get the start state for the tests case
      * @return the Robot's state at the beginning of the tests case
      */
-    [[nodiscard]] const Robot &getStartState() const;
+    [[nodiscard]] Robot getStartState() const;
 
     /**
      * @brief Set the start state of the Robot before the different actions
@@ -61,7 +61,7 @@ public:
      * @brief Get the end state of the Robot after actions has been performed
      * @return the state of the Robot after the tests actions has been performed
      */
-    [[nodiscard]] const Robot &getEndState() const;
+    [[nodiscard]] Robot getEndState() const;
 
     /**
      * @brief Set the end state of the robot

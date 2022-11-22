@@ -38,41 +38,30 @@ else ()
     message(STATUS "Test file path not set. Defaulting to ${TEST_SAMPLES_FILE}")
 endif ()
 
-set(POINT_TEST_SRC ../src/Point.cpp test_point.cpp test_direction.cpp)
-
 
 set(ROBOT_TEST_SRC
         ${SRC}
         test_robot.cpp)
 
-set(ACTION_TEST_SRC ../src/Action.cpp test_action.cpp)
 
 
 set(TEST_CASE_SRC ../src/TestCase.cpp test_testcase.cpp)
 
 
-add_executable(test_point ${POINT_TEST_SRC})
+add_executable(test_point ../src/Point.cpp test_point.cpp)
 target_link_libraries(test_point PRIVATE Catch2::Catch2WithMain)
 
 add_executable(test_robot ${ROBOT_TEST_SRC})
 target_link_libraries(test_robot PRIVATE Catch2::Catch2WithMain)
 
-add_executable(test_action ${ACTION_TEST_SRC})
-target_link_libraries(test_action PRIVATE Catch2::Catch2WithMain)
 
-add_executable(test_testcase ${ACTION_TEST_SRC})
+add_executable(test_testcase ${TEST_CASE_SRC})
 target_link_libraries(test_testcase PRIVATE Catch2::Catch2WithMain)
 
 add_executable(test_testcase_reader ${SRC} test_testcase_reader.cpp)
 target_link_libraries(test_testcase_reader PRIVATE Catch2::Catch2WithMain)
 
-add_executable(test_direction ../src/Direction.cpp test_direction.cpp)
-target_link_libraries(test_direction PRIVATE Catch2::Catch2WithMain)
-
-
 add_test(test_point test_point)
-add_test(test_action test_action)
-add_test(test_direction test_direction)
 add_test(test_testcase test_testcase)
 add_test(test_testcase_reader test_testcase_reader)
 add_test(test_robot test_robot)

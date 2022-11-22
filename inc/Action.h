@@ -28,10 +28,4 @@ enum class Action {
  */
 Action actionFromString(const std::string &action);
 
-/**
- * The overloaded output stream operator
- * @return the ostream
- */
-std::ostream &operator<<(std::ostream&, const Action &);
-
 #endif //HIQ_PROGRAMMING_ACTION_H

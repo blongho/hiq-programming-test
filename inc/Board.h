@@ -35,8 +35,8 @@ public:
     ~Board() = default;
 
 private:
-    static constexpr short ROWS{5}; //!< The number of rows
-    static constexpr short COLUMNS{5}; //!< The number of columns
+    static constexpr int ROWS{5}; //!< The number of rows
+    static constexpr int COLUMNS{5}; //!< The number of columns
     std::string boardCells[ROWS][COLUMNS]{}; //!< The board cells
 
     /**
@@ -44,7 +44,7 @@ private:
      * @param val the value to be added
      * @return the new value that is transformed (4->0, 3->1, 2->2, 1->3, 0->4)
      */
-    static constexpr short transformValue(const short &val);
+    static constexpr int transformValue(const int &val);
 
     /**
      * @brief Print the state of the board to the standard output

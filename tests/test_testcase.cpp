@@ -7,7 +7,7 @@ SCENARIO("Given a test case") {
                       Robot({1, 0}, Direction::EAST)
     );
     WHEN("The actions are executed") {
-        Robot startState = testCase.getStartStart();
+        Robot startState = testCase.getStartState();
         const Robot endState = testCase.getEndState();
         for (const auto &action: testCase.getActions()) {
             startState.performAction(action);
@@ -16,9 +16,9 @@ SCENARIO("Given a test case") {
         REQUIRE(startState.getPosition() == endState.getPosition());
     }AND_WHEN("The start state is changed") {
         const Robot tmpState({2, 2}, Direction::NORTH);
-        testCase.setStartStart(tmpState);
+        testCase.setStartState(tmpState);
         THEN("The testcase's start state is also changed") {
-            REQUIRE(testCase.getStartStart() == tmpState);
+            REQUIRE(testCase.getStartState() == tmpState);
         }
     }AND_WHEN("The end state is changed") {
         const Robot endState({3, 0}, Direction::EAST);

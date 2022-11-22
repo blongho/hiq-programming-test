@@ -6,7 +6,7 @@
 TestCase::TestCase(const Robot &startStart, std::vector<Action> p_actions, const Robot &endState) : startState(
         startStart), actions(std::move(p_actions)), endState(endState) {}
 
-const std::vector<Action> &TestCase::getActions() const {
+std::vector<Action> TestCase::getActions() const {
     return actions;
 }
 
@@ -14,7 +14,7 @@ void TestCase::setActions(const std::vector<Action> &p_actions) {
     TestCase::actions = p_actions;
 }
 
-const Robot &TestCase::getStartState() const {
+Robot TestCase::getStartState() const {
     return startState;
 }
 
@@ -22,7 +22,7 @@ void TestCase::setStartState(const Robot &startStart) {
     TestCase::startState = startStart;
 }
 
-const Robot &TestCase::getEndState() const {
+Robot TestCase::getEndState() const {
     return endState;
 }
 

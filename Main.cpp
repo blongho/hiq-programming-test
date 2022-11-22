@@ -7,8 +7,8 @@ int main() {
     commandReader.readCommand();
     const auto testCases = commandReader.getTestCases();
     std::cout << "Number of test cases " << testCases.size() << std::endl;
-    auto  testActionCount{0u};
-    for (const auto &item: testCases){
+    auto testActionCount{0u};
+    for (const auto &item: testCases) {
         testActionCount += item.getActions().size();
     }
     std::cout << "Sum of actions " << testActionCount << std::endl;
@@ -17,7 +17,6 @@ int main() {
         Robot robot = testCase.getStartState();
         for (const auto &action: testCase.getActions()) {
             robot.performAction(action);
-            std::cout << action << std::endl;
         }
     }
 
