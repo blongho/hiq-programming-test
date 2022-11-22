@@ -1,4 +1,5 @@
 #include <iomanip>
+#include <algorithm>
 
 #include "Board.h"
 
@@ -27,11 +28,7 @@ void Board::update(const Point &point, const std::string &c) {
 }
 
 void Board::reset() {
-    for (auto &i: boardCells) {
-        for (auto &j: i) {
-            j = " ";
-        }
-    }
+    std::fill(&boardCells[0][0], (&boardCells[0][0] + sizeof(boardCells)/sizeof(boardCells[0][0])), " ");
 }
 
 
@@ -43,6 +40,3 @@ constexpr short Board::transformValue(const short &val) {
     if (val == 0) return 4;
     return val;
 }
-
-
-

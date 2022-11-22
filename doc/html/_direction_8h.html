@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>HiQ Programming Exercise by Longho Bernard Che: C:/Users/Bernard Che Longho/playground/hq/inc/Direction.h File Reference</title>
+<title>HiQ Programming Exercise by Longho Bernard Che: Direction.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -101,7 +101,7 @@ $(document).ready(function(){initNavTree('_direction_8h.html',''); initResizable
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 </div>
-<p><a href="_direction_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -120,7 +120,7 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa487a0be41e97946fa295a5156eb86c2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_direction_8h.html#aa487a0be41e97946fa295a5156eb86c2">directionToString</a> (const <a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> &amp;direction)</td></tr>
-<tr class="memdesc:aa487a0be41e97946fa295a5156eb86c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the string representation of a <a class="el" href="">Direction.</a> <a href="_direction_8h.html#aa487a0be41e97946fa295a5156eb86c2">More...</a><br /></td></tr>
+<tr class="memdesc:aa487a0be41e97946fa295a5156eb86c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the string representation of a Direction.  <a href="_direction_8h.html#aa487a0be41e97946fa295a5156eb86c2">More...</a><br /></td></tr>
 <tr class="separator:aa487a0be41e97946fa295a5156eb86c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56693e70a215dc10e5016cdeabaf712a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_direction_8h.html#a56693e70a215dc10e5016cdeabaf712a">stringToDirection</a> (const std::string &amp;direction)</td></tr>
 <tr class="memdesc:a56693e70a215dc10e5016cdeabaf712a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a Direction from a string value.  <a href="_direction_8h.html#a56693e70a215dc10e5016cdeabaf712a">More...</a><br /></td></tr>
@@ -130,7 +130,7 @@ Functions</h2></td></tr>
 <div class="textblock"><p >Holds the different directions that a robot can assume. </p>
 <dl class="section author"><dt>Author</dt><dd>Longho Bernard Che </dd></dl>
 
-<p class="definition">Definition in file <a class="el" href="_direction_8h_source.html">Direction.h</a>.</p>
+<p class="definition">Definition in file <a class="el" href="">Direction.h</a>.</p>
 </div><h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a224b9163917ac32fc95a60d8c1eec3aa" name="a224b9163917ac32fc95a60d8c1eec3aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a224b9163917ac32fc95a60d8c1eec3aa">&#9670;&#160;</a></span>Direction</h2>
@@ -175,9 +175,14 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a224b9163917ac32fc95a60d8c1eec3aaab50339a10e1de285ac99d4c3990b8693" name="a224b9163917ac32fc95a60d8c1eec3aaab50339a10e1de285ac99d4c3990b8693"></a>NONE&#160;</td><td class="fielddoc"><p >The robot is not on the table. </p>
 </td></tr>
 </table>
-
-<p class="definition">Definition at line <a class="el" href="_direction_8h_source.html#l00022">22</a> of file <a class="el" href="_direction_8h_source.html">Direction.h</a>.</p>
-
+<div class="fragment"><div class="line"><span class="lineno">   22</span>                     {</div>
+<div class="line"><span class="lineno">   23</span>    <a class="code hl_enumvalue" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa2bf8f791695c70efa9c14e6f1c326403">NORTH</a>, </div>
+<div class="line"><span class="lineno">   24</span>    <a class="code hl_enumvalue" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa96e44fa82e5a5263fb92337be422d3eb">SOUTH</a>, </div>
+<div class="line"><span class="lineno">   25</span>    <a class="code hl_enumvalue" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa45ac78bf3d4882ac520f4e7fb08d55c5">EAST</a>, </div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_enumvalue" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa83c9f5692281bf59471b13dfddb3af91">WEST</a>, </div>
+<div class="line"><span class="lineno">   27</span>    <a class="code hl_enumvalue" href="_direction_8h.html#a224b9163917ac32fc95a60d8c1eec3aaab50339a10e1de285ac99d4c3990b8693">NONE</a> </div>
+<div class="line"><span class="lineno">   28</span>};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
@@ -197,7 +202,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get the string representation of a <a class="el" href="">Direction.</a></p>
+<p>Get the string representation of a Direction. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">direction</td><td>The Direction </td></tr>

@@ -1,5 +1,5 @@
 /**
- * \file Action.h
+ * @file Action.h
  * @brief Holds the different actions that a robot can take
  * @author Longho Bernard Che
  */
@@ -7,6 +7,7 @@
 #define HIQ_PROGRAMMING_ACTION_H
 
 #include <string>
+#include <iostream>
 
 /**
  * @brief The actions that a robot can take
@@ -27,5 +28,6 @@ enum class Action {
  */
 Action actionFromString(const std::string &action);
 
+std::ostream &operator<<(std::ostream&, const Action &);
 
 #endif //HIQ_PROGRAMMING_ACTION_H

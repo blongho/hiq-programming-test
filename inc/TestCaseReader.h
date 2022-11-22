@@ -24,7 +24,12 @@ public:
      */
     [[nodiscard]] std::vector<TestCase> getTestCases() const;
 
+    /**
+     * @brief Construct a TestCase Reader and specify the file to read tests from
+     * @param testCaseFile the file containing test cases
+     */
     explicit TestCaseReader(std::string testCaseFile);
+
     /**
      * @brief The default constructor.
      */
@@ -34,6 +39,11 @@ public:
      * Read the contents of the tests file;
      */
     void readCommand();
+
+    /**
+     * Destructor
+     */
+    ~TestCaseReader() = default;
 
 private:
     std::vector<TestCase> testCases; //!< Container to hold the cases read from file

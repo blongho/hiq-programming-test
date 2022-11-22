@@ -2,6 +2,7 @@ var class_robot =
 [
     [ "Robot", "class_robot.html#a136b20cc34a9cda8da9ef2c85646f747", null ],
     [ "Robot", "class_robot.html#a0364d1773ecf613f12220d79cc8e9fa7", null ],
+    [ "~Robot", "class_robot.html#a359bc5b345fc76b9451abfeea4cad6e4", null ],
     [ "getDirection", "class_robot.html#a421fb7773748dbf81878257ecdd974e6", null ],
     [ "getPosition", "class_robot.html#a9e453fcc67439c4ea48e21b94340e217", null ],
     [ "left", "class_robot.html#a2a01fd139981fc88dcac330684420d9b", null ],

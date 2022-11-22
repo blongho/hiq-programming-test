@@ -87,6 +87,11 @@ public:
      */
     void performAction(const Action &action);
 
+    /**
+     * Destructor
+     */
+    ~Robot() = default;
+
 private:
     Point position{}; //!< the robot's position
     Direction direction{Direction::NONE}; //!< The direction that the robot is facing
@@ -97,7 +102,8 @@ private:
     void moveNorth();
 
     /**
-     * @brief Make a one step move towards the south (down). <br>Decreases the position of the robot one unit in the y-axis <br>
+     * @brief Make a one step move towards the south (down). <br>Decreases the position of the robot one unit in the
+     * y-axis <br>
      * <br>
      * Pre-condition<br>
      * The robot is on the table and not at the bottom <br>
@@ -108,7 +114,8 @@ private:
     void moveSouth();
 
     /**
-     * @brief Make a one step move towards the east (right). <br>Increases the position of the robot one unit in the x-axis <br>
+     * @brief Make a one step move towards the east (right). <br>Increases the position of the robot one unit in the
+     * x-axis <br>
      *<br>
      * Pre-condition<br>
      * The robot is on the table and not at the edge right edge<br>
@@ -119,7 +126,8 @@ private:
     void moveEast();
 
     /**
-     * @brief Make a one step move towards the west (left). <br>Decreases the position of the robot by one unit in the x-axis <br>
+     * @brief Make a one step move towards the west (left). <br>Decreases the position of the robot by one unit in the
+     * x-axis <br>
      *
      * <br>
      * Pre-condition <br>

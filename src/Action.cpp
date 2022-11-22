@@ -13,3 +13,24 @@ Action actionFromString(const std::string &action) {
         return Action::NONE;
     }
 }
+
+std::ostream &operator<<(std::ostream&os, const Action &action){
+    switch (action) {
+        case Action::MOVE:
+            os << "MOVE";
+            break;
+        case Action::LEFT:
+            os << "LEFT";
+            break;
+        case Action::RIGHT:
+            os << "RIGHT";
+            break;
+        case Action::REPORT:
+            os << "REPORT";
+            break;
+        case Action::NONE:
+            os << "NONE";
+            break;
+    }
+    return os;
+}

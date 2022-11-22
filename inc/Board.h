@@ -1,5 +1,5 @@
 /**
- * \file Board.h
+ * @file Board.h
  * @brief Utility class to create a visual representation of the robot
  * @author Longho Bernard Che
  */
@@ -28,6 +28,11 @@ public:
      * @param character the character to display at the position specified
      */
     void update(const Point &point, const std::string &character);
+
+    /**
+     * Destructor
+     */
+    ~Board() = default;
 
 private:
     static constexpr short ROWS{5}; //!< The number of rows

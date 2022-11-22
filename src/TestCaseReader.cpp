@@ -10,39 +10,35 @@ void TestCaseReader::readCommand() {
     std::ifstream ifs(test_file);
     std::cout << __func__ << ": Reading from " << test_file << "\n\n";
     if (!ifs) {
-        throw std::runtime_error(std::string(__func__)  +": test file could not be read!");
+        throw std::runtime_error(std::string(__func__) + ": test file could not be read!");
     } else {
         Robot startState;
         Robot endState;
         std::string line{};
         std::vector<Action> tmpCommands;
         while (std::getline(ifs, line)) {
-            if (!line.empty() || line[0] == '#') {
-                if (line.find("PLACE") != std::string::npos) {
-                    tmpCommands.clear();
-                    std::istringstream iss(line);
-                    startState = extractRobotStateFromPlaceString(line);
-                    //std::cout << "Start position is " << startState << std::endl;
-                } else if (isAction(line)) {
-                    tmpCommands.push_back(actionFromString(line));
-                } else if (line.find("Output") != std::string::npos) {
-                    endState = extractRobotStateFromOutputString(line);
-                    //std::cout << "End position is " << endState << std::endl;
-                    TestCase testCase;
-                    testCase.setStartState(startState);
-                    testCase.setActions(tmpCommands);
-                    testCase.setEndState(endState);
-                    testCases.push_back(testCase);
-                }
-            } else {
-                /* std::cout << __FILE_NAME__ << ":" << __func__ << ":" << __LINE__
-                           << ": Empty line or comment in the tests file. Ignored!!\n";*/
+            if (line.empty() || line.at(0) == '#') {
                 continue;
             }
+            if (line.find("PLACE") != std::string::npos) {
+                tmpCommands.clear();
+                std::istringstream iss(line);
+                startState = extractRobotStateFromPlaceString(line);
+                //std::cout << "Start position is " << startState << std::endl;
+            } else if (isAction(line)) {
+                tmpCommands.push_back(actionFromString(line));
+            } else if (line.find("Output") != std::string::npos) {
+                endState = extractRobotStateFromOutputString(line);
+                //std::cout << "End position is " << endState << std::endl;
+                TestCase testCase;
+                testCase.setStartState(startState);
+                testCase.setActions(tmpCommands);
+                testCase.setEndState(endState);
+                testCases.push_back(testCase);
+            }
         }
-        std::cout << "Test content successfully read\n";
     }
-
+    std::cout << "Test content successfully read\n";
 }
 
 Robot TestCaseReader::extractRobotStateFromPlaceString(const std::string &line) {

@@ -26,9 +26,14 @@ struct Point {
     Point() = default;
 
     /**
+     * Destructor
+     */
+    ~Point() = default;
+
+    /**
      * @brief The overloaded equality operator used to compare if two points are equal
      * @param other the other point to compare
-     * @return true if both @param other and this current point are equal
+     * @return true if both points and this current point are equal
      */
     bool operator==(const Point &other) const;
 
@@ -38,8 +43,10 @@ struct Point {
      */
     [[nodiscard]] bool isValid() const;
 
-    short x{}; //!*< The x coordinate of a point */
-    short y{}; //!*< The y coordinate of a point */
+    //! The x coordinate of a Point
+    short x{};
+    //! The y coordinate of a point
+    short y{};
 };
 
 #endif //HIQ_PROGRAMMING_POINT_H

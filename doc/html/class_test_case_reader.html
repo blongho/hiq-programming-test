@@ -100,15 +100,15 @@ $(document).ready(function(){initNavTree('class_test_case_reader.html',''); init
 <p>Utility class to read tests cases from a file.  
  <a href="class_test_case_reader.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_test_case_reader_8h_source.html">TestCaseReader.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="">TestCaseReader.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa6fe2bcd2105f0a2a46889e47ae11b78"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_test_case.html">TestCase</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_test_case_reader.html#aa6fe2bcd2105f0a2a46889e47ae11b78">getTestCases</a> () const</td></tr>
 <tr class="memdesc:aa6fe2bcd2105f0a2a46889e47ae11b78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the tests cases that have been read from file.  <a href="class_test_case_reader.html#aa6fe2bcd2105f0a2a46889e47ae11b78">More...</a><br /></td></tr>
 <tr class="separator:aa6fe2bcd2105f0a2a46889e47ae11b78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc903ff3f654da7525888d31f8ba70e3"><td class="memItemLeft" align="right" valign="top"><a id="adc903ff3f654da7525888d31f8ba70e3" name="adc903ff3f654da7525888d31f8ba70e3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TestCaseReader</b> (std::string testCaseFile)</td></tr>
+<tr class="memitem:adc903ff3f654da7525888d31f8ba70e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_test_case_reader.html#adc903ff3f654da7525888d31f8ba70e3">TestCaseReader</a> (std::string testCaseFile)</td></tr>
+<tr class="memdesc:adc903ff3f654da7525888d31f8ba70e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a <a class="el" href="class_test_case.html" title="Holds a tests case read.">TestCase</a> Reader and specify the file to read tests from.  <a href="class_test_case_reader.html#adc903ff3f654da7525888d31f8ba70e3">More...</a><br /></td></tr>
 <tr class="separator:adc903ff3f654da7525888d31f8ba70e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50468734219fc16c977fa36a103c3000"><td class="memItemLeft" align="right" valign="top"><a id="a50468734219fc16c977fa36a103c3000" name="a50468734219fc16c977fa36a103c3000"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>TestCaseReader</b> ()=default</td></tr>
@@ -116,12 +116,73 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a50468734219fc16c977fa36a103c3000"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc0d652408c2b51d5b8a7cdd16249d37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_test_case_reader.html#adc0d652408c2b51d5b8a7cdd16249d37">readCommand</a> ()</td></tr>
 <tr class="separator:adc0d652408c2b51d5b8a7cdd16249d37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa981c6628ba2d481a52d3944e395517f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_test_case_reader.html#aa981c6628ba2d481a52d3944e395517f">~TestCaseReader</a> ()=default</td></tr>
+<tr class="separator:aa981c6628ba2d481a52d3944e395517f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Utility class to read tests cases from a file. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="adc903ff3f654da7525888d31f8ba70e3" name="adc903ff3f654da7525888d31f8ba70e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc903ff3f654da7525888d31f8ba70e3">&#9670;&#160;</a></span>TestCaseReader()</h2>
 
-<p class="definition">Definition at line <a class="el" href="_test_case_reader_8h_source.html#l00019">19</a> of file <a class="el" href="_test_case_reader_8h_source.html">TestCaseReader.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TestCaseReader::TestCaseReader </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>testCaseFile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct a <a class="el" href="class_test_case.html" title="Holds a tests case read.">TestCase</a> Reader and specify the file to read tests from. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">testCaseFile</td><td>the file containing test cases </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa981c6628ba2d481a52d3944e395517f" name="aa981c6628ba2d481a52d3944e395517f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa981c6628ba2d481a52d3944e395517f">&#9670;&#160;</a></span>~TestCaseReader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TestCaseReader::~TestCaseReader </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Destructor </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa6fe2bcd2105f0a2a46889e47ae11b78" name="aa6fe2bcd2105f0a2a46889e47ae11b78"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa6fe2bcd2105f0a2a46889e47ae11b78">&#9670;&#160;</a></span>getTestCases()</h2>
 
@@ -161,7 +222,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Bernard Che Longho/playground/hq/inc/<a class="el" href="_test_case_reader_8h_source.html">TestCaseReader.h</a></li>
+<li><a class="el" href="">TestCaseReader.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

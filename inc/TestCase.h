@@ -69,6 +69,11 @@ public:
      */
     void setEndState(const Robot &endState);
 
+    /**
+     * Destructor
+     */
+    ~TestCase() = default;
+
 private:
     Robot startState{}; //!< The start state of the Robot before performing actions
     std::vector<Action> actions; //!< The different Action's to be performed on the Robot

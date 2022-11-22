@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+    <cppcheck version="2.9"/>
+    <errors>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::fill or std::generate algorithm instead of a raw loop." verbose="Consider using std::fill or std::generate algorithm instead of a raw loop." cwe="398" file0="Board.cpp">
+            <location file="Board.cpp" line="32"/>
+        </error>
+        <error id="containerOutOfBounds" severity="warning" msg="Either the condition &amp;#039;line.empty()&amp;#039; is redundant or expression &amp;#039;line[0]&amp;#039; cause access out of bounds." verbose="Either the condition &amp;#039;line.empty()&amp;#039; is redundant or expression &amp;#039;line[0]&amp;#039; cause access out of bounds." cwe="398" file0="TestCaseReader.cpp">
+            <location file="TestCaseReader.cpp" line="20" info="Access out of bounds"/>
+            <location file="TestCaseReader.cpp" line="20" info="Assuming that condition &amp;#039;line.empty()&amp;#039; is not redundant"/>
+        </error>
+    </errors>
+</results>

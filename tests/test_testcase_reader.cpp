@@ -4,7 +4,7 @@
 
 SCENARIO("Reading testcases from file") {
     GIVEN("A file containing test cases") {
-        TestCaseReader reader("../testcase_tests.txt");
+        TestCaseReader reader("../../testcase_tests.txt");
         THEN("It should be possible to read the contents and used as test cases") {
             try {
                 reader.readCommand();
@@ -14,8 +14,13 @@ SCENARIO("Reading testcases from file") {
                 REQUIRE(testCases.size() == 3);
 
                 const TestCase &firstTestCaseFromFile = testCases.at(0);
+
                 REQUIRE(firstTestCaseFromFile.getStartState() == Robot({0, 0}, Direction::NORTH));
+
                 const std::vector<Action> &actions{Action::MOVE, Action::REPORT};
+
+                REQUIRE(firstTestCaseFromFile.getActions().size() == 2);
+
                 REQUIRE(firstTestCaseFromFile.getActions() == actions);
                 REQUIRE(firstTestCaseFromFile.getEndState() == Robot({0, 1}, Direction::NORTH));
 

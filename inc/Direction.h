@@ -28,7 +28,7 @@ enum class Direction {
 };
 
 /**
- * @brief Get the string representation of a \link Direction
+ * @brief Get the string representation of a Direction
  * @param direction The Direction
  * @return a string representing the direction
  * @code
