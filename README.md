@@ -66,7 +66,11 @@ make -j6
 6. Run the tests
 
 ```shell 
-./tests/test_robot
+./tests/test_robot # to run a specific test
+```
+
+```shell 
+ctest # to run all the tests
 ```
 
 

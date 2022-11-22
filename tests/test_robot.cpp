@@ -118,7 +118,7 @@ SCENARIO("Testing sample known cases with combination of robot movements") {
 
 TEST_CASE("Testing from file") {
     try {
-        TestCaseReader reader("./../../test_cases.txt");
+        TestCaseReader reader;
         reader.readCommand();
         const auto testCases = reader.getTestCases();
         if (testCases.empty()) {

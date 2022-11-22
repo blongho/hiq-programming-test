@@ -3,8 +3,8 @@
 #include <utility>
 #include <sstream>
 
-TestCase::TestCase(const Robot &startStart, std::vector<Action> actions, const Robot &endState) : startState(
-        startStart), actions(std::move(actions)), endState(endState) {}
+TestCase::TestCase(const Robot &startStart, std::vector<Action> p_actions, const Robot &endState) : startState(
+        startStart), actions(std::move(p_actions)), endState(endState) {}
 
 const std::vector<Action> &TestCase::getActions() const {
     return actions;

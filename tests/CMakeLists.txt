@@ -29,16 +29,14 @@ set(SRC
 
 MESSAGE(STATUS "Current directory is ${CMAKE_CURRENT_BINARY_DIR}")
 if (TEST_SAMPLES_FILE)
-    set(TEST_CASE_FILE "./../${TEST_SAMPLES_FILE}" CACHE STRING "Path to file containing test cases")
+    set(TEST_CASE_FILE "${CMAKE_SOURCE_DIR}/${TEST_SAMPLES_FILE}" CACHE STRING "Path to file containing test cases")
     add_definitions(-DTEST_SAMPLES_FILE="${TEST_CASE_FILE}")
     message(STATUS "Test file path set to ${TEST_CASE_FILE}")
 else ()
-    set(TEST_SAMPLES_FILE "./../test_cases.txt" CACHE STRING "Path to file containing test cases")
+    set(TEST_SAMPLES_FILE "${CMAKE_SOURCE_DIR}/test_cases.txt" CACHE STRING "Path to file containing test cases")
     add_definitions(-DTEST_SAMPLES_FILE="${TEST_SAMPLES_FILE}")
     message(STATUS "Test file path not set. Defaulting to ${TEST_SAMPLES_FILE}")
 endif ()
-add_definitions(-DTESTING=1)
-
 
 set(POINT_TEST_SRC ../src/Point.cpp test_point.cpp)
 

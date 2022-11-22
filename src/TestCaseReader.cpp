@@ -73,8 +73,6 @@ std::vector<TestCase> TestCaseReader::getTestCases() const {
     return testCases;
 }
 
-TestCaseReader::TestCaseReader(std::string testCaseFile)
-        : test_file{std::move(testCaseFile)} {}
 
 
 

@@ -4,7 +4,7 @@
 
 SCENARIO("Reading testcases from file") {
     GIVEN("A file containing test cases") {
-        TestCaseReader reader("../../testcase_tests.txt");
+        TestCaseReader reader;
         THEN("It should be possible to read the contents and used as test cases") {
             try {
                 reader.readCommand();
