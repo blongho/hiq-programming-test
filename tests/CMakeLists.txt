@@ -38,7 +38,7 @@ else ()
     message(STATUS "Test file path not set. Defaulting to ${TEST_SAMPLES_FILE}")
 endif ()
 
-set(POINT_TEST_SRC ../src/Point.cpp test_point.cpp)
+set(POINT_TEST_SRC ../src/Point.cpp test_point.cpp test_direction.cpp)
 
 
 set(ROBOT_TEST_SRC
@@ -69,8 +69,12 @@ target_link_libraries(test_testcase PRIVATE Catch2::Catch2WithMain)
 add_executable(test_testcase_reader ${SRC} test_testcase_reader.cpp)
 target_link_libraries(test_testcase_reader PRIVATE Catch2::Catch2WithMain)
 
+add_executable(test_direction ../src/Direction.cpp test_direction.cpp)
+target_link_libraries(test_direction PRIVATE Catch2::Catch2WithMain)
+
 add_test(test_robot test_robot)
 add_test(test_point test_point)
 add_test(test_action test_action)
 add_test(test_testcase test_testcase)
 add_test(test_testcase_reader test_testcase_reader)
+add_test(test_direction test_direction)

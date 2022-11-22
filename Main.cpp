@@ -3,7 +3,7 @@
 #include <numeric>
 
 int main() {
-    TestCaseReader commandReader("../test_cases.txt");
+    TestCaseReader commandReader;
     commandReader.readCommand();
     const auto testCases = commandReader.getTestCases();
     std::cout << "Number of test cases " << testCases.size() << std::endl;

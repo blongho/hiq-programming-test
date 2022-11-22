@@ -1,5 +1,6 @@
 #include "Direction.h"
 
+#include <algorithm>
 
 std::string directionToString(const Direction &direction) {
     switch (direction) {
@@ -17,13 +18,17 @@ std::string directionToString(const Direction &direction) {
 }
 
 Direction stringToDirection(const std::string &direction) {
-    if (direction == "NORTH") {
+    std::string upperDirection{};
+
+    std::transform(direction.begin(), direction.end(), upperDirection.begin(), ::toupper);
+
+    if (upperDirection == "NORTH") {
         return Direction::NORTH;
-    } else if (direction == "SOUTH") {
+    } else if (upperDirection == "SOUTH") {
         return Direction::SOUTH;
-    } else if (direction == "WEST") {
+    } else if (upperDirection == "WEST") {
         return Direction::WEST;
-    } else if (direction == "EAST") {
+    } else if (upperDirection == "EAST") {
         return Direction::EAST;
     } else {
         return Direction::NONE;
