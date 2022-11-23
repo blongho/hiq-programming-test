@@ -72,6 +72,3 @@ make -j6
 ```shell 
 ctest # to run all the tests
 ```
-
-
-
