@@ -94,6 +94,12 @@ public:
      */
     ~Robot() = default;
 
+    /**
+     * @brief The overloaded << operator for displaying a robot on screen
+     * @param os the std::ostream operator
+     * @param robot the robot to display
+     * @return os
+     */
     friend std::ostream &operator<<(std::ostream &os, const Robot &robot);
 
 private:

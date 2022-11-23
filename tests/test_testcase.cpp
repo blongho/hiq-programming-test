@@ -9,7 +9,8 @@ SCENARIO("Given a test case") {
     WHEN("The actions are executed") {
         Robot startState = testCase.getStartState();
         const Robot endState = testCase.getEndState();
-        for (const auto &action: testCase.getActions()) {
+        const auto actions = testCase.getActions();
+        for (const auto &action: actions) {
             startState.performAction(action);
         }
         REQUIRE(startState.getDirection() == endState.getDirection());

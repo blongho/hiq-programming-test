@@ -20,7 +20,7 @@ const Direction &Robot::getDirection() const {
 
 void Robot::left() {
     if (!isRobotOnTheTable()) {
-        std::cout << "Robot is not on the table. Left turn not possible!\n";
+        std::cerr  << "Robot is not on the table. Left turn not possible!\n";
         return;
     }
     switch (direction) {
@@ -39,11 +39,12 @@ void Robot::left() {
         case Direction::NONE:
             break;
     }
+    show();
 }
 
 void Robot::move() {
     if (!isRobotOnTheTable()) {
-        std::cout << "Cannot make a move on a robot that is not on the table!\n";
+        std::cerr  << "Cannot make a move on a robot that is not on the table!\n";
         return;
     }
     switch (direction) {
@@ -67,7 +68,7 @@ void Robot::move() {
 
 void Robot::right() {
     if (!isRobotOnTheTable()) {
-        std::cout << "Robot is not on the table. Right turn not possible!\n";
+        std::cerr << "Robot is not on the table. Right turn not possible!\n";
         return;
     }
     switch (direction) {
@@ -86,6 +87,7 @@ void Robot::right() {
         case Direction::NONE:
             break;
     }
+    show();
 }
 
 
@@ -123,11 +125,11 @@ void Robot::moveWest() {
 
 bool Robot::isWestMovePossible() const {
     if (!isRobotOnTheTable()) {
-        std::cout << "Robot is not on the table. Move not possible!\n";
+        std::cerr << "Robot is not on the table. Move not possible!\n";
         return false;
     }
     if ((position.x - 1) < 0) {
-        std::cout << "Robot will fall if this move is made. State: " << *this << std::endl;
+        std::cerr  << "Robot will fall if this move is made. State: " << *this << std::endl;
         return false;
     }
     return true;
@@ -135,11 +137,11 @@ bool Robot::isWestMovePossible() const {
 
 bool Robot::isEastMovePossible() const {
     if (!isRobotOnTheTable()) {
-        std::cout << "Robot is not on the table. Move not possible!\n";
+        std::cerr  << "Robot is not on the table. Move not possible!\n";
         return false;
     }
     if ((position.x + 1) > 4) {
-        std::cout << "Robot will fall if this move is made. State: " << *this << std::endl;
+        std::cerr  << "Robot will fall if this move is made. State: " << *this << std::endl;
         return false;
     }
     return true;
@@ -147,11 +149,11 @@ bool Robot::isEastMovePossible() const {
 
 bool Robot::isNorthMovePossible() const {
     if (!isRobotOnTheTable()) {
-        std::cout << "Robot is not on the table. Move not possible!\n";
+        std::cerr  << "Robot is not on the table. Move not possible!\n";
         return false;
     }
     if ((position.y + 1) > 4) {
-        std::cout << "Robot will fall if this move is made. State: " << *this << std::endl;
+        std::cerr  << "Robot will fall if this move is made. State: " << *this << std::endl;
         return false;
     }
     return true;
@@ -159,11 +161,11 @@ bool Robot::isNorthMovePossible() const {
 
 bool Robot::isSouthMovePossible() const {
     if (!isRobotOnTheTable()) {
-        std::cout << "Robot is not on the table. Move not possible!\n";
+        std::cerr  << "Robot is not on the table. Move not possible!\n";
         return false;
     }
     if ((position.y - 1) < 0) {
-        std::cout << "Robot will fall if this move is made. State: " << *this << std::endl;
+        std::cerr  << "Robot will fall if this move is made. State: " << *this << std::endl;
         return false;
     }
     return true;
@@ -175,16 +177,16 @@ void Robot::show() const {
 
     switch (direction) {
         case Direction::NORTH:
-            arrow = "RN";
+            arrow = "R^";
             break;
         case Direction::SOUTH:
-            arrow = "RS";
+            arrow = "R!";
             break;
         case Direction::EAST:
-            arrow = "RE";
+            arrow = "R->";
             break;
         case Direction::WEST:
-            arrow = "RW";
+            arrow = "<-R";
             break;
         case Direction::NONE:
             arrow = "";

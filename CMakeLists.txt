@@ -15,7 +15,7 @@ set(SRC_FILES
         src/Robot.cpp
         src/TestCase.cpp
         src/TestCaseReader.cpp
-        )
+        src/DemoApp.cpp)
 
 add_executable(app ${SRC_FILES} Main.cpp)
 

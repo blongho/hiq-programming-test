@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>HiQ Programming Exercise by Longho Bernard Che: C:/Users/Bernard Che Longho/playground/hq/inc/Action.h File Reference</title>
+<title>HiQ Programming Exercise by Longho Bernard Che: Action.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -100,6 +100,7 @@ $(document).ready(function(){initNavTree('d7/d6a/_action_8h.html','../../'); ini
 <p>Holds the different actions that a robot can take.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 </div>
 <p><a href="">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -161,13 +162,13 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498ab50339a10e1de285ac99d4c3990b8693" name="a8bb1ef53467e4f61410d12822d922498ab50339a10e1de285ac99d4c3990b8693"></a>NONE&#160;</td><td class="fielddoc"><p >The robot does nothing. </p>
 </td></tr>
 </table>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>                  {</div>
-<div class="line"><span class="lineno">   16</span>    <a class="code hl_enumvalue" href="../../d7/d6a/_action_8h.html#a8bb1ef53467e4f61410d12822d922498af7f93635f8e193a924ae4a691bb66b8f">MOVE</a>, </div>
-<div class="line"><span class="lineno">   17</span>    <a class="code hl_enumvalue" href="../../d7/d6a/_action_8h.html#a8bb1ef53467e4f61410d12822d922498a684d325a7303f52e64011467ff5c5758">LEFT</a>, </div>
-<div class="line"><span class="lineno">   18</span>    <a class="code hl_enumvalue" href="../../d7/d6a/_action_8h.html#a8bb1ef53467e4f61410d12822d922498a21507b40c80068eda19865706fdc2403">RIGHT</a>, </div>
-<div class="line"><span class="lineno">   19</span>    <a class="code hl_enumvalue" href="../../d7/d6a/_action_8h.html#a8bb1ef53467e4f61410d12822d922498ad02a38d7ff75e9aed743437fd9539a44">REPORT</a>, </div>
-<div class="line"><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="../../d7/d6a/_action_8h.html#a8bb1ef53467e4f61410d12822d922498ab50339a10e1de285ac99d4c3990b8693">NONE</a> </div>
-<div class="line"><span class="lineno">   21</span>};</div>
+<div class="fragment"><div class="line"><span class="lineno">   16</span>                  {</div>
+<div class="line"><span class="lineno">   17</span>    <a class="code hl_enumvalue" href="../../d7/d6a/_action_8h.html#a8bb1ef53467e4f61410d12822d922498af7f93635f8e193a924ae4a691bb66b8f">MOVE</a>, </div>
+<div class="line"><span class="lineno">   18</span>    <a class="code hl_enumvalue" href="../../d7/d6a/_action_8h.html#a8bb1ef53467e4f61410d12822d922498a684d325a7303f52e64011467ff5c5758">LEFT</a>, </div>
+<div class="line"><span class="lineno">   19</span>    <a class="code hl_enumvalue" href="../../d7/d6a/_action_8h.html#a8bb1ef53467e4f61410d12822d922498a21507b40c80068eda19865706fdc2403">RIGHT</a>, </div>
+<div class="line"><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="../../d7/d6a/_action_8h.html#a8bb1ef53467e4f61410d12822d922498ad02a38d7ff75e9aed743437fd9539a44">REPORT</a>, </div>
+<div class="line"><span class="lineno">   21</span>    <a class="code hl_enumvalue" href="../../d7/d6a/_action_8h.html#a8bb1ef53467e4f61410d12822d922498ab50339a10e1de285ac99d4c3990b8693">NONE</a> </div>
+<div class="line"><span class="lineno">   22</span>};</div>
 <div class="ttc" id="a_action_8h_html_a8bb1ef53467e4f61410d12822d922498a21507b40c80068eda19865706fdc2403"><div class="ttname"><a href="../../d7/d6a/_action_8h.html#a8bb1ef53467e4f61410d12822d922498a21507b40c80068eda19865706fdc2403">Action::RIGHT</a></div><div class="ttdeci">@ RIGHT</div><div class="ttdoc">Informs the Robot to turn 90 degrees right.</div></div>
 <div class="ttc" id="a_action_8h_html_a8bb1ef53467e4f61410d12822d922498a684d325a7303f52e64011467ff5c5758"><div class="ttname"><a href="../../d7/d6a/_action_8h.html#a8bb1ef53467e4f61410d12822d922498a684d325a7303f52e64011467ff5c5758">Action::LEFT</a></div><div class="ttdeci">@ LEFT</div><div class="ttdoc">Informs the Robot 90 degrees left.</div></div>
 <div class="ttc" id="a_action_8h_html_a8bb1ef53467e4f61410d12822d922498ab50339a10e1de285ac99d4c3990b8693"><div class="ttname"><a href="../../d7/d6a/_action_8h.html#a8bb1ef53467e4f61410d12822d922498ab50339a10e1de285ac99d4c3990b8693">Action::NONE</a></div><div class="ttdeci">@ NONE</div><div class="ttdoc">The robot does nothing.</div></div>
@@ -207,7 +208,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a class="el" href="../../d7/d6a/_action_8h.html">Action.h</a></li>
+    <li class="navelem"><a class="el" href="../../d7/d6a/_action_8h.html">Action.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>

@@ -27,11 +27,6 @@ set(SRC
         ../src/TestCaseReader.cpp
         )
 
-get_filename_component(MY_RESULT_ABSOLUTE_PATH_VAR
-        "${CMAKE_CURRENT_LIST_DIR}/${MY_RELATIVE_PATH_VAR}"
-        ABSOLUTE)
-
-
 MESSAGE(STATUS "Current directory is ${CMAKE_SOURCE_DIR}")
 
 if (TEST_SAMPLES_FILE)
@@ -42,24 +37,14 @@ else ()
     message(STATUS "Test file path not set. Defaulting to ${CMAKE_SOURCE_DIR}/test_cases.txt")
 endif ()
 
-
-set(ROBOT_TEST_SRC
-        ${SRC}
-        test_robot.cpp)
-
-
-
-set(TEST_CASE_SRC ../src/TestCase.cpp test_testcase.cpp)
-
-
 add_executable(test_point ../src/Point.cpp test_point.cpp)
 target_link_libraries(test_point PRIVATE Catch2::Catch2WithMain)
 
-add_executable(test_robot ${ROBOT_TEST_SRC})
+add_executable(test_robot   ${SRC} test_robot.cpp)
 target_link_libraries(test_robot PRIVATE Catch2::Catch2WithMain)
 
 
-add_executable(test_testcase ${TEST_CASE_SRC})
+add_executable(test_testcase ${SRC}  test_testcase.cpp)
 target_link_libraries(test_testcase PRIVATE Catch2::Catch2WithMain)
 
 add_executable(test_testcase_reader ${SRC} test_testcase_reader.cpp)
