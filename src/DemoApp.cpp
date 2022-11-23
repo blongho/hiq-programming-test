@@ -19,47 +19,45 @@ void DemoApp::left() {
 }
 
 void DemoApp::right() {
-     std::cout << "Making a right turn ...\n";
+    std::cout << "Making a right turn ...\n";
     robot.right();
 }
 
-void DemoApp::run()  {
+void DemoApp::run() {
     displayMenu();
 }
 
 void DemoApp::displayMenu() {
-    std::cout  << "\nRobot state\n";
+    std::cout << "\nRobot state\n";
     robot.report();
-    std::cout  << "\n";
+    std::cout << "\n";
     while (!stop) {
-        std::cout  << "\n" << std::string(20, '-') << "\n"
-           << "ROBOT MENU\n"
-           << "1 - Move\n"
-           << "2 - Left\n"
-           << "3 - Right\n"
-           << "4 - Report\n"
-           << "0 - Exit\n"
-           << std::string(20, '-') << "\n\n"
-           << "Your choice: ";
+        std::cout << "\nROBOT MENU\n"
+                  << std::string(20, '-') << "\n"
+                  << "M|m - Move    - move one unit in the direction of the robot\n"
+                  << "L|l - Left    - turn the robot 90 left\n"
+                  << "R|r - Right   - turn the robot 90 right\n"
+                  << "D|d - Display - show the table with the robot\n"
+                  << "Q|q - Quit or Exit the demo\n"
+                  << std::string(20, '-') << "\n\n";
 
-        int choice{-1};
 
-        std::cin >> choice;
+        const char choice = getInput();
 
         switch (choice) {
-            case 1:
+            case 'm':
                 move();
                 break;
-            case 2:
+            case 'l':
                 left();
                 break;
-            case 3:
+            case 'r':
                 right();
                 break;
-            case 4:
+            case 'd':
                 report();
                 break;
-            case 0:
+            case 'q':
                 std::cout << "Exiting the program ...\n";
                 stop = true;
                 break;
@@ -71,3 +69,25 @@ void DemoApp::displayMenu() {
 }
 
 
+char DemoApp::getInput() {
+    bool valid = false;
+    const std::string expectedValues{"lrmdq"};
+    char choice{'a'};
+    while (!valid) {
+        std::cout << "\nYour Choice: ";
+        std::string tempstr;
+
+        std::getline(std::cin, tempstr);
+        if (tempstr.empty()) {
+            std::cout << "Valid entries are [L,R,M,D,Q,l,r,m,d,q]\n";
+        } else {
+            choice = std::tolower(tempstr[0]);
+            if (expectedValues.find(choice) != std::string::npos) {
+                valid = true;
+            } else {
+                std::cerr << "Bad entry! Valid entries are [L,R,M,D,Q,l,r,m,d,q]\n";
+            }
+        }
+    }
+    return choice;
+}

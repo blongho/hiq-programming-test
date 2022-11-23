@@ -1,4 +1,3 @@
-
 /**
  * @file DemoApp.h
  * @brief Contains a demo for the demonstration of the system
@@ -59,6 +58,12 @@ private:
      * @brief Displays the application interactive menu
      */
     void displayMenu();
+
+    /**
+     * Get the choice of the user
+     * @return lower case char l,r,m,d,q
+     */
+    char getInput();
 };
 
 
