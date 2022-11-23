@@ -7,9 +7,9 @@
 #define HIQ_PROGRAMMING_BOARD_H
 
 #include <iostream>
-#include <array>
-#include "Point.h"
 #include <string>
+
+#include "Point.h"
 
 /**
  * \class Board

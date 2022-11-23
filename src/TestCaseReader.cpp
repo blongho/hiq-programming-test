@@ -1,10 +1,7 @@
-#include "TestCaseReader.h"
-#include <iostream>
-#include "TestCase.h"
-#include "Robot.h"
-#include <algorithm>
+#include <fstream>
 #include <sstream>
-#include <utility>
+
+#include "TestCaseReader.h"
 
 void TestCaseReader::readCommand() {
     std::ifstream ifs(test_file);
@@ -18,7 +15,7 @@ void TestCaseReader::readCommand() {
         std::vector<Action> tmpCommands;
         while (std::getline(ifs, line)) {
             if (line.empty() || line.at(0) == '#') {
-                std::cout << "Line starts with # or is empty\n";
+                //std::cout << "Line starts with # or is empty\n";
                 continue;
             }
             if (line.find("PLACE") != std::string::npos) {
@@ -72,6 +69,10 @@ Robot TestCaseReader::extractRobotStateFromOutputString(const std::string &line)
 
 std::vector<TestCase> TestCaseReader::getTestCases() const {
     return testCases;
+}
+
+void TestCaseReader::setTestFile(const std::string &testFileName) {
+    test_file = testFileName;
 }
 
 

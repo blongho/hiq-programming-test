@@ -6,10 +6,7 @@
 #ifndef HIQ_PROGRAMMING_TESTCASE_H
 #define HIQ_PROGRAMMING_TESTCASE_H
 
-#include <string>
 #include <vector>
-#include <fstream>
-#include <iostream>
 #include "Robot.h"
 
 /**

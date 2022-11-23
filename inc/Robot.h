@@ -6,8 +6,6 @@
 #ifndef HIQ_PROGRAMMING_ROBOT_H
 #define HIQ_PROGRAMMING_ROBOT_H
 
-#include <iostream>
-
 #include "Board.h"
 #include "Direction.h"
 #include "Action.h"

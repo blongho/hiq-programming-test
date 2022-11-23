@@ -7,7 +7,6 @@
 #define HIQ_PROGRAMMING_DEMOAPP_H
 
 #include "Robot.h"
-#include <iostream>
 
 /**
  * @class DemoApp

@@ -1,6 +1,5 @@
 #include <iomanip>
 #include <algorithm>
-
 #include "Board.h"
 
 
@@ -28,7 +27,7 @@ void Board::update(const Point &point, const std::string &c) {
 }
 
 void Board::reset() {
-    std::fill(&boardCells[0][0], (&boardCells[0][0] + sizeof(boardCells)/sizeof(boardCells[0][0])), " ");
+    std::fill(&boardCells[0][0], (&boardCells[0][0] + sizeof(boardCells) / sizeof(boardCells[0][0])), " ");
 }
 
 

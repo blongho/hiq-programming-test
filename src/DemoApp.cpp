@@ -1,4 +1,3 @@
-
 #include "DemoApp.h"
 
 DemoApp::DemoApp()

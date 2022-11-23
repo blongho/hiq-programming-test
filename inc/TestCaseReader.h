@@ -6,11 +6,8 @@
 #ifndef HIQ_PROGRAMMING_TESTCASEREADER_H
 #define HIQ_PROGRAMMING_TESTCASEREADER_H
 
-#include <string>
-#include <vector>
 #include "TestCase.h"
 #include "Robot.h"
-
 
 /**
  * \class TestCaseReader
@@ -30,10 +27,15 @@ public:
     TestCaseReader() = default;
 
     /**
-     * Read the contents of the tests file;
+     * @brief Read the contents of the tests file;
      */
     void readCommand();
 
+    /**
+     * @brief Set the test file path
+     * @param testFileName  the test file
+     */
+    void setTestFile(const std::string &testFileName);
     /**
      * Destructor
      */
@@ -49,7 +51,7 @@ private:
 #endif
 
     /**
-     * Extract the contents of a robot from a string starting with PLACE
+     * @brief Extract the contents of a robot from a string starting with PLACE
      * @param line the line to parse
      * @return a newly created Robot from the line
      */
