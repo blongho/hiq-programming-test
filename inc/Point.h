@@ -30,6 +30,10 @@ struct Point {
      */
     ~Point() = default;
 
+    [[nodiscard]] static int max() ;
+
+    [[nodiscard]] static int min() ;
+
     /**
      * @brief The overloaded equality operator used to compare if two points are equal
      * @param other the other point to compare

@@ -35,8 +35,9 @@ public:
     ~Board() = default;
 
 private:
-    static constexpr int ROWS{5}; //!< The number of rows
-    static constexpr int COLUMNS{5}; //!< The number of columns
+    static constexpr int DIMENSION{5};
+    static constexpr int ROWS{DIMENSION}; //!< The number of rows
+    static constexpr int COLUMNS{DIMENSION}; //!< The number of columns
     std::string boardCells[ROWS][COLUMNS]{}; //!< The board cells
 
     /**

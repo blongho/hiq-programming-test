@@ -27,7 +27,7 @@ void DemoApp::run() {
     displayMenu();
 }
 
-void DemoApp::displayMenu() {
+[[maybe_unused]] void DemoApp::displayMenu() {
     std::cout << "\nRobot state\n";
     robot.report();
     std::cout << "\n";
@@ -69,7 +69,7 @@ void DemoApp::displayMenu() {
 }
 
 
-char DemoApp::getInput() {
+[[maybe_unused]] char DemoApp::getInput() {
     bool valid = false;
     const std::string expectedValues{"lrmdq"};
     char choice{'a'};
@@ -91,3 +91,4 @@ char DemoApp::getInput() {
     }
     return choice;
 }
+

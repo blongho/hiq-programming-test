@@ -57,13 +57,13 @@ private:
     /**
      * @brief Displays the application interactive menu
      */
-    void displayMenu();
+    [[maybe_unused]] void displayMenu();
 
     /**
      * Get the choice of the user
      * @return lower case char l,r,m,d,q
      */
-    char getInput();
+    [[maybe_unused]] char getInput();
 };
 
 
