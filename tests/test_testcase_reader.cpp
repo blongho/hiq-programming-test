@@ -33,7 +33,7 @@ SCENARIO("Reading testcases from file") {
                 REQUIRE(lastTestCaseFromFile.getEndState() == Robot(Point(3, 3), Direction::NORTH));
 
                 const std::vector<Action> lastActions{Action::MOVE, Action::MOVE, Action::LEFT, Action::MOVE,
-                                                       Action::REPORT};
+                                                      Action::REPORT};
 
                 const auto lastCaseActions = lastTestCaseFromFile.getActions();
 

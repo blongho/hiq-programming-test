@@ -36,6 +36,7 @@ public:
      * @param testFileName  the test file
      */
     void setTestFile(const std::string &testFileName);
+
     /**
      * Destructor
      */

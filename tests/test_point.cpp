@@ -18,22 +18,22 @@ SCENARIO("Testing point behaviour") {
     }
 }
 
-SCENARIO("A point is given that is out of the table"){
-    WHEN("A point has negative values"){
+SCENARIO("A point is given that is out of the table") {
+    WHEN("A point has negative values") {
         Point point(5, 0);
-        THEN("It should evaluate as invalid"){
+        THEN("It should evaluate as invalid") {
             REQUIRE_FALSE(point.isValid());
         }
     }
 
 }
 
-SCENARIO("Testing equality of two points"){
-    WHEN("A point is initialized"){
-        Point point(1,2);
-        THEN("It can be compared to another point"){
-            REQUIRE(point == Point(1,2));
-            REQUIRE_FALSE(Point(0,0) == Point(1,0));
+SCENARIO("Testing equality of two points") {
+    WHEN("A point is initialized") {
+        Point point(1, 2);
+        THEN("It can be compared to another point") {
+            REQUIRE(point == Point(1, 2));
+            REQUIRE_FALSE(Point(0, 0) == Point(1, 0));
         }
     }
 }

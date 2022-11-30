@@ -40,11 +40,11 @@ endif ()
 add_executable(test_point ../src/Point.cpp test_point.cpp)
 target_link_libraries(test_point PRIVATE Catch2::Catch2WithMain)
 
-add_executable(test_robot   ${SRC} test_robot.cpp)
+add_executable(test_robot ${SRC} test_robot.cpp)
 target_link_libraries(test_robot PRIVATE Catch2::Catch2WithMain)
 
 
-add_executable(test_testcase ${SRC}  test_testcase.cpp)
+add_executable(test_testcase ${SRC} test_testcase.cpp)
 target_link_libraries(test_testcase PRIVATE Catch2::Catch2WithMain)
 
 add_executable(test_testcase_reader ${SRC} test_testcase_reader.cpp)
